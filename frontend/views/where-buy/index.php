@@ -7,7 +7,7 @@ $this->title = 'My Yii Application';
 
 <div class="row">
     <div class="col s4" style="background: #000000; height: 1000px">
-        
+        <?=\frontend\components\Category::widget()?>
     </div>
 
     <div class="col s8">
