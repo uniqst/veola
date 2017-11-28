@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -27,38 +28,31 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
+
+    <nav>
+        <div class="nav-wrapper container" style="max-width: 900px;">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
+                <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
+                <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
+                <li><a href="<?=Url::to(['/intstuctions'])?>">Инструкции</a></li>
+                <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
+
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
+                <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
+                <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
+                <li><a href="<?=Url::to(['/intstuctions'])?>">Инструкции</a></li>
+                <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+
 
     <div class="container z-depth-3" style="max-width: 980px;position: relative; margin: auto;top:50px">
         <?= Breadcrumbs::widget([
