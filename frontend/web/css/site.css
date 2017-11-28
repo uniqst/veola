@@ -162,8 +162,23 @@ a.desc:after {
 .product-item:hover a {color: white; text-decoration: none}
 
 /*====================================================*/
+                /*guarantees*/
+
+.text-list,
+ul:not(.browser-default),
+ul:not(.browser-default)>li
+{
+    padding-left: 25px;
+    list-style-type: disc;
+    margin-bottom: 5px;
+}
+.map-img{
+    width:100%;
+}
+
+/*====================================================*/
 .text-center{  text-align: center;  }
-*{  transition: 500ms;  font-size: 12px; color: #666;
+*{  transition: 500ms;  font-size: 14px; color: #666;
 
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -172,13 +187,14 @@ a.desc:after {
     -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;
 }
 
+h1,h2,h3,h4,h5,h6{padding:0px 10px 0px 10px; }
 
 
 p a{  color: #CF1F18;  text-decoration: none;  }
 p a:hover{  color: #CF1F18;  }
 
 .title-h2{
-    margin: 10px 0px 20px 0px;  text-decoration: none;  font-size: 36px;
+    margin: 10px 0px 20px 0px;  text-decoration: none;  font-size: 32px;
 }
 a .title-h2{ color: #CF1F18;  }
 a .title-h2:hover{ color: #CF1F18;  }
@@ -187,4 +203,6 @@ a .title-h2:hover{ color: #CF1F18;  }
 .phone-span{  color: #43B51F;  }
 
 .text-box{  padding: 15px 10px 15px 10px;  }
+
+
 
