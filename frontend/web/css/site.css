@@ -163,7 +163,15 @@ a.desc:after {
 
 /*====================================================*/
 .text-center{  text-align: center;  }
-*{  transition: 500ms;  font-size: 12px; color: #666;word-wrap: break-word; word-break: keep-all }
+*{  transition: 500ms;  font-size: 12px; color: #666;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: keep-all;
+    line-break: strict;
+    -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;
+}
+
 
 
 p a{  color: #CF1F18;  text-decoration: none;  }
