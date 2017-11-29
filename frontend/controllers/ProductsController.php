@@ -75,4 +75,14 @@ class ProductsController extends Controller
         return $this->render('index');
     }
 
+    public function actionCategory()
+    {
+        return $this->render('category');
+    }
+
+    public function actionProduct()
+    {
+        return $this->render('product');
+    }
+
 }
