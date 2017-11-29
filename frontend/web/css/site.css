@@ -165,10 +165,8 @@ body {
                 /*guarantees*/
 
 .text-list,
-ul:not(.browser-default),
-ul:not(.browser-default)>li
-{
-    padding-left: 25px;
+.text-list li {
+    padding-left: 20px;
     list-style-type: disc;
     margin-bottom: 5px;
 }
@@ -261,8 +259,25 @@ ul:not(.browser-default)>li
 
 /*====================================================*/
                 /*Nawbar test*/
+.brand-logo{
+    top: -40px;
+    position: relative;
+    margin-left: 20px;
+}
 
-
+nav{
+    background: url("../img/nav-img/bg-nav.gif") repeat-x #1C1C1C;
+}
+.nav-ul li {
+    background: url(../img/nav-img/bg-line-nav.gif) 100% 0 repeat-y;
+}
+.nav-ul li a{
+     color: #A5A5A5;
+ }
+.nav-ul li a:active,
+.nav-ul .active{
+    color: white;
+}
 
 /*====================================================*/
 .text-center{  text-align: center;  }
@@ -281,9 +296,7 @@ h1,h2,h3,h4,h5,h6{padding:0px 10px 0px 10px; }
 p a{  color: #CF1F18;  text-decoration: none;  }
 p a:hover{  color: #CF1F18;  }
 
-.title-h2{
-    margin: 10px 0px 20px 0px;  text-decoration: none;  font-size: 32px;
-}
+.title-h2{  margin: 10px 0px 20px 0px;  text-decoration: none;  font-size: 32px;  }
 a .title-h2{ color: #CF1F18;  }
 a .title-h2:hover{ color: #CF1F18;  }
 
@@ -292,7 +305,15 @@ a .title-h2:hover{ color: #CF1F18;  }
 
 .text-box{  padding: 15px 10px 15px 10px;  }
 
-.row{
-    padding:10px;
-}
 
+.top-div{ height:42px;  background: black; }
+.top-div p{ float: right;  margin: 10px; padding: 0 20px }
+.top-div p a{ color: #ccc; border-bottom:1px dotted #666; }
+
+.row{  padding:10px;  }
+
+footer{  background: black;  }
+footer p{  color: #ffffff;  padding: 15px;  }
+footer p a{  color: #ffffff; }
+
+/*======================================================================*/

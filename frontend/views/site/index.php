@@ -6,6 +6,7 @@ $this->title = 'My Yii Application';
 ?>
 
 <div class="row">
+
     <div class="col s12 m4 l3">
         <?=\frontend\components\SidebarProduct::widget()?>
 
@@ -143,5 +144,4 @@ $this->title = 'My Yii Application';
 
     </div><!--col s8-->
 </div><!--row-->
-
 

@@ -27,14 +27,21 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-
+<div class="wrap container z-depth-3">
+    <div class="top-div">
+        <p class="hide-on-med-and-down">
+            Позвонить: 099-536-24-75 e-mail:
+            <a href="#">
+                veola12@ukr.net
+            </a>
+        </p>
+    </div>
     <nav>
-        <div class="nav-wrapper container" style="max-width: 900px;">
-            <a href="#" class="brand-logo">Logo</a>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><img src="../img/nav-img/logo.png"></a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
+            <ul style="margin-left: 170px;" class="left hide-on-med-and-down nav-ul">
+                <li><a class="active" href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
                 <li><a href="<?=Url::to(['/intstuctions'])?>">Инструкции</a></li>
@@ -52,13 +59,17 @@ AppAsset::register($this);
     </nav>
 
 
-    <div class="container z-depth-3" style="max-width: 980px;position: relative; margin: auto;top:50px">
+    <div style="margin-top: 20px;">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
+
+    <footer>
+        <p class="text-center">Разработано на коленке у АндреЙя</p>
+    </footer>
 </div>
 
 
