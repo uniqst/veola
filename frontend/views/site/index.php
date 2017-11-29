@@ -35,19 +35,107 @@ $this->title = 'My Yii Application';
                 <a href="#">СПИСОК ИНТЕРНЕТ МАГАЗИНОВ РАБОТАЮЩИХ С НАМИ</a>
             </span>
         </p>
-        
+
+
         <div class="row">
 
-            <div class="col s6 m4">
-                <div class="product-item">
+            <div class="product-filter"></div>
+
+            <div class="col s12 m6 l4">
+                <div class="product-item-index">
                     <a href="#">
-                        <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
+                        <p class="new-priduct">NEW</p>
+                        <img style="width: 100%" src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
                     </a>
-                    <a href="#">
-                        Title text text andrey
+                    <a class="priduct-title-index" href="#" title="Title text text andrey text text tex">
+                        Title text text andrey text text text
+                        Title text text andrey text text text
+                        Title text text andrey text text text
                     </a>
+                    <p class="price-index">
+                        1000 UH<br>
+                        <span class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
+                    </p>
+
+                    <p style="float: left">* * * * * </p>
+                    <p style="float: right" class="">Отзывов (ХХХ)</p>
+
+                    <div class="clearfix"></div>
+
+                    <p class="product-discription-index">
+                        Описание
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam dolorum explicabo fugiat, impedit molestiae repellat saepe similique? Delectus doloribus earum explicabo, facere ipsam modi neque nisi obcaecati vero vitae?
+                    </p>
+
+                    <div class="clearfix"></div>
+                    <a class="product-detail" style="float: left" href="#">Подробнее</a>
+                    <a class="add-to-cart" href="#">+</a>
                 </div>
             </div>
+
+            <div class="col s12 m6 l4">
+                <div class="product-item-index">
+                    <a href="#">
+                        <img style="width: 100%" src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
+                    </a>
+                    <a class="priduct-title-index" href="#">
+                        Title text text andrey text text text
+                        Title text text andrey text text text
+                        Title text text andrey text text text
+                    </a>
+                    <p class="price-index">
+                        1000 UH<br>
+                        <span class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
+                    </p>
+
+                    <p style="float: left">* * * * * </p>
+                    <p style="float: right" class="">Отзывов (ХХХ)</p>
+
+                    <div class="clearfix"></div>
+
+                    <p class="product-discription-index">
+                        Описание
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam dolorum explicabo fugiat, impedit molestiae repellat saepe similique? Delectus doloribus earum explicabo, facere ipsam modi neque nisi obcaecati vero vitae?
+                    </p>
+
+                    <div class="clearfix"></div>
+                    <a class="product-detail" style="float: left" href="#">Подробнее</a>
+                    <a class="add-to-cart" href="#">+</a>
+                </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+                <div class="product-item-index">
+                    <a href="#">
+                        <img style="width: 100%" src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
+                    </a>
+                    <a class="priduct-title-index" href="#">
+                        Title text text andrey text text text
+                        Title text text andrey text text text
+                        Title text text andrey text text text
+                    </a>
+                    <p class="price-index">
+                        1000 UH<br>
+                        <span class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
+                    </p>
+
+                    <p style="float: left">* * * * * </p>
+                    <p style="float: right" class="">Отзывов (ХХХ)</p>
+
+                    <div class="clearfix"></div>
+
+                    <p class="product-discription-index">
+                        Описание
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam dolorum explicabo fugiat, impedit molestiae repellat saepe similique? Delectus doloribus earum explicabo, facere ipsam modi neque nisi obcaecati vero vitae?
+                    </p>
+
+                    <div class="clearfix"></div>
+                    <a class="product-detail" style="float: left" href="#">Подробнее</a>
+                    <a class="add-to-cart" href="#">+</a>
+                </div>
+            </div>
+
+            <div class="product-filter"></div><!--каждые 3 блока для компа-->
 
         </div><!--row-->
 

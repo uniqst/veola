@@ -35,7 +35,7 @@
 
         <div class="row">
 
-            <div class="col s6 m4">
+            <div class="col s12 m6 l4">
                 <div class="product-item">
                     <a href="#">
                         <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
