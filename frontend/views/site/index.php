@@ -5,6 +5,73 @@
 $this->title = 'My Yii Application';
 ?>
 
+<div class="slider" id="slider">
+    <div class="slider-bottom-shadow"></div>
+
+    <ul class="slider__container">
+        <li class="slider__item is-active">
+            <figure class="slider__itemImage" style="background-image:url(https://c2.staticflickr.com/4/3514/3966939242_e29867a563_b.jpg)"></figure>
+            <div class="slider__itemText">
+                <h2 class="slider__itemTitle">Wayfarers post ironic synth</h2>
+            </div>
+        </li>
+        <li class="slider__item">
+            <figure class="slider__itemImage" style="background-image:url(https://c1.staticflickr.com/3/2538/3962063373_0e822b6884_b.jpg)"></figure>
+            <div class="slider__itemText">
+                <h2 class="slider__itemTitle">DIY shoreditch vegan swag</h2>
+            </div>
+        </li>
+        <li class="slider__item">
+            <figure class="slider__itemImage" style="background-image:url(https://c2.staticflickr.com/4/3432/3962896089_61f26f53d4_b.jpg)"></figure>
+            <div class="slider__itemText">
+                <h2 class="slider__itemTitle">Small batch bespoke thundercats</h2>
+            </div>
+        </li>
+        <li class="slider__item">
+            <figure class="slider__itemImage" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></figure>
+            <div class="slider__itemText">
+                <h2 class="slider__itemTitle">Flannel kale chips selvage kitsch</h2>
+            </div>
+        </li>
+    </ul>
+
+
+    <div class="slider__prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="32" viewBox="-1 -1 12 32">
+            <path d="M 10,0 0,15 10,30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="slider__next is-active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="32" viewBox="-1 -1 12 32">
+            <path d="M0 0l10 15L0 30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+
+    <ul class="navThumbs">
+        <li class="navThumbs__item is-active" style="background-image:url(https://c2.staticflickr.com/4/3514/3966939242_e29867a563_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c1.staticflickr.com/3/2538/3962063373_0e822b6884_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3432/3962896089_61f26f53d4_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+        <li class="navThumbs__item" style="background-image:url(https://c2.staticflickr.com/4/3437/3958614732_3a528b9648_b.jpg)"></li>
+    </ul>
+</div>
+
+
+
 <div class="row">
 
     <div class="col s12 m4 l3">

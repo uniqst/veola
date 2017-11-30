@@ -258,8 +258,9 @@ body {
 .add-to-cart:hover{ background:  url(../img/icons/btn-addtocart.gif) left bottom no-repeat; }
 
 /*====================================================*/
-                /*Nawbar test*/
+                /*Nawbar*/
 .brand-logo{
+    z-index: 99999;
     top: -40px;
     position: relative;
     margin-left: 20px;
@@ -281,8 +282,9 @@ nav{
 
 /*====================================================*/
 .text-center{  text-align: center;  }
-*{  transition: 500ms;  font-size: 14px; color: #666;
-
+*{
+    /*transition: 500ms;*/
+    /*font-size: 14px;*/
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: keep-all;
@@ -290,8 +292,18 @@ nav{
     -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;
 }
 
+p{color: #666;}
 h1,h2,h3,h4,h5,h6{padding:0px 10px 0px 10px; }
 
+.slider-bottom-shadow{
+    background: url(../img/bg-mask.png) repeat-x 0 100%;
+    bottom: 0;
+    height: 300px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
 
 p a{  color: #CF1F18;  text-decoration: none;  }
 p a:hover{  color: #CF1F18;  }
