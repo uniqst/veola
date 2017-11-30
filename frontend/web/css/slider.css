@@ -64,20 +64,26 @@
 .slider__itemTitle {
   text-transform: uppercase;
   width: 100%;
-  padding: 0px 3.4em 0em 1em;
-  font-size: 2em;
+  padding: 0px 170px 0px 1.2em;
+  font-size: 26px;
   font-weight: 300;
-  text-align: center;
+  text-align: start;
   margin: 0.5rem 2px 0px;
 
   text-shadow: 1px 1px 2px black, 0 0 1em black;
 }
+.slider__itemTitle span{
+  font-size: 16px;
+}
 @media (min-width: 60em) {
   .slider__itemTitle {
-    font-size: 4em;
+    font-size: 36px;
     width: 50%;
     margin: 0px 50% 0px 100px;
     padding: 0;
+  }
+  .slider__itemTitle span{
+    font-size: 14px;
   }
 }
 .slider__itemSubtitle {
