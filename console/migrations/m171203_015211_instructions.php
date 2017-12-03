@@ -15,7 +15,7 @@ class m171203_015211_instructions extends Migration
         $this->createTable('{{%instructions}}', [
             'id' => $this->primaryKey(11),
             'title' => $this->string()->notNull(),
-            'content' => $this->string(50000)->notNull(),
+            'content' => $this->string()->notNull(),
         ]);
     }
 
