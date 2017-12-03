@@ -13,6 +13,13 @@ return [
     'homeUrl' => '/',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'cart' => [
+            'class' => 'dvizh\cart\Cart',
+            'currency' => 'р.', //Валюта
+            'currencyPosition' => 'after', //after или before (позиция значка валюты относительно цены)
+            'priceFormat' => [2,'.', ''], //Форма цены
+        ],
+
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'baseUrl' => '',
