@@ -36,7 +36,7 @@
             <div class="col s12 m6 l6">
                 <div class="galery">
 
-                    
+
 
                 </div>
             </div>
