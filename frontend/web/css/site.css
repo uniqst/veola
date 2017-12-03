@@ -138,6 +138,7 @@ body {
     border-radius: 10px;
     -webkit-border-radius: 10px;
     margin-bottom: 15px;
+    font-size: 14px;
 }
 
 .category-item a:hover{
@@ -386,7 +387,7 @@ h1,h2,h3,h4,h5,h6{padding:0px 10px 0px 10px; }
 p a{  color: #CF1F18;  text-decoration: none;  }
 p a:hover{  color: #CF1F18; transition: 500ms; }
 
-.title-h2{  margin: 10px 0px 20px 0px;  text-decoration: none;  font-size: 32px;  }
+.title-h2{  margin: 10px 0px 20px 0px;  text-decoration: none;  font-size: 28px;  }
 
 .title-h3{  margin: 10px 0px -5px 0px;  text-decoration: none;  font-size: 24px;  }
 
@@ -398,8 +399,9 @@ a .title-h2:hover{ color: #CF1F18;transition: 500ms;  }
 .heavy-text-span{ font-weight: 700;  color: #666666;  }
 .phone-span{  color: #43B51F;  }
 
-.text-box{  padding: 15px 10px 15px 10px;  }
+.text-box{  padding: 15px 10px 15px 10px;font-size: 14px  }
 
+.margin-left{margin-left: 90px}
 
 .top-div{ height:42px;  background: black; }
 .top-div p{ float: right;  margin: 10px; padding: 0 20px }
@@ -411,9 +413,7 @@ form .row{
     margin-bottom: 0px;
     padding: 0px;
 }
-form{
-    padding: 5px;
-}
+form{  padding: 5px; }
 
 footer{  background: black;  }
 footer p{  color: #ffffff;  padding: 15px;  }

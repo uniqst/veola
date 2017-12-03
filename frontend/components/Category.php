@@ -2,9 +2,11 @@
 namespace frontend\components;
 
 use yii\base\Widget;
+use frontend\models\Category as Cat;
 
 Class Category extends Widget{
     public function run(){
-        return $this->render('category');
+        $model = Cat::find()->all();
+        return $this->render('category', compact('model'));
     }
 }

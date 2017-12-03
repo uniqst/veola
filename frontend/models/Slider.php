@@ -42,11 +42,11 @@ class Slider extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'position' => 'Position',
-            'title' => 'Title',
-            'description' => 'Description',
-            'photo' => 'Photo',
+            'id' => '#',
+            'position' => 'Позиция',
+            'title' => 'Титул',
+            'description' => 'Описание',
+            'photo' => 'Фото',
         ];
     }
 }
