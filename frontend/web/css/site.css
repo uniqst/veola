@@ -144,6 +144,7 @@ body {
     background: url('../img/bg-category/pattern-hover.gif') #666 ;
     color: white;
     text-shadow: 1px 1px 0px #333;
+    transition: 500ms;
 }
 
 .sidebar-product img{  width:100%;  }
@@ -177,7 +178,7 @@ body {
     -webkit-border-radius: 3px;
     font-size: 12px;
 }
-.button:hover{  background: #CF1F18; color: #fff; cursor: pointer; }
+.button:hover{  background: #CF1F18; color: #fff; cursor: pointer;transition: 500ms; }
 
 /*.prod-qty-input,*/
 input:not([type]),
@@ -211,6 +212,30 @@ textarea.materialize-textarea{
     padding-top: 2px;
     color: #666;
     font-size: 12px;
+}
+
+.coment-box{
+
+}
+.coment-box .text-box{
+    padding: 0px;
+}
+
+.coment-username{
+    float: left;
+    color: #222;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+.coment-date{
+    color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#materialbox-overlay{
+    background: rgba(0,0,0, .7);
 }
 /*====================================================*/
                 /*guarantees*/
@@ -252,7 +277,7 @@ textarea.materialize-textarea{
     overflow: hidden; /* Обрезаем все, что не помещается в область */
     text-overflow: ellipsis; /* Добавляем многоточие  NOT WORK 0_0*/
 }
-.priduct-title-index:hover{color: #CF1F18; text-decoration: underline;}
+.priduct-title-index:hover{color: #CF1F18; text-decoration: underline;transition: 500ms;}
 
 
 .price-index{
@@ -293,7 +318,7 @@ textarea.materialize-textarea{
     text-decoration: underline;
     display: inline-block;
 }
-.product-detail:hover{color: #CF1F18;text-decoration: underline}
+.product-detail:hover{color: #CF1F18;text-decoration: underline;transition: 500ms;}
 
 
 .add-to-cart{
@@ -306,13 +331,14 @@ textarea.materialize-textarea{
     text-indent: -999em;
     width: 26px;
     display: block;
+    transition: 500ms;
 }
 .add-to-cart:hover{ background:  url(../img/icons/btn-addtocart.gif) left bottom no-repeat; }
 
 /*====================================================*/
                 /*Nawbar*/
 .brand-logo{
-    z-index: 99999;
+    z-index: 999;
     top: -40px;
     position: relative;
     margin-left: 20px;
@@ -358,7 +384,7 @@ h1,h2,h3,h4,h5,h6{padding:0px 10px 0px 10px; }
 }
 
 p a{  color: #CF1F18;  text-decoration: none;  }
-p a:hover{  color: #CF1F18;  }
+p a:hover{  color: #CF1F18; transition: 500ms; }
 
 .title-h2{  margin: 10px 0px 20px 0px;  text-decoration: none;  font-size: 32px;  }
 
@@ -367,7 +393,7 @@ p a:hover{  color: #CF1F18;  }
 
 
 a .title-h2{ color: #CF1F18;  }
-a .title-h2:hover{ color: #CF1F18;  }
+a .title-h2:hover{ color: #CF1F18;transition: 500ms;  }
 
 .heavy-text-span{ font-weight: 700;  color: #666666;  }
 .phone-span{  color: #43B51F;  }
@@ -394,4 +420,3 @@ footer p{  color: #ffffff;  padding: 15px;  }
 footer p a{  color: #ffffff; }
 
 /*======================================================================*/
-

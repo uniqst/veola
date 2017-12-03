@@ -28,6 +28,7 @@ class AppAsset extends AssetBundle
         'http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js',
         'http://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText.min.js',
 
+
         'js/slider.js',
         'js/js.js',
     ];
