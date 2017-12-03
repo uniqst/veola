@@ -9,10 +9,13 @@ use Yii;
  *
  * @property integer $id
  * @property string $title
+ * @property string $name
  * @property string $description
  * @property string $description_product
  * @property string $content
  * @property string $img
+ * @property integer $price
+ * @property integer $old_price
  */
 class Products extends \yii\db\ActiveRecord
 {
@@ -24,16 +27,15 @@ class Products extends \yii\db\ActiveRecord
         return 'products';
     }
 
-    public $imageFiles;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['title', 'description', 'description_product', 'content', 'img'], 'required'],
-            [['imageFiles'], 'file', 'maxFiles' => 4],
-            [['title', 'img'], 'string', 'max' => 255],
+            [['title', 'name', 'description', 'description_product', 'content', 'img', 'price'], 'required'],
+            [['price', 'old_price'], 'integer'],
+            [['title', 'name', 'img'], 'string', 'max' => 255],
             [['description', 'description_product'], 'string', 'max' => 500],
             [['content'], 'string', 'max' => 10000],
         ];
@@ -47,10 +49,13 @@ class Products extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
+            'name' => Yii::t('app', 'Name'),
             'description' => Yii::t('app', 'Description'),
             'description_product' => Yii::t('app', 'Description Product'),
             'content' => Yii::t('app', 'Content'),
             'img' => Yii::t('app', 'Img'),
+            'price' => Yii::t('app', 'Price'),
+            'old_price' => Yii::t('app', 'Old Price'),
         ];
     }
 }

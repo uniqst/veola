@@ -15,10 +15,13 @@ class m171203_114710_products extends Migration
         $this->createTable('{{%products}}', [
             'id' => $this->primaryKey(11),
             'title' => $this->string(255)->notNull(),
+            'name' => $this->string(255)->notNull(),
             'description' => $this->string(500)->notNull(),
             'description_product' => $this->string(500)->notNull(),
             'content' => $this->string(10000)->notNull(),
             'img' => $this->string(255)->notNull(),
+            'price' => $this->integer(11)->notNull(),
+            'old_price' => $this->integer(255),
         ]);
     }
 
