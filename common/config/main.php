@@ -11,4 +11,9 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+    'modules' => [
+        'cart' => [
+            'class' => 'dvizh\cart\Module',
+        ],
+    ]
 ];
