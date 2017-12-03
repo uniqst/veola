@@ -37,66 +37,6 @@
                 <div class="galery">
 
 
-                    <div class="slider" id="slider">
-                        <div class="slider-bottom-shadow"></div>
-
-                        <ul class="slider__container">
-                            <li class="slider__item is-active">
-                                <figure class="slider__itemImage" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-1_993_730.jpg);"></figure>
-                                <div class="slider__itemText">
-                                    <h2 class="slider__itemTitle">У ВЛАДЕЛЬЦА<br>
-                                        <span>электровелосипеда отсутствуют проблемы с пробками на дорогах</span></h2>
-                                </div>
-                            </li>
-                            <li class="slider__item">
-                                <figure class="slider__itemImage" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-2_993_730.jpg)"></figure>
-                            </li>
-                            <li class="slider__item">
-                                <figure class="slider__itemImage" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-3_993_730.jpg)"></figure>
-                            </li>
-                            <li class="slider__item">
-                                <figure class="slider__itemImage" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-4_993_730.jpg)"></figure>
-                            </li>
-                            <li class="slider__item">
-                                <figure class="slider__itemImage" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-5_993_730.jpg)"></figure>
-                            </li>
-                            <li class="slider__item">
-                                <figure class="slider__itemImage" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-6_993_730.jpg)"></figure>
-                            </li>
-                            <li class="slider__item">
-                                <figure class="slider__itemImage" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-7_993_730.jpg)"></figure>
-                            </li>
-                            <li class="slider__item">
-                                <figure class="slider__itemImage" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-8_993_730.jpg)"></figure>
-                            </li>
-                        </ul>
-
-
-                        <div class="slider__prev">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="32" viewBox="-1 -1 12 32">
-                                <path d="M 10,0 0,15 10,30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="slider__next is-active">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="32" viewBox="-1 -1 12 32">
-                                <path d="M0 0l10 15L0 30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-
-
-                        <ul class="navThumbs">
-                            <li class="navThumbs__item is_active" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-1_993_730.jpg)"></li>
-                            <li class="navThumbs__item" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-2_993_730.jpg)"></li>
-                            <li class="navThumbs__item" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-3_993_730.jpg)"></li>
-                            <li class="navThumbs__item" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-4_993_730.jpg)"></li>
-                            <li class="navThumbs__item" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-5_993_730.jpg)"></li>
-                            <li class="navThumbs__item" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-6_993_730.jpg)"></li>
-                            <li class="navThumbs__item" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-7_993_730.jpg)"></li>
-                            <li class="navThumbs__item" style="background-image:url(http://www.veola.com.ua/images/resized/images/stories/demo/slideshow/sl-8_993_730.jpg)"></li>
-                        </ul>
-                    </div>
-
-
                 </div>
             </div>
 
@@ -121,7 +61,112 @@
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
                 </p>
+
+                <ul class="prod-buttons">
+
+                    <li class="prod-qty">
+                        Количество:
+                    </li>
+
+                    <li class="prod-qty-input">
+                        <input type="text" name="quantity" id="quantity" onkeyup="reloadPrices();" class="inputbox" style="width: 20px" value="1">
+                    </li>
+                    <li class="buttons">
+                        <input type="submit" class="button" value="В корзину" onclick="">
+
+                        <input type="submit" class="button" value="В список пожеланий" onclick="">
+                    </li>
+                </ul>
+
+                <div class="clearfix"></div>
+
+                <input type="button" class="button" value="Назад" onclick="">
             </div>
+
+            <br>
+            <br>
+
+            <h2 class="title-h3">
+                СОПУТСТВУЮЩИЕ ТОВАРЫ
+            </h2>
+
+            <div class="product-filter"></div>
+
+            <div class="row">
+
+                <div class="col s12 m6 l4">
+                    <div class="product-item-index">
+                        <a href="#">
+                            <p class="new-priduct">NEW</p>
+                            <img style="width: 100%" src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
+                        </a>
+                        <a class="priduct-title-index" href="#" title="Title text text andrey text text tex">
+                            Title text text andrey text text text
+                            Title text text andrey text text text
+                            Title text text andrey text text text
+                        </a>
+                        <p class="price-index">
+                            1000 UH<br>
+                            <span class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                    <div class="product-item-index">
+                        <a href="#">
+                            <p class="new-priduct">NEW</p>
+                            <img style="width: 100%" src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
+                        </a>
+                        <a class="priduct-title-index" href="#" title="Title text text andrey text text tex">
+                            Title text text andrey text text text
+                            Title text text andrey text text text
+                            Title text text andrey text text text
+                        </a>
+                        <p class="price-index">
+                            1000 UH<br>
+                            <span class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
+                        </p>
+                    </div>
+                </div>
+
+            </div><!-- row-->
+
+            <h2 class="title-h3" style="color:#CF1F18;">
+                ОТЗЫВ
+            </h2>
+
+            <div class="product-filter"></div>
+
+            <p style="color: black;    display: block;font-weight: bold;margin-bottom: 10px;font-size: 12px;">Оставить отзыв</p>
+
+            <form>
+                <div class="row">
+                    <label class="col m3" for="Username">Ваше имя</label>
+                    <input type="text" class="form-control" id="Username"  style="max-width: 180px;border: 1px solid #ddd;">
+                </div>
+                <div class="row">
+                    <label class="col m3" for="Email">Ваш E-mail</label>
+                    <input type="email" class="form-control" id="Email" style="max-width: 180px;border: 1px solid #ddd;">
+                </div>
+                <div class="row">
+                    <label class="col m3" for ="description"> Текст комментария</label>
+                    <textarea rows="4" cols="40" class="form-control" id="description" style="max-width: 320px;min-height:67px;border: 1px solid #ddd;"></textarea>
+                </div>
+
+                <div class="row">
+                    <p class="col m3" style="font-size: .8rem;color: #9e9e9e;">Оценка для продукта</p>
+                    <p>*****</p>
+                </div>
+
+                <div class="row">
+                    <div class="col offset-m3" style="padding: 0px">
+                        <input type="submit" class="button" value="Отправить">
+                    </div>
+                </div>
+
+            </form>
+
 
         </div><!-- row-->
 
