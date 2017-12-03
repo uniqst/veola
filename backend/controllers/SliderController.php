@@ -75,7 +75,7 @@ class SliderController extends Controller
                 $model->photo = $str . '.' . $model->imageFile->extension;
             }
             $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -93,8 +93,17 @@ class SliderController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            if (Yii::$app->request->isPost) {
+                $str = substr(md5(microtime() . rand(0, 9999)), 0, 20);
+                $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                if($model->imageFile) {
+                    $model->imageFile->saveAs('../../frontend/web/img/slider/' . $str . '.' . $model->imageFile->extension);
+                    $model->photo = $str . '.' . $model->imageFile->extension;
+                }
+            }
+            $model->save();
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

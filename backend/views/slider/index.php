@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\SearchSlider */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Sliders';
+$this->title = 'Слайдеры';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="slider-index">
@@ -16,21 +16,24 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Slider', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить слайдер', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'position',
+            [
+              'attribute' => 'photo',
+              'value' => function($data){
+                    return "<img src='/../../frontend/web/img/slider/{$data->photo}' style='width: 400px;'";
+              },
+              'format' => 'html'
+            ],
             'title',
-            'description',
-            'photo',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+            'template' => '{update} {delete}'],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

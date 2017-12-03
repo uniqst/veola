@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // setInterval(function(){ $("#refb").click(); }, 1000);
     $(".button-collapse").sideNav();
 });
 
@@ -25,3 +26,4 @@ window.addEvent('domready',function(){
 
 
 });
+

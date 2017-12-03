@@ -1,10 +1,12 @@
 <?php
 namespace frontend\components;
+use frontend\models\Products;
 
 use yii\base\Widget;
 
 Class SidebarProduct extends Widget{
     public function run(){
-        return $this->render('sidebar-product');
+        $products = Products::find()->limit(5)->all();
+        return $this->render('sidebar-product', compact('products'));
     }
 }
