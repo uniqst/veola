@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <span class="">
+            <div class="">
                 <p class="price-index">
                     <span style="color: black">Цена:</span> 1000 UH<br>
                     <span style="font-size: 14px" class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
@@ -84,6 +84,7 @@
                 <div class="clearfix"></div>
 
                 <input type="button" class="button" value="Назад" onclick="">
+
             </div>
 
             <br>
