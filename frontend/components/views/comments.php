@@ -28,3 +28,21 @@
     </div>
 
 </form>
+
+<div class="coment-box">
+
+    <div class="product-filter"></div>
+
+    <p class="coment-username">Толян Онотоле <span class="coment-date">22.11.2156</span> </p>
+
+    <p style="float: right;margin-bottom: 0px">*****</p>
+
+    <div class="clearfix"></div>
+
+    <p class="text-box">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores cupiditate doloribus eligendi eos et facere, magni molestiae molestias officiis, possimus, quae quia quisquam quo recusandae suscipit voluptate voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores cupiditate doloribus eligendi eos et facere, magni molestiae molestias officiis, possimus, quae quia quisquam quo recusandae suscipit voluptate voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores cupiditate doloribus eligendi eos et facere, magni molestiae molestias officiis, possimus, quae quia quisquam quo recusandae suscipit voluptate voluptates.
+    </p>
+
+</div>
