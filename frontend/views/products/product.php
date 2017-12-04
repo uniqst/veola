@@ -1,10 +1,15 @@
+<?php
+use yii\helpers\Url;
+use frontend\models\Products;
+?>
 <div class="row">
     <div class="col s12 m4 l3">
         <?=\frontend\components\Category::widget()?>
+
     </div>
 
     <div class="col s12 m8 l9">
-
+        
         <div class="row">
 
             <h2 class="title-h2" style="color:#000;">
@@ -73,6 +78,12 @@
                         <input type="text" name="quantity" id="quantity" onkeyup="reloadPrices();" class="inputbox" style="width: 20px" value="1">
                     </li>
                     <li class="buttons">
+                        <?php /* Выведет кнопку покупки */ ?>
+                        
+                        <p><a href="<?= Url::to(['product/view', 'id' => $model->id])?>"><?= $model->name?></a></p>
+
+                        <a href="<?= Url::to(['cart/add', 'id' => $model->id])?>" data-id="<?= $model->id?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+
                         <input type="submit" class="button" value="В корзину" onclick="">
 
                         <input type="submit" class="button" value="В список пожеланий" onclick="">

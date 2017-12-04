@@ -1,3 +1,13 @@
+<?php
+use dvizh\cart\widgets\BuyButton;
+use dvizh\cart\widgets\TruncateButton;
+use dvizh\cart\widgets\CartInformer;
+use dvizh\cart\widgets\ElementsList;
+use dvizh\cart\widgets\DeleteButton;
+use dvizh\cart\widgets\ChangeCount;
+use dvizh\cart\widgets\ChangeOptions;
+?>
+
 
 <div class="row">
     <div class="col s12 m4 l3">
