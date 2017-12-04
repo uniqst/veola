@@ -21,6 +21,7 @@ class Photo extends \yii\db\ActiveRecord
         return 'photo';
     }
 
+    public $imageFiles;
     /**
      * @inheritdoc
      */
@@ -29,6 +30,7 @@ class Photo extends \yii\db\ActiveRecord
         return [
             [['product_id'], 'required'],
             [['product_id'], 'integer'],
+            [['imageFiles'], 'file', 'maxFiles' => 5],
             [['img'], 'string', 'max' => 255],
         ];
     }

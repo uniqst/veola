@@ -8,8 +8,10 @@ use backend\models\SearchProducts;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
+
 use frontend\models\Photo;
+use yii\web\UploadedFile;
+
 /**
  * ProductsController implements the CRUD actions for Products model.
  */
@@ -38,7 +40,6 @@ class ProductsController extends Controller
     {
         $searchModel = new SearchProducts();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->with('')
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -70,20 +71,20 @@ class ProductsController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if (Yii::$app->request->isPost) {
                 $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
-                    if($model->imageFiles){
-                        foreach ($model->imageFiles as $file) {
-                            $str = substr(md5(microtime() . rand(0, 9999)), 0, 20);
-                            $file->saveAs('../../frontend/web/img/products/' . $str . '.' . $file->extension);
-                            $photo = new Photo();
-                            $photo->product_id = $model->id;
-                            $photo->img = $str . '.' . $file->extension;
-                            $photo->save();
-                        }
+                if($model->imageFiles){
+                    foreach ($model->imageFiles as $file) {
+                        $str = substr(md5(microtime() . rand(0, 9999)), 0, 20);
+                        $file->saveAs('../../frontend/web/img/products/' . $str . '.' . $file->extension);
+                        $photo = new Photo();
+                        $photo->product_id = $model->id;
+                        $photo->img = $str . '.' . $file->extension;
+                        $photo->save();
                     }
+                }
             }
-            return $this->redirect(['update', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->render('update', [
                 'model' => $model,
             ]);
         }
