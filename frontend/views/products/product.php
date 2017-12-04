@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <span class="">
+            <div class="">
                 <p class="price-index">
                     <span style="color: black">Цена:</span> 1000 UH<br>
                     <span style="font-size: 14px" class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
@@ -84,6 +84,7 @@
                 <div class="clearfix"></div>
 
                 <input type="button" class="button" value="Назад" onclick="">
+
             </div>
 
             <br>
@@ -143,23 +144,7 @@
 
             <?=\frontend\components\Comments::widget();?>
 
-            <div class="coment-box">
 
-                <div class="product-filter"></div>
-
-                <p class="coment-username">Толян Онотоле <span class="coment-date">22.11.2156</span> </p>
-
-                <p style="float: right;margin-bottom: 0px">*****</p>
-
-                <div class="clearfix"></div>
-
-                <p class="text-box">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores cupiditate doloribus eligendi eos et facere, magni molestiae molestias officiis, possimus, quae quia quisquam quo recusandae suscipit voluptate voluptates.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores cupiditate doloribus eligendi eos et facere, magni molestiae molestias officiis, possimus, quae quia quisquam quo recusandae suscipit voluptate voluptates.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores cupiditate doloribus eligendi eos et facere, magni molestiae molestias officiis, possimus, quae quia quisquam quo recusandae suscipit voluptate voluptates.
-                </p>
-
-            </div>
 
         </div><!-- row-->
 
