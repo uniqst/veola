@@ -447,4 +447,20 @@ footer{  background: black;  }
 footer p{  color: #ffffff;  padding: 15px;  }
 footer p a{  color: #ffffff; }
 
+.filter-form{
+    /*display: flex;*/
+    float: right;
+}
+.filter-form .row{margin-right: 10px}
+.filter-form select{
+    font-size: 12px;
+    height: 2rem;
+}
+.filter-p{
+    display: flex;
+    max-width: 280px;
+
+}
+.filter-p span{ padding: 8px;font-size: 12px}
+
 /*======================================================================*/
