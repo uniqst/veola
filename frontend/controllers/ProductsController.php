@@ -76,8 +76,15 @@ class ProductsController extends Controller
 
     public function actionProduct($id)
     {
-        $model = Products::findOne($id);
-        return $this->render('product', compact('model', 'id'));
+        $model = Products::find()->where(['id' => $id])->with('comments')->one();
+        $count = count($model->comments);
+        $summ = 0;
+        foreach($model->comments as $s){
+            $summ += $s->rating;
+        }
+        $c = $summ / $count;
+        $sum = ceil($c/0.5)*0.5;
+        return $this->render('product', compact('model', 'id', 'sum'));
     }
 
 }

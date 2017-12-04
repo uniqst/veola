@@ -1,5 +1,4 @@
 <div class="row">
-    <?php echo ceil(4.5/0.5)*0.5;; ?>
     <div class="col s12 m4 l3">
         <?=\frontend\components\Category::widget()?>
     </div>
@@ -48,7 +47,7 @@
                     <span style="font-size: 14px" class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
                 </p>
 
-                <p style="float: left">Рейтинг:  <span class="my-rating-product" data-rating="3.5"></span> <span class="live-rating-product"></span> </p>
+                <p style="float: left">Рейтинг:  <span class="my-rating-product" data-rating="<?=$sum?>"></span> <span class="live-rating-product"></span> </p>
 
                 <p style="float: right" class="">Хиты: (ХХХ)</p>
                 <br>
