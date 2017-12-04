@@ -21,6 +21,12 @@ class CartController extends Controller
     /**
      * @inheritdoc
      */
+    
+
+    /**
+     * @inheritdoc
+     */
+
     public function behaviors()
     {
         return [
@@ -64,21 +70,17 @@ class CartController extends Controller
             ],
         ];
     }
-
-    /**
-     * Displays homepage.
-     *
-     * @return mixed
-     */
-    public function actionIndex()
+    
+    public function actionAdd()
     {
-        return $this->render('index');
-    }
 
-    public function actionCartModal()
-    {
-        
-        return $this->render('cart-modal');
+        // $id=Yii::$app->request->get('id');
+		// $product = Products::findOne($id);
+		// if(empty($product)) return false;
+		// $session =Yii::$app->session;
+		// $session->open();
+		// $cart = new Cart();
+		// $cart->addToCart($product);
     }
 
 }
