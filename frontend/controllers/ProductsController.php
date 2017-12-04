@@ -82,8 +82,10 @@ class ProductsController extends Controller
         foreach($model->comments as $s){
             $summ += $s->rating;
         }
-        $c = $summ / $count;
-        $sum = ceil($c/0.5)*0.5;
+        if($count != 0) {
+            $c = $summ / $count;
+            $sum = ceil($c / 0.5) * 0.5;
+        }
         return $this->render('product', compact('model', 'id', 'sum'));
     }
 

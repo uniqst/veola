@@ -46,7 +46,7 @@
                     <span style="font-size: 14px" class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
                 </p>
 
-                <p style="float: left">Рейтинг:  <span class="my-rating-product" data-rating="<?=$sum?>"></span> <span class="live-rating-product"></span> </p>
+                <p style="float: left">Рейтинг:  <span class="my-rating-product" data-rating="<?=$sum ? $sum : 0?>"></span> <span class="live-rating-product"></span> </p>
 
                 <p style="float: right" class="">Хиты: (ХХХ)</p>
                 <br>
