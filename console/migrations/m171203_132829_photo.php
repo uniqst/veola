@@ -3,19 +3,20 @@
 use yii\db\Migration;
 
 /**
- * Class m171203_015211_instructions
+ * Class m171203_132829_photo
  */
-class m171203_015211_instructions extends Migration
+class m171203_132829_photo extends Migration
 {
     /**
      * @inheritdoc
      */
     public function safeUp()
     {
-        $this->createTable('{{%instructions}}', [
+        $this->createTable('{{%photo}}', [
             'id' => $this->primaryKey(11),
-            'title' => $this->string()->notNull(),
-            'content' => $this->getDb()->getSchema()->createColumnSchemaBuilder('LONGTEXT')->notNull()
+            'product_id' => $this->integer(11)->notNull(),
+            'img' => $this->string(255),
+            
         ]);
     }
 
@@ -24,7 +25,7 @@ class m171203_015211_instructions extends Migration
      */
     public function safeDown()
     {
-        echo "m171203_015211_instructions cannot be reverted.\n";
+        echo "m171203_132829_photo cannot be reverted.\n";
 
         return false;
     }
@@ -38,7 +39,7 @@ class m171203_015211_instructions extends Migration
 
     public function down()
     {
-        echo "m171203_015211_instructions cannot be reverted.\n";
+        echo "m171203_132829_photo cannot be reverted.\n";
 
         return false;
     }
