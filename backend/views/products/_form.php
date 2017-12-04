@@ -13,7 +13,8 @@ use mihaildev\elfinder\ElFinder;
 
 <div class="products-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+
 
     <?= $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
@@ -37,8 +38,7 @@ use mihaildev\elfinder\ElFinder;
   'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
         'preset' => 'full',
         'inline' => false,
-    ]),
-
+    ])
   ]);?>
 
     <?= $form->field($model, 'price')->textInput() ?>

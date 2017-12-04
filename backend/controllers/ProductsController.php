@@ -8,6 +8,7 @@ use backend\models\SearchProducts;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
 use frontend\models\Photo;
 use yii\web\UploadedFile;
 
@@ -66,25 +67,24 @@ class ProductsController extends Controller
     public function actionCreate()
     {
         $model = new Products();
-        
-        if ($model->load(Yii::$app->request->post())) {
-            
-            $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
-            
-                foreach ($model->imageFiles as $file) {
 
-                    $str = substr(md5(microtime() . rand(0, 9999)), 0, 20);
-                    $file->saveAs('../../frontend/web/img/products/' . $str . '.' . $file->extension);
-                    
-                    $image = new Photo();
-                    $image->product_id = $model->id;
-                    $image->img = $str . '.' . $file->extension;
-                    $image->save();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if (Yii::$app->request->isPost) {
+                $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
+                if($model->imageFiles){
+                    foreach ($model->imageFiles as $file) {
+                        $str = substr(md5(microtime() . rand(0, 9999)), 0, 20);
+                        $file->saveAs('../../frontend/web/img/products/' . $str . '.' . $file->extension);
+                        $photo = new Photo();
+                        $photo->product_id = $model->id;
+                        $photo->img = $str . '.' . $file->extension;
+                        $photo->save();
+                    }
                 }
-                
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->render('update', [
                 'model' => $model,
             ]);
         }
@@ -101,6 +101,19 @@ class ProductsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if (Yii::$app->request->isPost) {
+                $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
+                if($model->imageFiles){
+                    foreach ($model->imageFiles as $file) {
+                        $str = substr(md5(microtime() . rand(0, 9999)), 0, 20);
+                        $file->saveAs('../../frontend/web/img/products/' . $str . '.' . $file->extension);
+                        $photo = new Photo();
+                        $photo->product_id = $model->id;
+                        $photo->img = $str . '.' . $file->extension;
+                        $photo->save();
+                    }
+                }
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

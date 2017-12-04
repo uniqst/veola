@@ -9,9 +9,12 @@ Class Comments extends Widget{
     public $id;
     public function run(){
         $id = $this->id;
-        $model = Comment::find()->where(['product_id' => $id])->all();
         $comment = new Comment();
-        if($comment->load(Yii::$app->request->post()) && $comment->save());
-        return $this->render('comments', compact('model', 'comment'));
+        if($comment->load(Yii::$app->request->post())){
+            $comment->save();
+        }
+        $model = Comment::find()->where(['product_id' => $id])->all();
+
+        return $this->render('comments', compact('model', 'comment', 'id'));
     }
 }
