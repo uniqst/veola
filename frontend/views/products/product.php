@@ -142,7 +142,7 @@
 
             <div class="product-filter"></div>
 
-            <?=\frontend\components\Comments::widget();?>
+            <?=\frontend\components\Comments::widget(['id' => $id]);?>
 
 
 

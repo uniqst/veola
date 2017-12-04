@@ -20,6 +20,14 @@ $(".my-rating-9").click(function () {
     $('#srating').val($('.live-rating').text());
 });
 
+$(".comment-rating").starRating({
+    strokeColor: '#894A00',
+    strokeWidth: 10,
+    starSize: 20,
+    readOnly: true
+
+});
+
 
 $(document).ready(function () {
     // setInterval(function(){ $("#refb").click(); }, 1000);
