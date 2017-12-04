@@ -1,9 +1,13 @@
-<p style="color: black;    display: block;font-weight: bold;margin-bottom: 10px;font-size: 12px;">Оставить отзыв</p>
+<?php
+use yii\widgets\ActiveForm;
+?>
+<p style="color: black; display: block;font-weight: bold;margin-bottom: 10px;font-size: 12px;">Оставить отзыв</p>
 
-<form>
-    <div class="row">
+<?php $form = ActiveForm::begin();?>
+
+   <div class="row">
         <label class="col m3" for="Username">Ваше имя</label>
-        <input type="text" class="form-control" id="Username"  style="max-width: 180px;border: 1px solid #ddd;">
+        <?= $form->field($comment, 'name')->textInput(['style' => 'max-width: 180px;border: 1px solid #ddd;'])->label(false)?>
     </div>
     <div class="row">
         <label class="col m3" for="Email">Ваш E-mail</label>
@@ -27,22 +31,20 @@
         </div>
     </div>
 
-</form>
+<?php ActiveForm::end();?>
 
 <div class="coment-box">
 
     <div class="product-filter"></div>
+    <?php foreach($model as $comment):?>
+    <p class="coment-username"><?=$comment->name?> <span class="coment-date"><?=$comment->created_at?></span> </p>
 
-    <p class="coment-username">Толян Онотоле <span class="coment-date">22.11.2156</span> </p>
-
-    <p style="float: right;margin-bottom: 0px">*****</p>
+    <p style="float: right;margin-bottom: 0px"><span class="comment-rating" data-rating="<?=$comment->rating?>"></span></p>
 
     <div class="clearfix"></div>
 
     <p class="text-box">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores cupiditate doloribus eligendi eos et facere, magni molestiae molestias officiis, possimus, quae quia quisquam quo recusandae suscipit voluptate voluptates.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores cupiditate doloribus eligendi eos et facere, magni molestiae molestias officiis, possimus, quae quia quisquam quo recusandae suscipit voluptate voluptates.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores cupiditate doloribus eligendi eos et facere, magni molestiae molestias officiis, possimus, quae quia quisquam quo recusandae suscipit voluptate voluptates.
+        <?=$comment->content?>
     </p>
-
+    <?php endforeach;?>
 </div>
