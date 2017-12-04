@@ -14,6 +14,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Слайдер', 'icon' => 'fa fa-user-circle-o', 'url' => ['/slider']],
+                    ['label' => 'Категории', 'icon' => 'fa fa-user-circle-o', 'url' => ['/category']],
                     ['label' => 'Инструкции', 'icon' => 'fa fa-user-circle-o', 'url' => ['/instructions']],
                     ['label' => 'Товары', 'icon' => 'fa fa-user-circle-o', 'url' => ['/products']],
                     ['label' => 'Профиль', 'icon' => 'fa fa-user-circle-o', 'url' => ['/user/update', 'id' => 1]],

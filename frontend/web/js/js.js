@@ -1,3 +1,26 @@
+$(".my-rating-9").starRating({
+    initialRating: 5,
+    disableAfterRate: false,
+    onHover: function(currentIndex, currentRating, $el){
+        $('.live-rating').text(currentIndex);
+    },
+    onLeave: function(currentIndex, currentRating, $el){
+        $('.live-rating').text(currentRating);
+    },
+    starSize: 20
+});
+$(".my-rating-product").starRating({
+    starSize: 20,
+    readOnly: true,
+    disableAfterRate: false
+});
+
+
+$(".my-rating-9").click(function () {
+    $('#srating').val($('.live-rating').text());
+});
+
+
 $(document).ready(function () {
     // setInterval(function(){ $("#refb").click(); }, 1000);
     $(".button-collapse").sideNav();

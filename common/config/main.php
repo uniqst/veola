@@ -15,5 +15,6 @@ return [
         'cart' => [
             'class' => 'dvizh\cart\Module',
         ],
-    ]
+    ],
+    'name' => 'Veola'
 ];

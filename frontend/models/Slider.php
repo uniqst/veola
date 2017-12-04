@@ -47,6 +47,7 @@ class Slider extends \yii\db\ActiveRecord
             'title' => 'Титул',
             'description' => 'Описание',
             'photo' => 'Фото',
+            'imageFile' => 'Фото'
         ];
     }
 }

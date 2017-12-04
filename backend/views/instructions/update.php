@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Instructions */
 
-$this->title = 'Update Instructions: ' . $model->title;
+$this->title = 'Инструкция: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Instructions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Обновить';
 ?>
 <div class="instructions-update">
 

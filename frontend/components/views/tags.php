@@ -1,25 +1,11 @@
-<p class="text-center widget-title">TAGS</p>
-
+<?php
+use yii\helpers\Url;
+?>
+<p class="text-center widget-title">Теги</p>
+<?php foreach($model as $tag):?>
 <div class="category-item">
-    <a href="#">
-        Гидравлический фазоинвертор
+    <a href="<?=Url::to(['/products/prouct', 'id' => $tag->id, 'name' => $tag->name])?>">
+        <?=$tag->name?>
     </a>
 </div>
-
-<div class="category-item">
-    <a href="#">
-       цыклический протоизлучатель
-    </a>
-</div>
-
-<div class="category-item">
-    <a href="#">
-        Гидравлический  протоизлучатель
-    </a>
-</div>
-
-<div class="category-item">
-    <a href="#">
-        фазоинвертор цыклический
-    </a>
-</div>
+<?php endforeach;?>
