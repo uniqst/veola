@@ -21,7 +21,9 @@ class m171203_114710_products extends Migration
             'content' => $this->string(10000)->notNull(),
             'img' => $this->string(255)->notNull(),
             'price' => $this->integer(11)->notNull(),
-            'old_price' => $this->integer(255),
+            'old_price' => $this->integer(11),
+            'created_at' => $this->dateTime(),
+            'updated_at' => $this->dateTime(),
         ]);
     }
 

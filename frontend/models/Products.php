@@ -16,6 +16,8 @@ use Yii;
  * @property string $img
  * @property integer $price
  * @property integer $old_price
+ * @property string $created_at
+ * @property string $updated_at
  */
 class Products extends \yii\db\ActiveRecord
 {
@@ -35,6 +37,7 @@ class Products extends \yii\db\ActiveRecord
         return [
             [['title', 'name', 'description', 'description_product', 'content', 'img', 'price'], 'required'],
             [['price', 'old_price'], 'integer'],
+            [['created_at', 'updated_at'], 'safe'],
             [['title', 'name', 'img'], 'string', 'max' => 255],
             [['description', 'description_product'], 'string', 'max' => 500],
             [['content'], 'string', 'max' => 10000],
@@ -56,6 +59,8 @@ class Products extends \yii\db\ActiveRecord
             'img' => Yii::t('app', 'Img'),
             'price' => Yii::t('app', 'Price'),
             'old_price' => Yii::t('app', 'Old Price'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
         ];
     }
 }
