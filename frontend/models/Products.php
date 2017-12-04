@@ -29,6 +29,7 @@ class Products extends \yii\db\ActiveRecord
         return 'products';
     }
 
+  public $imageFiles;
     /**
      * @inheritdoc
      */
@@ -38,6 +39,7 @@ class Products extends \yii\db\ActiveRecord
             [['title', 'name', 'description', 'description_product', 'content', 'img', 'price'], 'required'],
             [['price', 'old_price'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
+            [['imageFiles'], 'file', 'maxFiles' => 5],
             [['title', 'name', 'img'], 'string', 'max' => 255],
             [['description', 'description_product'], 'string', 'max' => 500],
             [['content'], 'string', 'max' => 10000],
@@ -62,5 +64,15 @@ class Products extends \yii\db\ActiveRecord
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
+    }
+
+    public function getPhoto()
+    {
+        return $this->hasMany(Photo::className(), ['product_id' => 'id']);
+    }
+
+    public function getImage()
+    {
+        return $this->hasOne(Photo::className(), ['product_id' => 'id']);
     }
 }
