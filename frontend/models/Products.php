@@ -29,7 +29,7 @@ class Products extends \yii\db\ActiveRecord
         return 'products';
     }
 
-  public $imageFiles;
+
     /**
      * @inheritdoc
      */
@@ -39,7 +39,7 @@ class Products extends \yii\db\ActiveRecord
             [['title', 'name', 'description', 'description_product', 'content', 'img', 'price'], 'required'],
             [['price', 'old_price'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['imageFiles'], 'file', 'maxFiles' => 5],
+            
             [['title', 'name', 'img'], 'string', 'max' => 255],
             [['description', 'description_product'], 'string', 'max' => 500],
             [['content'], 'string', 'max' => 10000],
