@@ -13,7 +13,6 @@ use Yii;
  * @property string $description
  * @property string $description_product
  * @property string $content
- * @property string $img
  * @property integer $price
  * @property integer $old_price
  * @property string $created_at
@@ -42,8 +41,8 @@ class Products extends \yii\db\ActiveRecord
             [['title', 'name', 'description', 'description_product', 'content', 'price'], 'required'],
             [['price', 'old_price'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            
-            [['title', 'name', 'img'], 'string', 'max' => 255],
+
+            [['title', 'name',], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'maxFiles' => 5],
             [['description', 'description_product'], 'string', 'max' => 500],
             [['content'], 'string', 'max' => 10000],
@@ -62,7 +61,6 @@ class Products extends \yii\db\ActiveRecord
             'description' => Yii::t('app', 'Description'),
             'description_product' => Yii::t('app', 'Description Product'),
             'content' => Yii::t('app', 'Content'),
-            'img' => Yii::t('app', 'Img'),
             'price' => Yii::t('app', 'Price'),
             'old_price' => Yii::t('app', 'Old Price'),
             'created_at' => Yii::t('app', 'Created At'),

@@ -2,8 +2,6 @@
 
 namespace frontend\models;
 
-use frontend\models\Products;
-use frontend\models\Cart;
 
 use Yii;
 
@@ -16,7 +14,7 @@ use Yii;
  * @property double $price
  * @property string $img
  */
-class Cart extends \yii\db\ActiveRecord
+Class Cart extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -31,7 +29,7 @@ class Cart extends \yii\db\ActiveRecord
                 'qty' => $qty,
                 'name' => $product->name,
                 'price' => $product->price,
-                'img' => $product->img
+                'img' => $product->image->img
             ];
         }
         $_SESSION['cart.qty'] = isset($_SESSION['cart.qty']) ? $_SESSION['cart.qty'] + $qty : $qty;

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b7704653decef591078ab8c17ec9cf9",
+    "content-hash": "5cb83a850d560d8982152218aa12a4a8",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -385,57 +385,6 @@
                 "parser"
             ],
             "time": "2014-09-09T13:34:57+00:00"
-        },
-        {
-            "name": "dvizh/yii2-cart",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dvizh/yii2-cart.git",
-                "reference": "60635773e617562ecad2065e82d702169b485595"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dvizh/yii2-cart/zipball/60635773e617562ecad2065e82d702169b485595",
-                "reference": "60635773e617562ecad2065e82d702169b485595",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "yiisoft/yii2": "*",
-                "yiisoft/yii2-bootstrap": "*"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "bootstrap": "dvizh\\cart\\Bootstrap"
-            },
-            "autoload": {
-                "psr-4": {
-                    "dvizh\\cart\\": "src\\"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache"
-            ],
-            "authors": [
-                {
-                    "name": "Ilya Pistol",
-                    "email": "admin@nethammer.ru"
-                }
-            ],
-            "description": "yii2-cart it's a simple cart module to collect application models, that implement cart interface + widgets",
-            "homepage": "https://github.com/dvizh/",
-            "keywords": [
-                "application",
-                "cart",
-                "dvizh",
-                "module",
-                "shop",
-                "yii 2",
-                "yii2"
-            ],
-            "time": "2017-10-06T09:49:01+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -3939,8 +3888,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "kartik-v/yii2-widget-fileinput": 20,
-        "dvizh/yii2-cart": 20
+        "kartik-v/yii2-widget-fileinput": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
