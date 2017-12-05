@@ -50,6 +50,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'product/<id:\d+>/<name:\w+>' => 'products/product',
                 'frontend/web/<controller>/<ation>' => '<controller><action>'
             ],
         ],

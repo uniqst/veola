@@ -1,7 +1,10 @@
+<?php
+use frontend\models\Order;
+$count = Order::find()->where(['status' => '0'])->count();
+?>
 <aside class="main-sidebar">
 
     <section class="sidebar">
-
         <!-- Sidebar user panel -->
        
 
@@ -17,6 +20,7 @@
                     ['label' => 'Категории', 'icon' => 'fa fa-user-circle-o', 'url' => ['/category']],
                     ['label' => 'Инструкции', 'icon' => 'fa fa-user-circle-o', 'url' => ['/instructions']],
                     ['label' => 'Товары', 'icon' => 'fa fa-user-circle-o', 'url' => ['/products']],
+                    ['label' => "Заказы (". $count .")", 'icon' => 'fa fa-user-circle-o', 'url' => ['/order']],
                     ['label' => 'Профиль', 'icon' => 'fa fa-user-circle-o', 'url' => ['/user/update', 'id' => 1]],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [

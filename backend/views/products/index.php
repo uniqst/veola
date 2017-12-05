@@ -26,8 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
             [
               'attribute' => 'id',
               'value' => function($data){
-
-              }
+                    return '<img src="../../img/products/'.$data->image->img.'" style="width: 100px;">';
+              },
+                'format' => 'html'
             ],
             'title',
             'price',
