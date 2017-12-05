@@ -47,7 +47,6 @@ AppAsset::register($this);
                 <li><a class="active" href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
-                <li><a href="#" onclick="return getCart()"><i class="fa fa-shoping-cart"></i>Корзина</a></li>
 
                 <li><!-- Dropdown Trigger -->
                     <a class='dropdown-button' href='#' data-activates='dropdown1'>Инструкции</a>
@@ -58,8 +57,10 @@ AppAsset::register($this);
                         <?php endforeach;?>
                     </ul>
                 </li>
-
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
+                <li><a href="#" onclick="return getCart()"><i class="material-icons">shopping_cart</i></a></li>
+
+
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>

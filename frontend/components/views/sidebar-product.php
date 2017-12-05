@@ -6,7 +6,7 @@
    <div class="row">
        <div class="col s5">
            <a href="#">
-               <img src="<?=$product->photo->img?>">
+               <img src="/img/products/<?=$product->image->img?>">
            </a>
        </div>
        <div class="col s7">
@@ -14,7 +14,7 @@
                <a href="#"><?=$product->name?></a>
                <br>
                <span class="product-price">
-                   <?=$product->price?> UH
+                   <?=$product->price?> грн.
                </span>
            </p>
        </div>
