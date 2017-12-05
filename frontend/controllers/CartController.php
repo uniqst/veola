@@ -16,7 +16,6 @@ class CartController extends Controller
     {
         $id=Yii::$app->request->get('id');
         $product = Products::find()->with('image')->one();
-        print_r($product);
         if(empty($product)) return false;
         $session =Yii::$app->session;
         $session->open();

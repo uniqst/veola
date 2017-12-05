@@ -7,6 +7,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\bootstrap\Modal;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -80,6 +81,22 @@ AppAsset::register($this);
     </div>
 
     <footer>
+
+<?php
+Modal::begin([
+    'header' => '<h2>Корзина</h2>',
+    'id' => 'cart',
+    'size' => 'modal-lg',
+    'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+        <button type="button" class="btn btn-success">Оформить заказ</button>
+        <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>' 
+    ]);
+Modal::end();
+
+
+?>
+
+
         <p class="text-center">Разработано на коленке у АндреЙя</p>
     </footer>
 </div>

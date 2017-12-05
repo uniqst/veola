@@ -1,3 +1,8 @@
+    function showCart(cart){
+        $('#cart .modal-body').html(cart);
+        $('#cart').modal();
+    }
+
 $('.add-to-cart').on('click', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
@@ -7,7 +12,8 @@ $('.add-to-cart').on('click', function (e) {
         type: 'GET',
         success: function(res){
             if(!res) alert('Ошибка!');
-            console.log(res);
+            // console.log(res);
+            showCart(res);
         },
         error: function() {
             alert('Error!');
