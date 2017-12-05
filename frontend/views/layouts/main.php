@@ -47,6 +47,7 @@ AppAsset::register($this);
                 <li><a class="active" href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
+                <li><a href="#" onclick="return getCart()"><i class="fa fa-shoping-cart"></i>Корзина</a></li>
 
                 <li><!-- Dropdown Trigger -->
                     <a class='dropdown-button' href='#' data-activates='dropdown1'>Инструкции</a>
@@ -88,7 +89,7 @@ Modal::begin([
     'id' => 'cart',
     'size' => 'modal-lg',
     'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
-        <button type="button" class="btn btn-success">Оформить заказ</button>
+        <a href="' . Url::to(['cart/view']) . '"  class="btn btn-success">Оформить заказ</a>
         <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>' 
     ]);
 Modal::end();

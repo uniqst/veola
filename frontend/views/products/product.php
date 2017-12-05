@@ -75,7 +75,7 @@ use frontend\models\Products;
                     </li>
 
                     <li class="prod-qty-input">
-                        <input type="text" name="quantity" id="quantity" onkeyup="reloadPrices();" class="inputbox" style="width: 20px" value="1">
+                        <input type="text" name="quantity" id="qty" onkeyup="reloadPrices();" class="inputbox" style="width: 20px" value="1">
                     </li>
                     <li class="buttons">
                         <?php /* Выведет кнопку покупки */ ?>
