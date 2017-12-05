@@ -4,7 +4,8 @@ namespace frontend\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
-
+use yii\db\Expression;
+use yii\db\ActiveRecord;
 /**
  * This is the model class for table "order".
  *
@@ -19,7 +20,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $phone
  * @property string $address
  */
-class Order extends \yii\db\ActiveRecord
+class Order extends ActiveRecord
 {
     /**
      * @inheritdoc

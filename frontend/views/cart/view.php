@@ -1,11 +1,22 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\widgets\ActionForm;
+use yii\widgets\ActiveForm;
 ?>
 
 <div class="container">
-	
+	<?php if(Yii::$app->session->hasFlash('success') ): ?>
+	<div class="alert alert-succes alert-dismissble" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<?php endif;?>
+
+	<?php if( Yii::$app->session->hasFlash('error') ):?>
+		<div class="alert alert-danger alert-dismissble" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<?php echo Yii::$app->session->getFlash('error'); ?>
+		</div>
+	<?php endif;?>		
+
 	<?php if(!empty($session['cart'])): ?>
 	<div class="table-responsive">
 		<table class="table table-hover table-striped">
@@ -42,13 +53,13 @@ use yii\widgets\ActionForm;
 		</table>
 	</div>
 	<hr/>
-	<?php $form = ActionForm::begin()?>
+	<?php $form = ActiveForm::begin()?>
 	<?= $form->field($order, 'name')?>
 	<?= $form->field($order, 'email')?>
 	<?= $form->field($order, 'phone')?>
 	<?= $form->field($order, 'address')?>
-	<?= Html::submitbuttom('Заказать', ['class' => 'btn btn-success'])?>
-	<?php $form = ActionForm::end()?>				
+	<?= Html::submitbutton('Заказать', ['class' => 'btn btn-success'])?>
+	<?php $form = ActiveForm::end()?>				
 <?php else:?>
 	<h3>Kорзина пуста</h3>
 <?php endif;?>
