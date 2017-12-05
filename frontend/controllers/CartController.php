@@ -5,6 +5,8 @@ use Yii;
 use yii\web\Controller;
 use frontend\models\Products;
 use frontend\models\Cart;
+use frontend\models\Order;
+use frontend\models\OrderItems;
 
 
 /**
@@ -58,7 +60,20 @@ class CartController extends Controller
     }
 
     public function actionView(){
-        return $this->render('view');
+        $session =Yii::$app->session;
+        $session->open();
+        $order = new Order();
+        if($order->load(Yii::$app->request->post()) ){
+            $order->qty = $session['cart.qty'];
+            $order->sum = $session['cart.sum'];
+            if($order->save()){
+                Yii::$app->session->setFlash('success', 'Ваш заказ принят.');
+                return $this->refresh();
+            }else{
+                Yii::$app->session->setFlash('error', 'Ошибка оформления заказа');
+            }
+        }
+        return $this->render('view', compact('session', 'order'));
     }
 
 }
