@@ -1,7 +1,9 @@
 <?php
 
 namespace frontend\models;
-
+use yii\db\Expression;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
 use Yii;
 
 /**
@@ -18,7 +20,7 @@ use Yii;
  * @property string $created_at
  * @property string $updated_at
  */
-class Products extends \yii\db\ActiveRecord
+class Products extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -35,6 +37,22 @@ class Products extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    public function behaviors(){
+        return [
+        [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value' => new Expression('NOW()'),
+            ],
+        ];        
+                
+    }
+
+
     public function rules()
     {
         return [
