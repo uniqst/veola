@@ -121,6 +121,7 @@ body {
 
 /*====================================================*/
                 /*Виджеты*/
+
 .widget-title{
     color: #000;
     font-size: 150%;
@@ -464,3 +465,13 @@ footer p a{  color: #ffffff; }
 .filter-p span{ padding: 8px;font-size: 12px}
 
 /*======================================================================*/
+
+
+.modal{
+    background: none;
+    box-shadow: none;
+    max-width: 800px;
+}
+.modal-content{
+    max-width: 800px;
+}

@@ -6,7 +6,7 @@ use yii\base\Widget;
 
 Class SidebarProduct extends Widget{
     public function run(){
-        $products = Products::find()->limit(5)->all();
+        $products = Products::find()->limit(5)->with('image')->all();
         return $this->render('sidebar-product', compact('products'));
     }
 }

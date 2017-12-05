@@ -7,6 +7,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\bootstrap\Modal;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -56,8 +57,10 @@ AppAsset::register($this);
                         <?php endforeach;?>
                     </ul>
                 </li>
-
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
+                <li><a href="#" onclick="return getCart()"><i class="material-icons">shopping_cart</i></a></li>
+
+
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
@@ -80,6 +83,22 @@ AppAsset::register($this);
     </div>
 
     <footer>
+
+<?php
+Modal::begin([
+    'header' => '<h2>Корзина</h2>',
+    'id' => 'cart',
+    'size' => 'modal-lg',
+    'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+        <a href="' . Url::to(['cart/view']) . '"  class="btn btn-success">Оформить заказ</a>
+        <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>' 
+    ]);
+Modal::end();
+
+
+?>
+
+
         <p class="text-center">Разработано на коленке у АндреЙя</p>
     </footer>
 </div>
