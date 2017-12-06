@@ -46,7 +46,7 @@ use yii\widgets\LinkPager;
 
             <div class="clearfix"></div>
             <a class="product-detail" style="float: left" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">Подробнее</a>
-            <a href="<?= Url::to(['cart/add', 'id' => $product->id])?>" data-id="<?= $product->id?>"  class="add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+            <a href="<?= Url::to(['cart/add', 'id' => $product->id])?>" data-id="<?= $product->id?>"  class="cart add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
         </div>
     </div>
         <?php if(($count) % 3  == 0 ):?>
