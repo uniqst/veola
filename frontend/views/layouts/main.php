@@ -68,7 +68,7 @@ AppAsset::register($this);
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
                 <li><a href="<?=Url::to(['/intstuctions'])?>">Инструкции</a></li>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
-
+                <li><a href="#" onclick="return getCart()">Корзина</a></li>
             </ul>
         </div>
     </nav>
@@ -98,7 +98,6 @@ Modal::begin([
         <button type="button" class="button" onclick="clearCart()">Очистить</button>'
     ]);
 Modal::end();
-
 
 ?>
 
