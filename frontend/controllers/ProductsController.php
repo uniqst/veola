@@ -76,7 +76,7 @@ class ProductsController extends Controller
 
     public function actionProduct($id)
     {
-        $model = Products::find()->where(['id' => $id])->with('comments')->one();
+        $model = Products::find()->where(['id' => $id])->with('comments', 'photo')->one();
         $count = count($model->comments);
         $summ = 0;
         foreach($model->comments as $s){

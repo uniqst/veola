@@ -13,7 +13,6 @@ use frontend\models\Products;
         <div class="row">
 
             <h2 class="title-h2" style="color:#000;">
-                Купить электровелосипед
             </h2>
 
             <p class="text-box">

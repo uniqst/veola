@@ -60,5 +60,9 @@ use yii\widgets\LinkPager;
 // отображаем постраничную разбивку
 echo LinkPager::widget([
     'pagination' => $pages,
+
+        'prevPageLabel' => 'назад',
+        'nextPageLabel' => 'вперед',
+        'maxButtonCount' => 5,
 ]);
 ?>
