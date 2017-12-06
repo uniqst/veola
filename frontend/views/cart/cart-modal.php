@@ -1,5 +1,5 @@
 <?php if(!empty($session['cart'])): ?>
-    <div class="table-responsive">
+    <div class="table-responsive scroll-custom">
         <table class="table table-hover table-striped">
             <thead>
             <tr>

@@ -56,11 +56,6 @@ $this->title = $model->title;
                    <?=$model->description_product?>
                     lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem
                 </p>
-                </p>
-                </p>
-                </p>
-
-
 
 
 

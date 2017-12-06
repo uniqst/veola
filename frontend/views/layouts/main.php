@@ -86,17 +86,27 @@ AppAsset::register($this);
 
 <?php
 Modal::begin([
+        'options' => [
+              'class' => 'scroll-custom'
+        ],
     'header' => '<h2>Корзина</h2>',
     'id' => 'cart',
-    'size' => 'modal-lg',
-    'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
-        <a href="' . Url::to(['cart/view']) . '"  class="btn btn-success">Оформить заказ</a>
-        <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>' 
+    'footer' => '<button type="button" class="button" data-dismiss="modal">Продолжить</button>
+        <button class="button"> 
+             <a href="' . Url::to(['cart/view']) . '"  class="button">Оформить заказ</a>
+        </button>
+        <button type="button" class="button" onclick="clearCart()">Очистить</button>'
     ]);
 Modal::end();
 
 
 ?>
+
+
+
+
+
+
 
 
         <p class="text-center">Разработано на коленке у АндреЙя</p>
