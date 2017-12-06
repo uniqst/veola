@@ -46,7 +46,7 @@ class SearchProducts extends Products
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+            'query' => $query->with('image'),
         ]);
 
         $this->load($params);

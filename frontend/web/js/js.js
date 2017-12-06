@@ -48,7 +48,7 @@
     });
     }
 
-$('.add-to-cart').on('click', function (e) {
+$('.cart').on('click', function (e) {
     e.preventDefault();
     var id = $(this).data('id'),
         qty = $('#qty').val();

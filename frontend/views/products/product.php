@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Url;
-use frontend\models\Products;
+$this->title = $model->title;
 ?>
 <div class="row">
     <div class="col s12 m4 l3">
@@ -13,90 +13,60 @@ use frontend\models\Products;
         <div class="row">
 
             <h2 class="title-h2" style="color:#000;">
+                Купить электровелосипед
             </h2>
 
             <p class="text-box">
-                Велосипед с двигателем – это новое слово в велосипедном производстве. Электро ВЕЛОСИПЕД – экологически чистый вид транспорта, т.к. используется электродвигатель. Для управления электровелосипедом не требуется ни ежегодное прохождение техосмотра, ни страховка, ни наличие прав, как для других видов транспорта. Велосипед с электромотором могут использовать люди всех возрастных категорий. С электровелосипедом подъемы на любые горки теперь не проблема, а если аккумулятор разрядится во время вашего пути, Вы доедете, просто крутя педали как на обычном велосипеде.
-                <br>
-                <span class="heavy-text-span">
-                 Электровелосипед - это один из самых доступных видов гибридного транспорта на сегодня.
-            </span>
+               <?=$model->description?>
             </p>
-
-
-            <p class="text-box text-center" style="color:#000;">
-            <span class="heavy-text-span">
-                *ВСЕ ЦЕНЫ, УКАЗАННЫ КАК РЕКОМЕНДУЕМАЯ ДЛЯ РОЗНИЧНОЙ ПРОДАЖИ. В ИНТЕРНЕТ МАГАЗИНАХ, ЦЕНЫ НА ПРОДУКЦИЮ МОГУТ КОЛЕБАТЬСЯ В РАЗУМНЫХ ПРЕДЕЛАХ. МЫ ТАК ЖЕ ПРЕДОСТАВЛЯЕМ
-                <a href="#">СПИСОК ИНТЕРНЕТ МАГАЗИНОВ РАБОТАЮЩИХ С НАМИ</a>
-            </span>
-            </p>
-
-
             <h2 class="title-h2" style="color:#373737;">
-                АККУМУЛЯТОРНАЯ БАТАРЕЯ ДЛЯ ЭЛЕКТРОВЕЛОСИПЕДОВ LIFEPO4 48V 10AH
+                <?=$model->name?>
             </h2>
-
-
             <div class="col s12 m6 l6">
-                <div class="galery">
-
-
+                <div class="fotorama">
+                    <?php foreach($model->photo as $photo):?>
+                    <img src="/img/products/<?=$photo->img?>">
+                    <?php endforeach;?>
                 </div>
             </div>
 
-            <div class="">
                 <p class="price-index">
-                    <span style="color: black">Цена:</span> 1000 UH<br>
-                    <span style="font-size: 14px" class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
+                    <span style="color: black">Цена:</span> <?=$model->price?> грн.<br>
+                    <span style="font-size: 14px" class="old-price-index">Старая цена: <span class="crossed"><?=$model->old_price?> грн.</span></span>
                 </p>
 
                 <p style="float: left">Рейтинг:  <span class="my-rating-product" data-rating="<?=$sum ? $sum : 0?>"></span> <span class="live-rating-product"></span> </p>
 
                 <p style="float: right" class="">Хиты: (ХХХ)</p>
-                <br>
-                <br>
+            <br><br>
+            <ul class="prod-buttons">
+
+                <li class="prod-qty">
+                    Количество:
+                </li>
+
+                <li class="prod-qty-input">
+                    <input type="text" name="quantity" id="qty" onkeyup="reloadPrices();" class="inputbox" style="width: 20px" value="1">
+                </li>
+                <li class="buttons">
+                    <input type="submit" data-id="<?= $model->id?>" class="button cart" value="В корзину" onclick="">
+                </li>
+            </ul>
                 <p class="text-box">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate doloribus, est expedita fugit hic, incidunt iusto nesciunt odio pariatur quam rerum vel? Alias aut autem dolores, rem suscipit voluptatem?
+                   <?=$model->description_product?>
+                    lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem lorem lorem lore morem
+                </p>
+                </p>
+                </p>
                 </p>
 
-                <ul class="prod-buttons">
 
-                    <li class="prod-qty">
-                        Количество:
-                    </li>
 
-                    <li class="prod-qty-input">
-                        <input type="text" name="quantity" id="qty" onkeyup="reloadPrices();" class="inputbox" style="width: 20px" value="1">
-                    </li>
-                    <li class="buttons">
-                        <?php /* Выведет кнопку покупки */ ?>
-                        
-                        <p><a href="<?= Url::to(['product/view', 'id' => $model->id])?>"><?= $model->name?></a></p>
 
-                        <a href="<?= Url::to(['cart/add', 'id' => $model->id])?>" data-id="<?= $model->id?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 
-                        <input type="submit" class="button" value="В корзину" onclick="">
 
-                        <input type="submit" class="button" value="В список пожеланий" onclick="">
-                    </li>
-                </ul>
-
-                <div class="clearfix"></div>
-
-                <input type="button" class="button" value="Назад" onclick="">
-
-            </div>
-
-            <br>
-            <br>
+         <div class="clearfix"></div>
+            <a href="<?=Yii::$app->request->referrer?>"><input type="button" class="button" value="Назад" onclick=""></a>
 
             <h2 class="title-h3">
                 СОПУТСТВУЮЩИЕ ТОВАРЫ
