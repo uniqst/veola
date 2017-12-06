@@ -21,7 +21,7 @@ use yii\widgets\LinkPager;
         }
         ?>
         <?php ++$count;?>
-    <div class="col s12 m6 l4" >
+    <div class="col s12 m6 l4 bordr-dotted">
         <div class="product-item-index">
             <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
                 <p class="new-priduct">NEW</p>
