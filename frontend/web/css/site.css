@@ -199,7 +199,6 @@ textarea.materialize-textarea{
     border-radius: 3px;
     line-height: 1;
     padding: 5px 2px;
-    text-align: center;
     -webkit-border-radius: 3px;
     border-bottom: 0px;
     outline: none;
@@ -354,6 +353,8 @@ nav{
 }
 .nav-ul li a{
      color: #A5A5A5;
+    font-size: 14px;
+    text-decoration: none;
  }
 .nav-ul li a:active,
 .nav-ul .active{
@@ -463,6 +464,9 @@ footer p a{  color: #ffffff; }
 
 }
 .filter-p span{ padding: 8px;font-size: 12px}
+
+label{ font-size: 12px}
+
 
 /*======================================================================*/
 
