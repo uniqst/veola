@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    background: url(../img/bg-body.png) 0 0 repeat-x #fff
 }
 
 /*====================================================*/
@@ -359,6 +360,7 @@ footer p a{  color: #ffffff; }
 
 label{ font-size: 12px}
 
+.container{background: #fff;}
 
 /*======================================================================*/
 

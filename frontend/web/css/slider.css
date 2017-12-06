@@ -105,6 +105,7 @@
 }
 .slider__prev.is-active, .slider__next.is-active {
   cursor: pointer;
+  display: none;
 }
 .slider__prev {
   position: absolute;
