@@ -245,16 +245,20 @@ nav .button-collapse:hover{
 nav{
     background: url("../img/nav-img/bg-nav.gif") repeat-x #1C1C1C;
 }
-.nav-ul li {
+nav .hide-on-med-and-down li {
     background: url(../img/nav-img/bg-line-nav.gif) 100% 0 repeat-y;
 }
-.nav-ul li a{
+nav ul li a{
      color: #A5A5A5;
     font-size: 14px;
     text-decoration: none;
  }
-.nav-ul li a:active,
-.nav-ul .active{
+
+nav ul li a:hover{
+    color: white;
+}
+nav ul li a:active,
+nav ul .active{
     color: white;
 }
 

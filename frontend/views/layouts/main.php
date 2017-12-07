@@ -40,68 +40,103 @@ AppAsset::register($this);
             </a>
         </p>
     </div>
+
+
+
+
     <nav>
         <div class="nav-wrapper">
 
-
             <a href="<?=Url::to(['/'])?>" class="brand-logo"><img src="/img/nav-img/logo.png"></a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
-            <ul style="margin-left: 170px;" class="left hide-on-med-and-down nav-ul">
-                <li><a class="active" href="<?=Url::to(['/'])?>">Главная</a></li>
-                <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
-                <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
-
-                <li><!-- Dropdown Trigger -->
-                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <?php foreach($inst as $i):?>
-                            <li><a href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
-                        <?php endforeach;?>
-                    </ul>
-                </li>
-                <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
-                <li><a href="#" onclick="return getCart()"><i class="material-icons">shopping_cart</i></a></li>
-            </ul>
-
-
-            <ul class="side-nav scroll-custom" id="mobile-demo">
+            <ul id="slide-out" class="side-nav">
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
-                <li><!-- Dropdown Trigger -->
-                    <a class='dropdown-button' href='#' data-activates='dropdown1'>Инструкции</a>
-                    <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <?php foreach($inst as $i):?>
-                            <li><a href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
-                        <?php endforeach;?>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a style="padding: 0 32px;" class="collapsible-header"><i style="margin: 0px" class="material-icons">arrow_drop_down</i>Инструкции</a>
+                            <div class="collapsible-body">
+                                <ul style=" padding-left: 30px;">
+                                    <li><a href="#!">First</a></li>
+                                    <li><a href="#!">Second</a></li>
+                                    <li><a href="#!">Third</a></li>
+                                    <li><a href="#!">Fourth</a></li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
                 <li><div class="product-filter"></div></li>
-                <li><div style="padding: 0 32px;">
+                <li>
+                    <div style="padding: 0 32px;">
                         <?=\frontend\components\Category::widget()?>
-                    </div></li>
+                    </div>
+                </li>
+
             </ul>
+            <ul style="margin-left: 170px" class="hide-on-med-and-down">
+                <li><a class="active" href="<?=Url::to(['/'])?>">Главная</a></li>
+                <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
+                <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
+
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Инструкции</a></li>
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!">First</a></li>
+                        <li><a href="#!">Second</a></li>
+                        <li><a href="#!">Third</a></li>
+                    </ul>
+                <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
+                <li><a href="#" onclick="return getCart()">Корзина</a></li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+
+
+
+<!--            <a href="--><?//=Url::to(['/'])?><!--" class="brand-logo"><img src="/img/nav-img/logo.png"></a>-->
+<!--            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>-->
+<!---->
+<!--            <ul style="margin-left: 170px;" class="left hide-on-med-and-down nav-ul">-->
+<!--                <li><a class="active" href="--><?//=Url::to(['/'])?><!--">Главная</a></li>-->
+<!--                <li><a href="--><?//=Url::to(['/products'])?><!--">Товары</a></li>-->
+<!--                <li><a href="--><?//=Url::to(['/where-buy'])?><!--">Где купить</a></li>-->
+<!---->
+<!--                <li><!-- Dropdown Trigger -->
+<!--                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>-->
+<!--                </li>-->
+<!---->
+<!--                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>-->
+<!---->
+<!---->
+<!--                <li><a href="--><?//=Url::to(['/guarantees'])?><!--">Гарантии</a></li>-->
+<!--                <li><a href="#" onclick="return getCart()"><i class="material-icons">shopping_cart</i></a></li>-->
+<!--            </ul>-->
+<!---->
+<!---->
+<!--            <ul class="side-nav scroll-custom" id="mobile-demo">-->
+<!--                <li><a href="--><?//=Url::to(['/'])?><!--">Главная</a></li>-->
+<!--                <li><a href="--><?//=Url::to(['/products'])?><!--">Товары</a></li>-->
+<!--                <li><a href="--><?//=Url::to(['/where-buy'])?><!--">Где купить</a></li>-->
+<!--                <li><!-- Dropdown Trigger -->
+<!--                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Инструкции</a>-->
+<!--                </li>-->
+<!---->
+<!--                <li><a href="--><?//=Url::to(['/guarantees'])?><!--">Гарантии</a></li>-->
+<!--                <li><a href="#" onclick="return getCart()">Корзина</a></li>-->
+<!--                <li><div class="product-filter"></div></li>-->
+<!--                <li><div style="padding: 0 32px;">-->
+<!--                        --><?//=\frontend\components\Category::widget()?>
+<!--                    </div></li>-->
+<!--            </ul>-->
 
         </div>
     </nav>
 
-    <!-- Dropdown Trigger -->
-    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
 
-    <!-- Dropdown Structure -->
-    <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">three</a></li>
-        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-    </ul>
 
 
 
