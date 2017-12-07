@@ -46,6 +46,7 @@ AppAsset::register($this);
 
             <a href="<?=Url::to(['/'])?>" class="brand-logo"><img src="/img/nav-img/logo.png"></a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
             <ul style="margin-left: 170px;" class="left hide-on-med-and-down nav-ul">
                 <li><a class="active" href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
@@ -66,7 +67,6 @@ AppAsset::register($this);
 
 
             <ul class="side-nav scroll-custom" id="mobile-demo">
-                <li><a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a></li>
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
@@ -87,7 +87,6 @@ AppAsset::register($this);
                     </div></li>
             </ul>
 
-
         </div>
     </nav>
 
@@ -103,6 +102,8 @@ AppAsset::register($this);
         <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
         <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
     </ul>
+
+
 
 
     <div style="margin-top: 20px;">

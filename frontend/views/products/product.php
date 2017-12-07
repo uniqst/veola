@@ -22,7 +22,7 @@ $this->title = $model->title;
             <h2 class="title-h2" style="color:#373737;">
                 <?=$model->name?>
             </h2>
-            <div class="col s12 m6 l6">
+            <div class="col s12 m6 l6" style="padding: 10px">
                 <div class="fotorama">
                     <?php foreach($model->photo as $photo):?>
                     <img src="/img/products/<?=$photo->img?>">
@@ -37,7 +37,6 @@ $this->title = $model->title;
 
                 <p style="float: left">Рейтинг:  <span class="my-rating-product" data-rating="<?=$sum ? $sum : 0?>"></span> <span class="live-rating-product"></span> </p>
 
-                <p style="float: right" class="">Хиты: (ХХХ)</p>
             <br><br>
             <ul class="prod-buttons">
 

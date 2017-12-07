@@ -38,20 +38,6 @@
                 </select>
             </p>
 
-            <p class="filter-p col m5 s12" style="padding: 0px">
-                <span>
-                Количество:
-                </span>
-                <select class="browser-default" id="limit" size="1" onchange="">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                    <option value="50" selected="selected">50</option>
-                </select>
-
-            </p>
             </div>
         </form>
 
