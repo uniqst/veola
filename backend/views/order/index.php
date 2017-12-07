@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\SearchOrder */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Orders';
+$this->title = 'Заказы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-index">
