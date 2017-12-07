@@ -27,7 +27,7 @@ $data = ArrayHelper::map($category,'id' , 'name');
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'category_id')->dropDownList(
-        $data,
+        $data
         ); ?>
 
     <?= $form->field($model, 'description')->textArea(['maxlength' => true]) ?>
