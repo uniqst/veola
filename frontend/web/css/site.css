@@ -1,4 +1,4 @@
-html,
+﻿html,
 body {
     height: 100%;
     background: url(../img/bg-body.png) 0 0 repeat-x #fff
@@ -266,7 +266,7 @@ nav ul .active{
     border-radius: 0px 0px 5px 5px;
     min-width: 200px;
     margin-top: 64px;
-    z-index: 1;
+    z-index: 99999;
     }
 #dropdown1 li{background: none}
 .dropdown-button.active{
