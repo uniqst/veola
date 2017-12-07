@@ -51,5 +51,15 @@ return [
             ],
         ],
     ],
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\PathController',
+            'access' => ['@'],
+            'root' => [
+                'path' => '/gallery/global',
+                'name' => 'Global'
+            ],
+        ]
+    ],
     'params' => $params,
 ];

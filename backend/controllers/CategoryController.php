@@ -8,6 +8,7 @@ use backend\models\SearchCategory;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -65,7 +66,16 @@ class CategoryController extends Controller
     {
         $model = new Category();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            if (Yii::$app->request->isPost) {
+                $str = substr(md5(microtime() . rand(0, 9999)), 0, 20);
+                $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                if($model->imageFile) {
+                    $model->imageFile->saveAs('../../frontend/web/img/category/' . $str . '.' . $model->imageFile->extension);
+                    $model->img = $str . '.' . $model->imageFile->extension;
+                }
+            }
+            $model->save();
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -84,7 +94,16 @@ class CategoryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            if (Yii::$app->request->isPost) {
+                $str = substr(md5(microtime() . rand(0, 9999)), 0, 20);
+                $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                if($model->imageFile) {
+                    $model->imageFile->saveAs('../../frontend/web/img/category/' . $str . '.' . $model->imageFile->extension);
+                    $model->img = $str . '.' . $model->imageFile->extension;
+                }
+            }
+            $model->save();
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [

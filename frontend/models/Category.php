@@ -8,7 +8,9 @@ use Yii;
  * This is the model class for table "category".
  *
  * @property integer $id
+ * @property string $img
  * @property string $name
+ * @property string $description
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -20,14 +22,17 @@ class Category extends \yii\db\ActiveRecord
         return 'category';
     }
 
+    public $imageFile;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name'], 'required'],
-            [['name'], 'string', 'max' => 255],
+            [['img', 'name'], 'required'],
+            [['description'], 'string'],
+            [['img', 'name'], 'string', 'max' => 255],
+            [['imageFile'], 'file']
         ];
     }
 
@@ -38,7 +43,10 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => '#',
+            'img' => 'Фото',
             'name' => 'Название',
+            'description' => 'Описание',
+            'imageFile' => 'Фото'
         ];
     }
 
