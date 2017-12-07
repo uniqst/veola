@@ -42,6 +42,8 @@ AppAsset::register($this);
     </div>
     <nav>
         <div class="nav-wrapper">
+
+
             <a href="<?=Url::to(['/'])?>" class="brand-logo"><img src="/img/nav-img/logo.png"></a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul style="margin-left: 170px;" class="left hide-on-med-and-down nav-ul">
@@ -76,6 +78,8 @@ AppAsset::register($this);
                         <?=\frontend\components\Category::widget()?>
                     </div></li>
             </ul>
+
+
         </div>
     </nav>
 
