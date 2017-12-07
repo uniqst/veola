@@ -21,7 +21,12 @@ use yii\widgets\LinkPager;
         }
         ?>
         <?php ++$count;?>
-    <div class="col s12 m6 l4 bordr-dotted">
+    <div class="col s12 m6 l4
+    <?php $arr = [2,5,8,11,14];?>
+    <?php if(in_array($count, $arr)) {
+        echo 'bordr-dotted';
+    }?>
+   ">
         <div class="product-item-index">
             <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
                 <p class="new-priduct">NEW</p>

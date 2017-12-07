@@ -14,7 +14,10 @@ class m171203_141649_category extends Migration
     {
         $this->createTable('{{%category}}', [
             'id' => $this->primaryKey(11),
+            'img' => $this->string(255)->notNull(),
             'name' => $this->string(255)->notNull(),
+            'description' => $this->getDb()->getSchema()->createColumnSchemaBuilder('LONGTEXT'),
+
         ]);
     }
 

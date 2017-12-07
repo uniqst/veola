@@ -1,7 +1,6 @@
 <?php
 use yii\helpers\Url;
 use yii\helpers\Html;
-use yii\widgets\Pjax;
 ?>
 
 <p class="text-center widget-title">КАТЕГОРИЯ ТОВАРОВ</p>

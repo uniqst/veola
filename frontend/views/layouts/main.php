@@ -30,7 +30,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap container z-depth-3">
+<div class="wrap container z-depth-3" style="padding: 0;">
     <div class="top-div">
         <p class="hide-on-med-and-down">
             Позвонить: 099-536-24-75 e-mail:
