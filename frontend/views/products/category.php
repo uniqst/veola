@@ -23,17 +23,18 @@
 
         <form class="filter-form">
             <div class="row">
+                
             <p class="filter-p col m7 s12" style="padding: 0px">
                 <span>
                 Сортировка:
                 </span>
-                <select class="browser-default" id="order" name="order" size="1" onchange="">
-                    <option value="1">Название</option>
-                    <option value="2">Цена</option>
-                    <option value="3">Дата</option>
-                    <option value="5">Рейтинг</option>
-                    <option value="6">Популярность</option>
-                    <option value="4" selected="selected">Предустановленная</option>
+                <input type="hidden" value="<?= $_GET['id']?>" name="id">
+                <select class="browser-default" id="order" name="order" size="1" onchange="this.form.submit()">
+                    <option value="name" <?php if($_GET['order'] == 'name') echo 'selected' ?>>Название</option>
+                    <option value="price_asc" <?php if($_GET['order'] == 'price_asc') echo 'selected' ?>>Цена по убыванию</option>
+                     <option value="price_desc" <?php if($_GET['order'] == 'price_desc') echo 'selected' ?>>Цена по возврастанию</option>
+                    <option value="date" <?php if($_GET['order'] == 'date') echo 'selected' ?>>Дата</option>
+                    <option value="rating" <?php if($_GET['order'] == 'rating') echo 'selected' ?>>Рейтинг</option>
                 </select>
             </p>
 
@@ -41,7 +42,7 @@
                 <span>
                 Количество:
                 </span>
-                <select class="browser-default" id="limit" name="limit" size="1" onchange="">
+                <select class="browser-default" id="limit" size="1" onchange="">
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
