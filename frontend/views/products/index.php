@@ -1,11 +1,5 @@
 <?php
-use dvizh\cart\widgets\BuyButton;
-use dvizh\cart\widgets\TruncateButton;
-use dvizh\cart\widgets\CartInformer;
-use dvizh\cart\widgets\ElementsList;
-use dvizh\cart\widgets\DeleteButton;
-use dvizh\cart\widgets\ChangeCount;
-use dvizh\cart\widgets\ChangeOptions;
+use yii\helpers\Url;
 ?>
 
 
@@ -44,135 +38,26 @@ use dvizh\cart\widgets\ChangeOptions;
 
 
         <div class="row">
-
+            <?php foreach($model as $cat):?>
             <div class="col s12 s6 m4">
                 <div class="product-item">
-                    <a href="#">
-                        <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
+                    <a href="<?= Url::to(['/products/category', 'id' => $cat->id, 'name' => $cat->name])?>">
+                        <img src="/img/category/<?= $cat->img?>">
                     </a>
-                    <a href="#">
-                        Title text text andrey
+                    <a href="<?= Url::to(['/products/category', 'id' => $cat->id, 'name' => $cat->name])?>">
+                        <?= $cat->name?>
                     </a>
                 </div>
             </div>
+        <?php endforeach;?>
 
-            <div><!-- уДАЛИТЬ ЭТТ ДИВ-->
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
-                <div class="col s6 m4">
-                    <div class="product-item">
-                        <a href="#">
-                            <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a href="#">
-                            Title text text andrey
-                        </a>
-                    </div>
-                </div>
+            
 
-            </div>
+            
         </div><!--row-->
 
 
 
-    </div><!--col s8-->
+    <!--col s8-->
 </div><!--row-->
 

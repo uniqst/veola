@@ -8,7 +8,9 @@ use yii\data\Pagination;
 
 Class Products extends Widget{
     public function run(){
-        $query = Product::find()->with('image', 'comments');
+        $query = Product::find()->with('image', 'comments')->joinWith(['category' => function(yii\db\ActiveQuery $query){
+            $query->andFilterWhere(['category.id' => Yii::$app->request->get('id')]);
+        }])->distinct();
         // делаем копию выборки
         $countQuery = clone $query;
         // подключаем класс Pagination, выводим по 10 пунктов на страницу

@@ -6,6 +6,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\Products;
+use frontend\models\Category;
 
 /**
  * Site controller
@@ -66,12 +67,14 @@ class ProductsController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = Category::find()->all();
+        return $this->render('index', compact('model'));
     }
 
-    public function actionCategory()
+    public function actionCategory($id)
     {
-        return $this->render('category');
+        $model = Category::findOne($id);
+        return $this->render('category', compact('model'));
     }
 
     public function actionProduct($id)
