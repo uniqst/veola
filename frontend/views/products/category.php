@@ -33,7 +33,7 @@
                     <option value="name" <?php if($_GET['sort'] == 'name') echo 'selected' ?>>Название</option>
                     <option value="-price" <?php if($_GET['sort'] == '-price') echo 'selected' ?>>Цена по убыванию</option>
                      <option value="price" <?php if($_GET['sort'] == 'price') echo 'selected' ?>>Цена по возврастанию</option>
-                    <option value="date" <?php if($_GET['sort'] == 'date') echo 'selected' ?>>Дата</option>
+                    <option value="date" <?php if($_GET['sort'] == 'date' or !$_GET['sort']) echo 'selected' ?>>Дата</option>
                     <option value="rating" <?php if($_GET['sort'] == 'rating') echo 'selected' ?>>Рейтинг</option>
                 </select>
             </p>
