@@ -47,11 +47,11 @@ class Comments extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'product_id' => 'Product ID',
-            'name' => 'Name',
-            'email' => 'Email',
-            'content' => 'Content',
-            'rating' => 'Rating',
-            'created_at' => 'Created At',
+            'name' => 'Имя',
+            'email' => 'Почта',
+            'content' => 'Текст',
+            'rating' => 'Рейтинг',
+            'created_at' => 'Создано',
         ];
     }
 }

@@ -59,7 +59,6 @@ class Products extends ActiveRecord
             [['title', 'name', 'description', 'description_product', 'content', 'price', 'category_id'], 'required'],
             [['price', 'old_price', 'category_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-
             [['title', 'name',], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'maxFiles' => 5],
             [['description', 'description_product'], 'string', 'max' => 500],
@@ -74,15 +73,15 @@ class Products extends ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'name' => Yii::t('app', 'Name'),
-            'description' => Yii::t('app', 'Description'),
-            'description_product' => Yii::t('app', 'Description Product'),
-            'content' => Yii::t('app', 'Content'),
-            'price' => Yii::t('app', 'Price'),
+            'title' => Yii::t('app', 'Титул'),
+            'name' => Yii::t('app', 'Имя'),
+            'description' => Yii::t('app', 'Описание сверху'),
+            'description_product' => Yii::t('app', 'Характеристики'),
+            'content' => Yii::t('app', 'Описание'),
+            'price' => Yii::t('app', 'Цена'),
             'old_price' => Yii::t('app', 'Old Price'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'created_at' => Yii::t('app', 'Создано'),
+            'updated_at' => Yii::t('app', 'Отредактировано'),
         ];
     }
     public function getComments()
