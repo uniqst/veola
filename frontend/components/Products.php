@@ -11,17 +11,15 @@ Class Products extends Widget{
     public function run(){
         $sort = new Sort([
         'attributes' => [
-            'order' => [
-                'name' => ['name' => SORT_ASC],
+            'price' => [
                 'price_asc' => ['price' => SORT_ASC],
-                'price_desc' => ['price' => SORT_DESC],
-                'date' => ['created_at' => SORT_DESC],
-                'rating' => ['rating' => SORT_DESC],
-
+                'price_desc' => ['price' => SORT_ASC],
             ],
+
+
         ],
     ]);
-        echo $sort->link('order');
+
         $query = Product::find()->with('image', 'comments')->joinWith(['category' => function(yii\db\ActiveQuery $query){
             $query->andFilterWhere(['category.id' => Yii::$app->request->get('id')]);
         }])->orderBy($sort->orders)->distinct();

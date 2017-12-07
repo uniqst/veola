@@ -29,12 +29,12 @@
                 Сортировка:
                 </span>
                 <input type="hidden" value="<?= $_GET['id']?>" name="id">
-                <select class="browser-default" id="order" name="order" size="1" onchange="this.form.submit()">
-                    <option value="name" <?php if($_GET['order'] == 'name') echo 'selected' ?>>Название</option>
-                    <option value="price_asc" <?php if($_GET['order'] == 'price_asc') echo 'selected' ?>>Цена по убыванию</option>
-                     <option value="price_desc" <?php if($_GET['order'] == 'price_desc') echo 'selected' ?>>Цена по возврастанию</option>
-                    <option value="date" <?php if($_GET['order'] == 'date') echo 'selected' ?>>Дата</option>
-                    <option value="rating" <?php if($_GET['order'] == 'rating') echo 'selected' ?>>Рейтинг</option>
+                <select class="browser-default" id="sort" name="sort" size="1" onchange="this.form.submit()">
+                    <option value="name" <?php if($_GET['sort'] == 'name') echo 'selected' ?>>Название</option>
+                    <option value="price_asc" <?php if($_GET['sort'] == 'price_asc') echo 'selected' ?>>Цена по убыванию</option>
+                     <option value="price_desc" <?php if($_GET['sort'] == 'price_desc') echo 'selected' ?>>Цена по возврастанию</option>
+                    <option value="date" <?php if($_GET['sort'] == 'date') echo 'selected' ?>>Дата</option>
+                    <option value="rating" <?php if($_GET['sort'] == 'rating') echo 'selected' ?>>Рейтинг</option>
                 </select>
             </p>
 

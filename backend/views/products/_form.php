@@ -9,7 +9,7 @@ use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
 
 $category = Category::find()->all();
-$data = ArrayHelper::getColumn($category, 'name', 'id');
+$data = ArrayHelper::map($category,'id' , 'name');
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Products */
 /* @var $form yii\widgets\ActiveForm */
