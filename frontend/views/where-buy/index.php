@@ -6,7 +6,7 @@ $this->title = 'My Yii Application';
 ?>
 
 <div class="row">
-    <div class="col s12 m4 l3">
+    <div class="col l3 hide-on-med-and-down">
         <?=\frontend\components\Category::widget()?>
 
         <?=\frontend\components\Tags::widget()?>
@@ -14,7 +14,7 @@ $this->title = 'My Yii Application';
         <?=\frontend\components\SidebarProduct::widget()?>
     </div>
 
-    <div class="col s12 m8 l9">
+    <div class="col s12 m12 l9">
         <a href="#">
             <h2 class="title-h2">
                 Где купить?

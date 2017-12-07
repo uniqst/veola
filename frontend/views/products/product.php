@@ -3,12 +3,12 @@ use yii\helpers\Url;
 $this->title = $model->title;
 ?>
 <div class="row">
-    <div class="col s12 m4 l3">
+    <div class="col l3 hide-on-med-and-down">
         <?=\frontend\components\Category::widget()?>
 
     </div>
 
-    <div class="col s12 m8 l9">
+    <div class="col s12 m12 l9">
         
         <div class="row">
 

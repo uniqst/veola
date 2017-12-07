@@ -31,6 +31,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap container z-depth-3" style="padding: 0;">
+
     <div class="top-div">
         <p class="hide-on-med-and-down">
             Позвонить: 099-536-24-75 e-mail:
@@ -62,13 +63,18 @@ AppAsset::register($this);
 
 
             </ul>
-            <ul class="side-nav" id="mobile-demo">
+
+            <ul class="side-nav scroll-custom" id="mobile-demo">
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
                 <li><a href="<?=Url::to(['/intstuctions'])?>">Инструкции</a></li>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
+                <li><div class="product-filter"></div></li>
+                <li><div class="">
+                        <?=\frontend\components\Category::widget()?>
+                    </div></li>
             </ul>
         </div>
     </nav>

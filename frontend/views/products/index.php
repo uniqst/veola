@@ -10,13 +10,13 @@ use dvizh\cart\widgets\ChangeOptions;
 
 
 <div class="row">
-    <div class="col s12 m4 l3">
+    <div class="col l3 hide-on-med-and-down">
         <?=\frontend\components\Category::widget()?>
 
         <?=\frontend\components\SidebarProduct::widget()?>
     </div>
 
-    <div class="col s12 m8 l9">
+    <div class="col s12 m12 l9">
 
         <h2 class="title-h2" style="color:#000;">
             Купить электровелосипед
@@ -45,7 +45,7 @@ use dvizh\cart\widgets\ChangeOptions;
 
         <div class="row">
 
-            <div class="col s12 m6 l4">
+            <div class="col s12 s6 m4">
                 <div class="product-item">
                     <a href="#">
                         <img src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">

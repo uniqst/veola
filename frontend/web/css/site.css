@@ -31,7 +31,7 @@ body {
     background: url('../img/bg-category/pattern-hover.gif') #666 ;
     color: white;
     text-shadow: 1px 1px 0px #333;
-    transition: 500ms;
+    transition: 500ms;text-decoration: none;
 }
 
 .sidebar-product img{  width:100%;  }
@@ -231,6 +231,10 @@ textarea.materialize-textarea{
 
 /*====================================================*/
                 /*Nawbar*/
+nav .button-collapse:hover{
+    text-decoration: none;
+    color: #fff;
+}
 .brand-logo{
     z-index: 999;
     top: -40px;
@@ -278,6 +282,9 @@ nav{
     color: #CF1F18; transition: 250ms;background: white;
 }
 
+.side-nav li>a:hover {
+    color: #CF1F18; transition: 250ms;text-decoration: none;
+}
 /*====================================================*/
 .text-center{  text-align: center;  }
 *{
