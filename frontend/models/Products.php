@@ -32,7 +32,7 @@ class Products extends ActiveRecord
 
 
     public $imageFiles;
-
+    public $rating;
 
     /**
      * @inheritdoc
@@ -89,6 +89,7 @@ class Products extends ActiveRecord
     {
         return $this->hasMany(Comments::className(), ['product_id' => 'id']);
     }
+
 
     public function getPhoto()
     {

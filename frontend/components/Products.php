@@ -8,11 +8,15 @@ use yii\data\Pagination;
 use yii\data\Sort;
 
 Class Products extends Widget{
+
     public function run(){
+
+
         $sort = new Sort([
             'attributes' => [
                 'name' => [
                     'asc' => ['name' => SORT_ASC],
+                    'desc' => ['name' => SORT_DESC],
                 ],
                 'price' => [
                     'asc' => ['price' => SORT_ASC],
@@ -22,19 +26,22 @@ Class Products extends Widget{
                     'asc' => ['created_at' => SORT_ASC],
                     'desc' => ['created_at' => SORT_DESC],
                 ],
+                'rating' => [
+                    'asc' => ['rating' => SORT_ASC],
+                    'desc' => ['rating' => SORT_DESC],
+                ]
             ],
         ]);
-        $rating = new Sort([
-            'attributes' => [
-                'rating' => [
-                    'desc' => ['rating' => SORT_DESC],
-                ],
-           ]
-        ]);
 
-        $query = Product::find()->with('image', 'comments')->joinWith(['comments' => function(yii\db\ActiveQuery $query) use($rating){
-            $query->orderBy($rating->orders);
-        }])->joinWith(['category' => function(yii\db\ActiveQuery $query){
+
+        $query = Product::find()
+            ->select([
+                'products.*', // получить все атрибуты покупателя
+                'ceil(SUM(comments.rating) / COUNT(comments.rating) / 0.5) * 0.5 AS rating' // вычислить количество заказов
+            ])
+            ->joinWith('comments') // обеспечить построение промежуточной таблицы
+            ->groupBy('products.id')
+            ->with('image', 'comments')->joinWith(['category' => function(yii\db\ActiveQuery $query){
             $query->andFilterWhere(['category.id' => Yii::$app->request->get('id')]);
         }])->orderBy($sort->orders)->distinct();
         // делаем копию выборки
@@ -46,6 +53,7 @@ Class Products extends Widget{
         $model = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
+
         return $this->render('products', compact('model', 'pages', 'sort'));
     }
 }
