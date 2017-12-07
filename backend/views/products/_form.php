@@ -2,10 +2,14 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 use frontend\models\Photo;
+use frontend\models\Category;
 use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
 
+$category = Category::find()->all();
+$data = ArrayHelper::getColumn($category, 'name', 'id');
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Products */
 /* @var $form yii\widgets\ActiveForm */
@@ -21,6 +25,10 @@ use mihaildev\elfinder\ElFinder;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'category_id')->dropDownList(
+        $data
+        ); ?>
 
     <?= $form->field($model, 'description')->textArea(['maxlength' => true]) ?>
 

@@ -56,8 +56,8 @@ class Products extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'name', 'description', 'description_product', 'content', 'price'], 'required'],
-            [['price', 'old_price'], 'integer'],
+            [['title', 'name', 'description', 'description_product', 'content', 'price', 'category_id'], 'required'],
+            [['price', 'old_price', 'category_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
 
             [['title', 'name',], 'string', 'max' => 255],
@@ -98,5 +98,10 @@ class Products extends ActiveRecord
     public function getImage()
     {
         return $this->hasOne(Photo::className(), ['product_id' => 'id']);
+    }
+
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['category_id' => 'id']);
     }
 }

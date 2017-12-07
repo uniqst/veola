@@ -14,6 +14,7 @@ class m171203_114710_products extends Migration
     {
         $this->createTable('{{%products}}', [
             'id' => $this->primaryKey(11),
+            'category_id' => $this->primaryKey(11),
             'title' => $this->string(255)->notNull(),
             'name' => $this->string(255)->notNull(),
             'description' => $this->string(500)->notNull(),
