@@ -272,7 +272,7 @@ nav ul .active{
 .dropdown-button.active{
     background: white;
     color: black;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
 }
 .dropdown-content li:hover {background: white}
 .dropdown-content li>a{

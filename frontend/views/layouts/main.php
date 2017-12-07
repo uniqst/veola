@@ -85,9 +85,9 @@ AppAsset::register($this);
 
                 <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Инструкции</a></li>
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="#!">First</a></li>
-                        <li><a href="#!">Second</a></li>
-                        <li><a href="#!">Third</a></li>
+                        <?php foreach($inst as $i):?>
+                        <li><a href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
+                        <?php endforeach;?>
                     </ul>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>

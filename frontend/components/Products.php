@@ -22,14 +22,19 @@ Class Products extends Widget{
                     'asc' => ['created_at' => SORT_ASC],
                     'desc' => ['created_at' => SORT_DESC],
                 ],
-                'comments.rating' => [
-                    'asc' => ['rating' => SORT_ASC],
-                ],
             ],
         ]);
+        $rating = new Sort([
+            'attributes' => [
+                'rating' => [
+                    'desc' => ['rating' => SORT_DESC],
+                ],
+           ]
+        ]);
 
-
-        $query = Product::find()->joinWith(['category' => function(yii\db\ActiveQuery $query){
+        $query = Product::find()->with('image', 'comments')->joinWith(['comments' => function(yii\db\ActiveQuery $query) use($rating){
+            $query->orderBy($rating->orders);
+        }])->joinWith(['category' => function(yii\db\ActiveQuery $query){
             $query->andFilterWhere(['category.id' => Yii::$app->request->get('id')]);
         }])->orderBy($sort->orders)->distinct();
         // делаем копию выборки
