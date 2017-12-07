@@ -263,7 +263,7 @@ nav ul .active{
 }
 
 #dropdown1{border-bottom: 5px solid #CF1F18;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 0px 0px 5px 5px;
     min-width: 200px;
     margin-top: 64px;
     z-index: 1;
