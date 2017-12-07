@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
         <?= $form->field($comment, 'content')->textArea(['style' => 'max-width: 320px;min-height:67px;border: 1px solid #ddd;'])->label(false)?>
     </div>
     <div class="row">
-        <p class="col m3" style="font-size: .8rem;color: #9e9e9e;">Оценка для продукта</p>
+        <p class="col m3" style="color: #9e9e9e;font-size: 12px;font-weight: bold;}">Оценка для продукта</p>
         <span class="my-rating-9"></span>
         <span class="live-rating"></span>
         <?= $form->field($comment, 'rating')->hiddenInput(['id' => 'srating'])->label(false);?>

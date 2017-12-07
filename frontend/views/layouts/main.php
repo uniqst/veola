@@ -60,19 +60,27 @@ AppAsset::register($this);
                 </li>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()"><i class="material-icons">shopping_cart</i></a></li>
-
-
             </ul>
 
+
             <ul class="side-nav scroll-custom" id="mobile-demo">
+                <li><a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a></li>
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
-                <li><a href="<?=Url::to(['/intstuctions'])?>">Инструкции</a></li>
+                <li><!-- Dropdown Trigger -->
+                    <a class='dropdown-button' href='#' data-activates='dropdown1'>Инструкции</a>
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <?php foreach($inst as $i):?>
+                            <li><a href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
+                        <?php endforeach;?>
+                    </ul>
+                </li>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
                 <li><div class="product-filter"></div></li>
-                <li><div class="">
+                <li><div style="padding: 0 32px;">
                         <?=\frontend\components\Category::widget()?>
                     </div></li>
             </ul>

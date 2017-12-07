@@ -321,10 +321,10 @@ p a:hover{  color: #CF1F18; transition: 500ms; }
 
 .title-h3{  margin: 10px 0px -5px 0px;  text-decoration: none;  font-size: 24px;  }
 
-
+a{text-decoration: none!important;}
 
 a .title-h2{ color: #CF1F18;  }
-a .title-h2:hover{ color: #CF1F18;transition: 500ms;  }
+a .title-h2:hover{ color: #CF1F18;transition: 500ms;text-decoration: none;  }
 
 .heavy-text-span{ font-weight: 700;  color: #666666;  }
 .phone-span{  color: #43B51F;  }
@@ -367,7 +367,7 @@ footer p a{  color: #ffffff; }
 
 label{ font-size: 12px}
 
-.container{background: #fff;}
+.container{background: #fff;width: 100%;}
 
 /*======================================================================*/
 

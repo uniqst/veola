@@ -1,11 +1,11 @@
 <div class="row">
-    <div class="col s12 m4 l3">
+    <div class="col l3 hide-on-med-and-down">
         <?=\frontend\components\Category::widget()?>
 
         <?=\frontend\components\SidebarProduct::widget()?>
     </div>
 
-    <div class="col s12 m8 l9">
+    <div class="col s12 m12 l9">
 
         <h1 class="title-h2" style="color:#373737;">
            Купить <?= $model->name?>
