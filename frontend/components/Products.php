@@ -10,15 +10,21 @@ use yii\data\Sort;
 Class Products extends Widget{
     public function run(){
         $sort = new Sort([
-        'attributes' => [
-            'price' => [
-                'price_asc' => ['price' => SORT_ASC],
-                'price_desc' => ['price' => SORT_ASC],
+            'attributes' => [
+                'name' => [
+                    'asc' => ['name' => SORT_ASC],
+                ],
+                'price' => [
+                    'asc' => ['price' => SORT_ASC],
+                    'desc' => ['price' => SORT_DESC],
+                ],
+                'date' => [
+                    'asc' => ['created_at' => SORT_ASC],
+                    'desc' => ['created_at' => SORT_DESC],
+                ],
+
             ],
-
-
-        ],
-    ]);
+        ]);
 
         $query = Product::find()->with('image', 'comments')->joinWith(['category' => function(yii\db\ActiveQuery $query){
             $query->andFilterWhere(['category.id' => Yii::$app->request->get('id')]);
