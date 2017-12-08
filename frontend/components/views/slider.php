@@ -8,7 +8,7 @@
         <li class="slider__item <?php if($count == 1) echo 'is-active'?>">
             <figure class="slider__itemImage" style="background-image:url(/img/slider/<?=$slider->photo?>);"></figure>
             <div class="slider__itemText">
-                <h2 class="slider__itemTitle"><?=$count;?>
+                <h2 class="slider__itemTitle">
                     <?=$slider->title?><br>
                     <span><?=$slider->description?></span></h2>
             </div>
