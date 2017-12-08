@@ -99,7 +99,10 @@ class ProductsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        if($_GET['photo']){
+            $img = Photo::findOne($_GET['photo']);
+            $img->delete();
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if (Yii::$app->request->isPost) {
                 $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');

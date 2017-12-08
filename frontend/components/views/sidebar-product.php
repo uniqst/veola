@@ -1,11 +1,11 @@
-<p class="text-center widget-title">НОВЫЕ ТОВАРЫ</p>
-
-
+<?php
+use yii\helpers\Url;
+?>
 <div class="sidebar-product">
 <?php foreach($products as $product):?>
    <div class="row">
        <div class="col s5">
-           <a href="#">
+           <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name'])?>">
                <img src="/img/products/<?=$product->image->img?>">
            </a>
        </div>

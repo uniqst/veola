@@ -11,10 +11,12 @@ $this->title = 'My Yii Application';
 <div class="row">
 
     <div class="col l3 hide-on-med-and-down">
-        <?=\frontend\components\SidebarProduct::widget()?>
+        <p class="text-center widget-title">ПОПУЛЯРНЫЕ ТОВАРЫ</p>
+        <?=\frontend\components\SidebarProduct::widget(['products' => true])?>
 
         <?=\frontend\components\Category::widget()?>
 
+        <p class="text-center widget-title">НОВЫЕ ТОВАРЫ</p>
         <?=\frontend\components\SidebarProduct::widget()?>
     </div>
 

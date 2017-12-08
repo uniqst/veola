@@ -50,6 +50,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'category/<id:\d+>/<name:\w+>' => 'products/category',
+                'category/<id:\d+>/<name:\w+>/<sort:\w+>' => 'products/category',
                 'product/<id:\d+>/<name:\w+>' => 'products/product',
                 'frontend/web/<controller>/<ation>' => '<controller><action>'
             ],

@@ -69,43 +69,23 @@ $this->title = $model->title;
             <div class="product-filter"></div>
 
             <div class="row">
-
+            <?php foreach($model->category->products as $product):?>
                 <div class="col s12 m6 l4">
                     <div class="product-item-index">
-                        <a href="#">
-                            <p class="new-priduct">NEW</p>
-                            <img style="width: 100%" src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
+                        <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
+<!--                            <p class="new-priduct">NEW</p>-->
+                            <img style="width: 100%" src="/img/products/<?=$product->image->img?>">
                         </a>
-                        <a class="priduct-title-index" href="#" title="Title text text andrey text text tex">
-                            Title text text andrey text text text
-                            Title text text andrey text text text
-                            Title text text andrey text text text
+                        <a class="priduct-title-index" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>" title="Title text text andrey text text tex">
+                            <?=$product->name?>
                         </a>
                         <p class="price-index">
-                            1000 UH<br>
-                            <span class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
+                        <?=$product->price?> грн.<br>
+                            <span class="old-price-index">Старая цена: <span class="crossed"><?=$product->old_price?> грн.</span></span>
                         </p>
                     </div>
                 </div>
-
-                <div class="col s12 m6 l4">
-                    <div class="product-item-index">
-                        <a href="#">
-                            <p class="new-priduct">NEW</p>
-                            <img style="width: 100%" src="http://www.veola.com.ua/components/com_jshopping/files/img_categories/bfbfa7f356ff8c524e541f1726070134.jpg">
-                        </a>
-                        <a class="priduct-title-index" href="#" title="Title text text andrey text text tex">
-                            Title text text andrey text text text
-                            Title text text andrey text text text
-                            Title text text andrey text text text
-                        </a>
-                        <p class="price-index">
-                            1000 UH<br>
-                            <span class="old-price-index">Old price: <span class="crossed">500 UH</span></span>
-                        </p>
-                    </div>
-                </div>
-
+            <?php endforeach;?>
             </div><!-- row-->
 
             <h2 class="title-h3" style="color:#CF1F18;">

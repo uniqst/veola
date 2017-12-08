@@ -48,6 +48,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'slider'
             ],
         ],
     ],
