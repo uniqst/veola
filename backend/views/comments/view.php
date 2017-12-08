@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Products */
+/* @var $model frontend\models\Comments */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Товары'), 'url' => ['index']];
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Комментарии'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="products-view">
+<div class="comments-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Вы точно хотите удалить?'),
+                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -28,21 +28,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            [
-                'attribute' => 'category_id', 
-                'value' => function($data){
-                    return $data->category->name;
+        [
+                'attribute' => 'product_id', 
+                'value' => function($model){
+                    return $model->product->name;
                 }
             ],
-            'title',
             'name',
-            'description',
-            'description_product',
+            'email:email',
             'content',
-            'price',
-            'old_price',
+            'rating',
             'created_at',
-            'updated_at',
         ],
     ]) ?>
 
