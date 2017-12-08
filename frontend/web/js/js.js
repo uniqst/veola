@@ -39,6 +39,23 @@ function showCart(cart){
     });
     });
 
+$('.del-item').on('click', function(){
+    var id = $(this).data('id');
+    $.ajax({
+        url: '/cart/del-item',
+        data: {id: id},
+        type: 'GET',
+        success: function(res){
+            location.reload();
+        },
+        error: function() {
+            alert('Error!');
+        }
+    });
+});
+
+
+
     function clearCart(){
         $.ajax({
         url: '/cart/clear',
