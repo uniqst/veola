@@ -2,11 +2,14 @@
     <div class="slider-bottom-shadow"></div>
 
     <ul class="slider__container">
+        <?php $count = 0;?>
         <?php foreach($slide as $slider):?>
-        <li class="slider__item is-active">
+        <?php $count++;?>
+        <li class="slider__item <?php if($count == 1) echo 'is-active'?>">
             <figure class="slider__itemImage" style="background-image:url(/img/slider/<?=$slider->photo?>);"></figure>
             <div class="slider__itemText">
-                <h2 class="slider__itemTitle"><?=$slider->title?><br>
+                <h2 class="slider__itemTitle"><?=$count;?>
+                    <?=$slider->title?><br>
                     <span><?=$slider->description?></span></h2>
             </div>
         </li>
@@ -25,11 +28,11 @@
         </svg>
     </div>
 
-
     <ul class="navThumbs">
+        <?php $count2 = 0;?>
         <?php foreach($slide as $slider):?>
-
-        <li class="navThumbs__item is_active" style="background-image:url(/img/slider/<?=$slider->photo?>)"></li>
+        <?php $count2++;?>
+        <li class="navThumbs__item <?php if($count2 == 1) echo 'is-active'?>" style="background-image:url(/img/slider/<?=$slider->photo?>)"></li>
         <?php endforeach;?>
     </ul>
 </div>
