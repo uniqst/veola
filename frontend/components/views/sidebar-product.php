@@ -11,7 +11,7 @@ use yii\helpers\Url;
        </div>
        <div class="col s7">
            <p>
-               <a href="#"><?=$product->name?></a>
+               <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name'])?>"><?=$product->name?></a>
                <br>
                <span class="product-price">
                    <?=$product->price?> грн.

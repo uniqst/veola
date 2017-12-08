@@ -136,7 +136,7 @@ Modal::end();
 
 
 
-        <p class="text-center">Разработано <a href="">Uniq Studio Team</a></p>
+        <p class="text-center">Разработано <a href="http://uniq-st.com/" target="_blank" style="color: gold">Uniq Studio Team</a></p>
     </footer>
 </div>
 
