@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\SearchProfile */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Category');
+$this->title = Yii::t('app', 'Категория');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="profile-index">
