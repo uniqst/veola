@@ -59,10 +59,10 @@ AppAsset::register($this);
                             <a style="padding: 0 32px;" class="collapsible-header"><i style="margin: 0px" class="material-icons">arrow_drop_down</i>Инструкции</a>
                             <div class="collapsible-body">
                                 <ul style=" padding-left: 30px;">
-                                    <li><a href="#!">First</a></li>
-                                    <li><a href="#!">Second</a></li>
-                                    <li><a href="#!">Third</a></li>
-                                    <li><a href="#!">Fourth</a></li>
+                                    <?php foreach($inst as $i):?>
+                                        <li><a style="overflow: hidden;" href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
+                                    <?php endforeach;?>
+
                                 </ul>
                             </div>
                         </li>
@@ -128,11 +128,6 @@ Modal::begin([
 Modal::end();
 
 ?>
-
-
-
-
-
 
 
 
