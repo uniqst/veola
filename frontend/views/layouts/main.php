@@ -93,46 +93,7 @@ AppAsset::register($this);
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-
-
-
-
-<!--            <a href="--><?//=Url::to(['/'])?><!--" class="brand-logo"><img src="/img/nav-img/logo.png"></a>-->
-<!--            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>-->
-<!---->
-<!--            <ul style="margin-left: 170px;" class="left hide-on-med-and-down nav-ul">-->
-<!--                <li><a class="active" href="--><?//=Url::to(['/'])?><!--">Главная</a></li>-->
-<!--                <li><a href="--><?//=Url::to(['/products'])?><!--">Товары</a></li>-->
-<!--                <li><a href="--><?//=Url::to(['/where-buy'])?><!--">Где купить</a></li>-->
-<!---->
-<!--                <li><!-- Dropdown Trigger -->
-<!--                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>-->
-<!--                </li>-->
-<!---->
-<!--                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>-->
-<!---->
-<!---->
-<!--                <li><a href="--><?//=Url::to(['/guarantees'])?><!--">Гарантии</a></li>-->
-<!--                <li><a href="#" onclick="return getCart()"><i class="material-icons">shopping_cart</i></a></li>-->
-<!--            </ul>-->
-<!---->
-<!---->
-<!--            <ul class="side-nav scroll-custom" id="mobile-demo">-->
-<!--                <li><a href="--><?//=Url::to(['/'])?><!--">Главная</a></li>-->
-<!--                <li><a href="--><?//=Url::to(['/products'])?><!--">Товары</a></li>-->
-<!--                <li><a href="--><?//=Url::to(['/where-buy'])?><!--">Где купить</a></li>-->
-<!--                <li><!-- Dropdown Trigger -->
-<!--                    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Инструкции</a>-->
-<!--                </li>-->
-<!---->
-<!--                <li><a href="--><?//=Url::to(['/guarantees'])?><!--">Гарантии</a></li>-->
-<!--                <li><a href="#" onclick="return getCart()">Корзина</a></li>-->
-<!--                <li><div class="product-filter"></div></li>-->
-<!--                <li><div style="padding: 0 32px;">-->
-<!--                        --><?//=\frontend\components\Category::widget()?>
-<!--                    </div></li>-->
-<!--            </ul>-->
-
+            
         </div>
     </nav>
 
