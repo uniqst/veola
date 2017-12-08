@@ -1,12 +1,14 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use frontend\models\Photo;
 use frontend\models\Category;
 use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
+use yii\widgets\Pjax;
 
 $category = Category::find()->all();
 $data = ArrayHelper::map($category,'id' , 'name');
@@ -19,9 +21,16 @@ $data = ArrayHelper::map($category,'id' , 'name');
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-
-    <?= $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
-
+    <?php Pjax::begin(['enablePushState' => false]);?>
+    <?= $form->field($model, 'imageFiles[]')->fileInput(['id' => 'imgInput', 'multiple' => true, 'accept' => 'image/*']) ?>
+    <div id="im">
+        <?php foreach($model->photo as $photo):?>
+        <a href="<?=Url::to(['/products/update','id' => $model->id, 'photo' => $photo->id])?>" class="img-trash"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+        <img src="/img/products/<?=$photo->img?>" class="img-input" >
+        <?php endforeach;?>
+    </div>
+    <?php Pjax::end();?>
+    <br>
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>

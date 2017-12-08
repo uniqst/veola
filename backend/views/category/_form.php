@@ -16,7 +16,12 @@ mihaildev\elfinder\Assets::noConflict($this);
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'imageFile')->fileInput(['id' => 'imgInput']) ?>
-    <div id="im"></div>
+    <div id="im">
+        <div id="im">
+            <img src="/img/category/<?=$model->img?>" class="img-input" >
+        </div>
+    </div>
+    <br>
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?

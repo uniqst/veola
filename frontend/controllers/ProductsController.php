@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\db\ActiveQuery;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -79,7 +80,10 @@ class ProductsController extends Controller
 
     public function actionProduct($id)
     {
-        $model = Products::find()->where(['id' => $id])->with('comments', 'photo')->one();
+        $model = Products::find()->where(['id' => $id])->with(['comments', 'photo', 'category.products'
+        => function(ActiveQuery $query) use($id){
+        $query->where(['<>', 'id', $id])->limit(3);
+        }])->one();
         $count = count($model->comments);
         $summ = 0;
         foreach($model->comments as $s){

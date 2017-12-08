@@ -13,35 +13,19 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
+    <?= $form->field($model, 'imageFile')->fileInput(['id' => 'imgInput']) ?>
+    <div id="im">
+        <div id="im">
+                <img src="/img/slider/<?=$model->photo?>" class="img-input" >
+        </div>
+    </div>
+    <br>
     <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?php
-    if(isset($model->photo)) {
-        $filename = "/../../frontend/web/img/slider/" . $model->photo;
-        $files = filesize("../../frontend/web/img/slider/" . $model->photo);
-    }
-
-    echo $form->field($model, 'imageFile')->widget(FileInput::classname(), [
-        'options' => [
-                'accept' => 'image/*',
-        ],
-        'pluginOptions' => [
-            'initialPreview'=>[
-                $filename
-            ],
-
-            'initialPreviewAsData'=>true,
-            'initialPreviewConfig' => [
-                ['caption' => $model->photo, 'size' => $files],
-            ],
-            'overwriteInitial'=>false,
-        ]
-    ]);
-    ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

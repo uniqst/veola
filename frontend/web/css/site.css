@@ -139,6 +139,24 @@ textarea.materialize-textarea{
 /*====================================================*/
                         /*INDEX*/
 
+.img-a{
+    display: inline-block;
+    /*width: 200px;*/
+    height: 200px;
+    overflow: hidden;
+}
+.img-a img{
+    width: 200px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width: 600px){
+    .img-a{
+        height: 325px;
+    }
+}
+
 .product-filter {
     border-bottom: 1px dotted #9f9f9f;
     margin-bottom: 10px;
