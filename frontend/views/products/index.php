@@ -7,6 +7,7 @@ use yii\helpers\Url;
     <div class="col l3 hide-on-med-and-down">
         <?=\frontend\components\Category::widget()?>
 
+        <p class="text-center widget-title">НОВЫЕ ТОВАРЫ</p>
         <?=\frontend\components\SidebarProduct::widget()?>
     </div>
 

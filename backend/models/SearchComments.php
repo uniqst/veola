@@ -18,8 +18,8 @@ class SearchComments extends Comments
     public function rules()
     {
         return [
-            [['id', 'parent_id', 'profile_id', 'status', 'is_viewed'], 'integer'],
-            [['email', 'name', 'content', 'date'], 'safe'],
+            [['id', 'product_id', 'rating'], 'integer'],
+            [['name', 'email', 'content', 'created_at'], 'safe'],
         ];
     }
 
@@ -60,14 +60,13 @@ class SearchComments extends Comments
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'parent_id' => $this->parent_id,
-            'profile_id' => $this->profile_id,
-            'is_viewed' => $this->is_viewed,
-            'date' => $this->date,
+            'product_id' => $this->product_id,
+            'rating' => $this->rating,
+            'created_at' => $this->created_at,
         ]);
 
-        $query->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'content', $this->content]);
 
         return $dataProvider;
