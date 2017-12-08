@@ -31,7 +31,7 @@ class Comments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'name', 'email', 'content', 'rating'], 'required'],
+            [['product_id', 'name', 'email', 'content'], 'required'],
             [['product_id'], 'integer'],
             [['created_at'], 'safe'],
             [['name', 'email'], 'string', 'max' => 50],
@@ -46,12 +46,17 @@ class Comments extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'product_id' => 'Product ID',
+            'product_id' => 'Товар',
             'name' => 'Имя',
             'email' => 'Почта',
             'content' => 'Текст',
             'rating' => 'Рейтинг',
             'created_at' => 'Создано',
         ];
+    }
+
+    public function getProduct()
+    {
+        return $this->hasOne(Products::className(), ['id' => 'product_id']);
     }
 }
