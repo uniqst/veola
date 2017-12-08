@@ -24,10 +24,12 @@ $data = ArrayHelper::map($category,'id' , 'name');
     <?php Pjax::begin(['enablePushState' => false]);?>
     <?= $form->field($model, 'imageFiles[]')->fileInput(['id' => 'imgInput', 'multiple' => true, 'accept' => 'image/*']) ?>
     <div id="im">
+        <?php if(!empty($model->photo)):?>
         <?php foreach($model->photo as $photo):?>
         <a href="<?=Url::to(['/products/update','id' => $model->id, 'photo' => $photo->id])?>" class="img-trash"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
         <img src="/img/products/<?=$photo->img?>" class="img-input" >
         <?php endforeach;?>
+        <?php endif;?>
     </div>
     <?php Pjax::end();?>
     <br>

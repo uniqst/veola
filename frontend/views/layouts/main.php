@@ -136,7 +136,7 @@ Modal::end();
 
 
 
-        <p class="text-center">Разработано на коленке у АндреЙя</p>
+        <p class="text-center">Разработано <a href="">Uniq Studio Team</a></p>
     </footer>
 </div>
 

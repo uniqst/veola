@@ -15,9 +15,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'imageFile')->fileInput(['id' => 'imgInput']) ?>
     <div id="im">
+        <?php if(!empty($model->img)):?>
         <div id="im">
                 <img src="/img/slider/<?=$model->photo?>" class="img-input" >
         </div>
+        <?php endif;?>
     </div>
     <br>
     <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>

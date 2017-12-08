@@ -18,7 +18,9 @@ mihaildev\elfinder\Assets::noConflict($this);
     <?= $form->field($model, 'imageFile')->fileInput(['id' => 'imgInput']) ?>
     <div id="im">
         <div id="im">
+            <?php if(!empty($model->img)):?>
             <img src="/img/category/<?=$model->img?>" class="img-input" >
+            <?php endif;?>
         </div>
     </div>
     <br>
