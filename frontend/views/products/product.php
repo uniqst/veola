@@ -69,7 +69,8 @@ $this->title = $model->title;
             <div class="product-filter"></div>
 
             <div class="row">
-            <?php foreach($model->category->products as $product):?>
+            <?php if(!empty($model->group)):?>
+            <?php foreach($group as $product):?>
                 <div class="col s12 m6 l4">
                     <div class="product-item-index">
                         <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
@@ -86,6 +87,7 @@ $this->title = $model->title;
                     </div>
                 </div>
             <?php endforeach;?>
+            <?php endif;?>
             </div><!-- row-->
 
             <h2 class="title-h3" style="color:#CF1F18;">

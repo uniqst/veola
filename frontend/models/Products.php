@@ -59,7 +59,7 @@ class Products extends ActiveRecord
             [['title', 'name', 'description', 'description_product', 'content', 'price', 'category_id'], 'required'],
             [['price', 'old_price', 'category_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['title', 'name',], 'string', 'max' => 255],
+            [['title', 'name', 'group'], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'maxFiles' => 20],
             [['description', 'description_product'], 'string', 'max' => 500],
             [['content'], 'string', 'max' => 10000],

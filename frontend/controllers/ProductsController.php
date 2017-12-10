@@ -8,6 +8,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\Products;
 use frontend\models\Category;
+use yii\db\Expression;
 
 /**
  * Site controller
@@ -80,10 +81,8 @@ class ProductsController extends Controller
 
     public function actionProduct($id)
     {
-        $model = Products::find()->where(['id' => $id])->with(['comments', 'photo', 'category.products'
-        => function(ActiveQuery $query) use($id){
-        $query->where(['<>', 'id', $id])->limit(3);
-        }])->one();
+        $model = Products::find()->where(['id' => $id])->with(['comments', 'photo'])->one();
+        $group = Products::find()->where(['group' => $model->group])->andWhere(['<>', 'id', $model->id])->orderBy(new Expression('rand()'))->limit(3)->all();
         $count = count($model->comments);
         $summ = 0;
         foreach($model->comments as $s){
@@ -93,7 +92,7 @@ class ProductsController extends Controller
             $c = $summ / $count;
             $sum = ceil($c / 0.5) * 0.5;
         }
-        return $this->render('product', compact('model', 'id', 'sum'));
+        return $this->render('product', compact('model', 'id', 'sum', 'group'));
     }
 
 }
