@@ -21,7 +21,8 @@ return [
         ],
 
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            // 'csrfParam' => '_csrf-frontend',
+            'enableCsrfValidation'=>false,
             'baseUrl' => '',
         ],
         'user' => [

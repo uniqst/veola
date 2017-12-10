@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sum')->textInput() ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ '0' => 'Новый', '1' => 'Просмотрен' ]) ?>
+    <?= $form->field($model, 'status')->dropDownList([ '0' => 'Новый', '1' => 'Просмотрен', '2' => 'Оплачен' ]) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

@@ -80,6 +80,24 @@ class CartController extends Controller
         return $this->render('view', compact('session', 'order'));
     }
 
+    public function beforeAction($action) {
+        $this->enableCsrfValidation = ($action->id !== "ДЕЙСТВИЕ"); 
+        return parent::beforeAction($action);
+    }
+
+    public function actionCallback(){
+        $sign = base64_encode( sha1( 
+            $private_key .  
+            $data . 
+            $private_key 
+            , 1 ));
+            $data = json_decode(base64_decode(Yii::$app->request->post('data')), true);
+           
+               
+            
+        return $this->render('callback', compact('data'));
+    }
+
     protected function saveOrderItems($items, $order_id){
         foreach($items as $id => $item){
             $order_items = new OrderItems();

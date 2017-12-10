@@ -1,3 +1,7 @@
+$('.liqpay').click(function(){
+    $('.pay').trigger('click')
+})
+
 
 $(".dropdown-button").dropdown();
 

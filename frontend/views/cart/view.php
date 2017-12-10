@@ -3,6 +3,7 @@ include_once 'LiqPay.php';
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use yii\widgets\Pjax;
 ?>
 
 <div class="container">
@@ -20,6 +21,7 @@ use yii\widgets\ActiveForm;
 
 	<?php if(!empty($session['cart'])): ?>
 	<div class="table-responsive">
+	<?php Pjax::begin()?>
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr>
@@ -52,15 +54,18 @@ use yii\widgets\ActiveForm;
 				</tr>	
 			</tbody>
 		</table>
+		<?php Pjax::end()?>
 		<?php $liqpay = new LiqPay('i41459134084' , '6x9lAfTxUNcu0YbKyOePa0M1a3m4RUgDfs7gndDq');
 $html = $liqpay->cnb_form(array(
 'action'         => 'pay',
 'amount'         => $session['cart.sum'],
-'currency'       => 'USD',
+'currency'       => 'UAH',
 'sandbox'		 => '1',
-'description'    => 'description text',
-'order_id'       => 'order_id_1',
-'version'        => '3'
+'description'    => 'Оплата заказа',
+'result_url' 	 => 'veola/cart/callback',
+'version'        => '3',
+'dae'	 => json_encode($session['cart'])
+
 ));?>
 	</div>
 	<hr/>
@@ -69,9 +74,9 @@ $html = $liqpay->cnb_form(array(
 	<?= $form->field($order, 'email')?>
 	<?= $form->field($order, 'phone')?>
 	<?= $form->field($order, 'address')?>
-	<?= Html::submitbutton('Заказать', ['class' => 'btn btn-success'])?>
+	<?= Html::submitbutton('Заказать', ['class' => 'btn btn-success pay'])?>
 	<?php $form = ActiveForm::end()?>
-	<?= $html;?>$argv				
+	<?= $html;?>			
 <?php else:?>
 	<h3>Kорзина пуста</h3>
 <?php endif;?>

@@ -139,15 +139,15 @@ class LiqPay
         $signature = $this->cnb_signature($params);
         
         return sprintf('
-            <form method="POST" action="%s" accept-charset="utf-8">
+            <form target="_blank" method="POST" action="%s" accept-charset="utf-8">
                 %s
                 %s
-                <input type="image" src="//static.liqpay.ua/buttons/p1%s.radius.png" name="btn_text" />
+                <input class="liqpay" type="image" src="//static.liqpay.ua/buttons/p1%s.radius.png" name="btn_text" />
             </form>
             ',
             $this->_checkout_url,
             sprintf('<input type="hidden" name="%s" value="%s" />', 'data', $data),
-            sprintf('<input type="hidden" name="%s" value="%s" />', 'signature', $signature),
+            sprintf('<input type="hidden" name="%s" value="%s" />', 'signature', $signature),   
             $language
         );
     }
