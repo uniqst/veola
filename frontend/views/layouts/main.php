@@ -91,17 +91,23 @@ AppAsset::register($this);
                     </ul>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
+             
+            </ul>
+            <style>
+                .retes{
+                   background
+                }
+            </style>
+            <ul style="float: right; padding: 15px;">
+                <li class="rates btn">грн</li>
+                <li class="rates btn">дол</li>
+                <li class="rates btn">евр</li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
             
         </div>
     </nav>
-
-
-
-
-
-
+    
     <div style="margin-top: 20px;">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
