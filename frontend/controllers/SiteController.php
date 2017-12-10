@@ -65,7 +65,11 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    
+    public function actionExchange()
+    {
+        
+    }
     /**
      * Displays homepage.
      *
