@@ -72,7 +72,7 @@ class CartController extends Controller
                 $session->remove('cart');
                 $session->remove('cart.qty');
                 $session->remove('cart.sum');
-                return $this->refresh();
+                // return $this->refresh();
             }else{
                 Yii::$app->session->setFlash('error', 'Ошибка оформления заказа');
             }

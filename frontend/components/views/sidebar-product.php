@@ -1,5 +1,17 @@
 <?php
 use yii\helpers\Url;
+use frontend\models\ExchangeRates;
+$r = ExchangeRates::findOne(1);
+if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
+    $rates = $r->grn;
+    $ex = 'грн';
+}elseif(Yii::$app->session['rates'] == 'eur'){
+    $rates = $r->eur;
+    $ex = '<i class="fa fa-eur" aria-hidden="true"></i>';
+}elseif (Yii::$app->session['rates'] == 'usd'){
+    $rates = 1;
+    $ex = '<i class="fa fa-usd" aria-hidden="true"></i>';
+}
 ?>
 <div class="sidebar-product">
 <?php foreach($products as $product):?>
@@ -14,7 +26,7 @@ use yii\helpers\Url;
                <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name'])?>"><?=$product->name?></a>
                <br>
                <span class="product-price">
-                   <?=$product->price?> грн.
+                   <?=$product->price* $rates . ' ' . $ex?>
                </span>
            </p>
        </div>

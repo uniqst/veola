@@ -1,6 +1,18 @@
 <?php
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
+use frontend\models\ExchangeRates;
+$r = ExchangeRates::findOne(1);
+if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
+    $rates = $r->grn;
+    $ex = 'грн';
+}elseif(Yii::$app->session['rates'] == 'eur'){
+    $rates = $r->eur;
+    $ex = '<i class="fa fa-eur" aria-hidden="true"></i>';
+}elseif (Yii::$app->session['rates'] == 'usd'){
+    $rates = 1;
+    $ex = '<i class="fa fa-usd" aria-hidden="true"></i>';
+}
 
 ?>
 <div class="row">
@@ -38,8 +50,8 @@ use yii\widgets\LinkPager;
                 <?=$product->name?>
             </a>
             <p class="price-index">
-                <?=$product->price?> грн.<br>
-                <span class="old-price-index">Старая цена: <span class="crossed"><?=$product->old_price?> грн.</span></span>
+                <?=$product->price * $rates . ' ' . $ex?><br>
+                <span class="old-price-index">Старая цена: <span class="crossed"><?=$product->old_price* $rates . ' ' . $ex?></span></span>
             </p>
 
             <p style="float: left"><span class="my-rating-product" data-rating="<?=$sum;?>"></span> </p>

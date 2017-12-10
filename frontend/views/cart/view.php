@@ -1,4 +1,5 @@
 <?php
+include_once 'LiqPay.php';
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
@@ -51,6 +52,15 @@ use yii\widgets\ActiveForm;
 				</tr>	
 			</tbody>
 		</table>
+		<?php $liqpay = new LiqPay('i41459134084' , '6x9lAfTxUNcu0YbKyOePa0M1a3m4RUgDfs7gndDq');
+$html = $liqpay->cnb_form(array(
+'action'         => 'pay',
+'amount'         => '1',
+'currency'       => 'USD',
+'description'    => 'description text',
+'order_id'       => 'order_id_1',
+'version'        => '3'
+));?>
 	</div>
 	<hr/>
 	<?php $form = ActiveForm::begin()?>

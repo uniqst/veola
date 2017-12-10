@@ -109,9 +109,9 @@ AppAsset::register($this);
                 }
             </style>
             <ul style="float: right; padding: 15px;">
-                <li class="rates btn">грн</li>
-                <li class="rates btn">дол</li>
-                <li class="rates btn">евр</li>
+                <li class="rates btn <?php if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])) echo 'active'?>"><a href="<?= Url::to(['/site/exchange', 'rate' => 'grn'])?>">грн</a></li>
+                <li class="rates btn <?php if(Yii::$app->session['rates'] == 'usd') echo 'active'?>"><a href="<?= Url::to(['/site/exchange', 'rate' => 'usd'])?>">дол</a></li>
+                <li class="rates btn <?php if(Yii::$app->session['rates'] == 'eur') echo 'active'?>"><a href="<?= Url::to(['/site/exchange', 'rate' => 'eur'])?>">евр</a></li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
             
@@ -151,7 +151,26 @@ Modal::end();
     </footer>
 </div>
 
-
+<script>
+  window.LiqPayCheckoutCallback = function() {
+    LiqPayCheckout.init({
+      data:"eyAidmVyc2lvbiIgOiAzLCAicHVibGljX2tleSIgOiAieW91cl9wdWJsaWNfa2V5IiwgImFjdGlv" + 
+           "biIgOiAicGF5IiwgImFtb3VudCIgOiAxLCAiY3VycmVuY3kiIDogIlVTRCIsICJkZXNjcmlwdGlv" + 
+           "biIgOiAiZGVzY3JpcHRpb24gdGV4dCIsICJvcmRlcl9pZCIgOiAib3JkZXJfaWRfMSIgfQ==",
+      signature: "QvJD5u9Fg55PCx/Hdz6lzWtYwcI=",
+      embedTo: "#liqpay_checkout",
+      mode: "embed" // embed || popup,
+       }).on("liqpay.callback", function(data){
+			console.log(data.status);
+			console.log(data);
+			}).on("liqpay.ready", function(data){
+				// ready
+			}).on("liqpay.close", function(data){
+				// close
+		});
+  };
+</script>
+<script src="//static.liqpay.ua/libjs/checkout.js" async></script>
 <?php $this->endBody() ?>
 </body>
 </html>

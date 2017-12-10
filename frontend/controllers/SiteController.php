@@ -5,6 +5,7 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+use  yii\web\Session;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
@@ -13,6 +14,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Products;
+
 
 /**
  * Site controller
@@ -66,9 +68,12 @@ class SiteController extends Controller
         ];
     }
     
-    public function actionExchange()
+    public function actionExchange($rate)
     {
-        
+        $rates = new Session;
+        $rates->open();   
+        Yii::$app->session['rates'] = $rate;
+        return $this->redirect(Yii::$app->request->referrer);
     }
     /**
      * Displays homepage.
