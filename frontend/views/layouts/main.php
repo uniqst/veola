@@ -70,6 +70,16 @@ AppAsset::register($this);
                 </li>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
+                <li>
+                123
+                <form>
+                <select>
+                    <option value="grn">Гривна</option>
+                    <option value="usd">Доллар</option>
+                    <option value="eur">Евро</option>
+                </select>
+                </form>
+                </li>
                 <li><div class="product-filter"></div></li>
                 <li>
                     <div style="padding: 0 32px;">

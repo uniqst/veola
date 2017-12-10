@@ -19,6 +19,7 @@ $count = Order::find()->where(['status' => '0'])->count();
                     ['label' => 'Слайдер', 'icon' => 'fa fa-user-circle-o', 'url' => ['/slider']],
                     ['label' => 'Категории', 'icon' => 'fa fa-user-circle-o', 'url' => ['/category']],
                     ['label' => 'Комментарии', 'icon' => 'fa fa-user-circle-o', 'url' => ['/comments']],
+                    ['label' => 'Курс валют', 'icon' => 'fa fa-user-circle-o', 'url' => ['/exchange-rates']],
                     ['label' => 'Инструкции', 'icon' => 'fa fa-user-circle-o', 'url' => ['/instructions']],
                     ['label' => 'Товары', 'icon' => 'fa fa-user-circle-o', 'url' => ['/products']],
                     ['label' => "Заказы (". $count .")", 'icon' => 'fa fa-user-circle-o', 'url' => ['/order']],
