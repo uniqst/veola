@@ -55,8 +55,9 @@ use yii\widgets\ActiveForm;
 		<?php $liqpay = new LiqPay('i41459134084' , '6x9lAfTxUNcu0YbKyOePa0M1a3m4RUgDfs7gndDq');
 $html = $liqpay->cnb_form(array(
 'action'         => 'pay',
-'amount'         => '1',
+'amount'         => $session['cart.sum'],
 'currency'       => 'USD',
+'sandbox'		 => '1',
 'description'    => 'description text',
 'order_id'       => 'order_id_1',
 'version'        => '3'
@@ -69,7 +70,8 @@ $html = $liqpay->cnb_form(array(
 	<?= $form->field($order, 'phone')?>
 	<?= $form->field($order, 'address')?>
 	<?= Html::submitbutton('Заказать', ['class' => 'btn btn-success'])?>
-	<?php $form = ActiveForm::end()?>				
+	<?php $form = ActiveForm::end()?>
+	<?= $html;?>$argv				
 <?php else:?>
 	<h3>Kорзина пуста</h3>
 <?php endif;?>
