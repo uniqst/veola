@@ -88,7 +88,7 @@ textarea.materialize-textarea{
     border-bottom: 0px;
     outline: none;
     height: 20px;
-    font-size: 1rem;
+    font-size: 14px;
     margin: 0px 0px 10px 0px;
 }
 
@@ -249,6 +249,67 @@ textarea.materialize-textarea{
 
 /*====================================================*/
                 /*Nawbar*/
+
+@media only screen and (max-width: 992px){
+    nav .brand-logo{
+        margin: 0px
+    }
+}
+
+
+.money-select-btn{
+    float: right;
+    padding: 0 10px;
+    background: url(../img/nav-img/bg-line-nav.gif) 0 100% repeat-y;
+}
+.money-select-btn:hover{
+
+    background: white;
+    color: black;
+}
+.money-select-dropdown{
+    border-bottom: 5px solid #CF1F18;
+    border-radius: 0px 0px 5px 5px;
+    min-width: 120px;
+    margin-top: 64px;
+    z-index: 99999;
+    margin-left: -30px;
+}
+@media screen and (max-width: 600px){
+    .money-select-dropdown{
+        margin-top: 56px;
+    }
+}
+.money-select-dropdown li
+{
+    background: url(../img/bg-category/pattern-grey.gif) #fcfcfc;
+    color: #444;
+    display: inline-block;
+    font-weight: bold;
+    padding: 2px 25px 2px 15px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px #fff;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: 100ms;
+}
+.money-select-dropdown li.active,
+.money-select-dropdown li:hover.active,
+.money-select-dropdown li.active a,
+.money-select-dropdown li.active a:hover,
+.money-select-dropdown li:hover.btn,
+.money-select-dropdown li:hover.btn a,
+.money-select-dropdown li:hover a:hover
+{
+    background: url('../img/bg-category/pattern-hover.gif') #666 ;
+    color: white;
+    text-shadow: 1px 1px 0px #333;
+    transition: 100ms;text-decoration: none;
+}
+
+
 nav .button-collapse:hover{
     text-decoration: none;
     color: #fff;
