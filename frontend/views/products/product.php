@@ -38,7 +38,11 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
             <div class="col s12 m6 l6" style="padding: 10px">
                 <div class="fotorama">
                     <?php foreach($model->photo as $photo):?>
-                    <img src="/img/products/<?=$photo->img?>">
+                    <a data-fancybox="gallery" href="/img/products/<?=$photo->img?>">
+                    
+                         <img src="/img/products/<?=$photo->img?>">
+                    
+                    </a>
                     <?php endforeach;?>
                 </div>
             </div>
