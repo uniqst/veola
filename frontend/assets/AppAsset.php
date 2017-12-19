@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
 
     ];
     public $js = [
-        'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js'
+        'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js',
 
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
         'http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js',

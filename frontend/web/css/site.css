@@ -50,6 +50,12 @@ body {
 .product-item:hover a {color: white; text-decoration: none}
 
 
+.product-img-small{padding:0px}
+.product-img-small .col{padding: .5rem;}
+
+.product-img-small .col a img{
+       height: 75px;
+}
 
 .prod-buttons,
 .prod-buttons li{
