@@ -40,7 +40,7 @@ class Order extends ActiveRecord
             [['created_at', 'updated_at'], 'safe'],
             [['qty'], 'integer'],
             [['sum'], 'number'],
-            [['status'], 'boolean'],
+            [['status', 'pay'], 'boolean'],
             [['name', 'email', 'phone', 'address'], 'string', 'max' => 255],
         ];
     }

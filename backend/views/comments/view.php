@@ -37,6 +37,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'email:email',
             'content',
+            [
+                'attribute' => 'status',
+                'value' => function($model){
+                    if($model->status == 0){
+                        return '<i class="fa fa-times text-danger" aria-hidden="true"></i>';
+                    }else {
+                        return '<i class="fa fa-check text-success" aria-hidden="true"></i>';
+                    }
+                },
+                'format' => 'html'
+            ],
             'rating',
             'created_at',
         ],

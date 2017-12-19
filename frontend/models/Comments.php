@@ -34,6 +34,7 @@ class Comments extends \yii\db\ActiveRecord
             [['product_id', 'name', 'email', 'content'], 'required'],
             [['product_id'], 'integer'],
             [['created_at'], 'safe'],
+            [['status'], 'boolean'],
             [['name', 'email'], 'string', 'max' => 50],
             [['content'], 'string', 'max' => 500],
         ];

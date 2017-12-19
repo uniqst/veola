@@ -27,6 +27,8 @@ $data = ArrayHelper::map($product,'id' , 'name');
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'status')->dropDownList([ '0' => 'Не одобрен', '1' => 'Одобрен']) ?>
+
     <?= $form->field($model, 'content')->widget(CKEditor::className(), [
 
   'editorOptions' => ElFinder::ckeditorOptions('elfinder',[

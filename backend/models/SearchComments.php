@@ -19,7 +19,7 @@ class SearchComments extends Comments
     {
         return [
             [['id', 'product_id', 'rating'], 'integer'],
-            [['name', 'email', 'content', 'created_at'], 'safe'],
+            [['name', 'email', 'content', 'created_at', 'status'], 'safe'],
         ];
     }
 
