@@ -76,6 +76,7 @@ class Products extends ActiveRecord
             'category_id' => Yii::t('app', 'Категории'),
             'title' => Yii::t('app', 'Титул'),
             'name' => Yii::t('app', 'Имя'),
+            'group' => Yii::t('app', 'Сопутствующие товары'),
             'description' => Yii::t('app', 'Описание сверху'),
             'description_product' => Yii::t('app', 'Характеристики'),
             'content' => Yii::t('app', 'Описание'),
@@ -83,6 +84,7 @@ class Products extends ActiveRecord
             'old_price' => Yii::t('app', 'Старая цена'),
             'created_at' => Yii::t('app', 'Создано'),
             'updated_at' => Yii::t('app', 'Отредактировано'),
+            'imageFiles' => Yii::t('app', 'Изображения товаров'),
         ];
     }
     public function getComments()

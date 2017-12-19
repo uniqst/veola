@@ -6,9 +6,9 @@ use yii\helpers\Html;
 /* @var $model frontend\models\Products */
 
 $this->title = Yii::t('app', 'Редактировать {modelClass}: ', [
-    'modelClass' => 'Products',
+    'modelClass' => 'Товары',
 ]) . $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Products'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Товары'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Обновить');
 ?>

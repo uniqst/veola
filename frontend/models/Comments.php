@@ -51,6 +51,7 @@ class Comments extends \yii\db\ActiveRecord
             'name' => 'Имя',
             'email' => 'Почта',
             'content' => 'Текст',
+            'status' => 'Статус',
             'rating' => 'Рейтинг',
             'created_at' => 'Создано',
         ];

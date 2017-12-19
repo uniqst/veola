@@ -6,8 +6,6 @@ use yii\helpers\Html;
 /* @var $model frontend\models\ExchangeRates */
 
 $this->title = 'Редактитровать курс валют: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Курс валют', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="exchange-rates-update">

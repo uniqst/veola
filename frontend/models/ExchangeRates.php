@@ -39,8 +39,8 @@ class ExchangeRates extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'grn' => 'Grn',
-            'eur' => 'Eur',
+            'grn' => 'Грн',
+            'eur' => 'Евро',
         ];
     }
 }
