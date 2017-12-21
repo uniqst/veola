@@ -218,13 +218,16 @@ textarea.materialize-textarea{
     margin-top: 0px;
 }
 
-.new-priduct{
-    position: absolute;
-    background: red;
+.product-mark{
     color: white;
+    position: absolute; 
     padding: 0 5px;
     margin: 0px;
 }
+.product-mark.new{background: red;}
+.product-mark.sale{background: #F97B15}
+.product-mark.stock{background:red;}
+.product-mark.expected{background:gray}
 
 
 .product-detail{

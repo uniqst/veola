@@ -43,7 +43,14 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
 
         <div class="product-item-index">
             <a class="img-a" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
-                <p class="new-priduct">NEW</p>
+
+                <div><!--Маркировка товара-->
+                    <p style='display:none' class="product-mark new">Новинка</p>
+                    <p style='display:none' class="product-mark sale">Распродажа</p>
+                    <p style='display:none' class="product-mark stock">Акция</p>
+                    <p class="product-mark expected">Ожидается</p>
+                </div><!--Маркировка товара-->
+                
                 <img style="width: 100%" src="/img/products/<?=$product->image->img?>">
             </a>
             <a class="priduct-title-index" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>" title="Title text text andrey text text tex">
