@@ -36,64 +36,22 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
                 <?=$model->name?>
             </h2>
             <div class="col s12 m6 l6" style="padding: 10px">
-        
-                    <a data-fancybox="gallery" href="https://kwork.ru/pics/t3/26/92930-1.jpg">
-                       <img style='width:100%' src="https://kwork.ru/pics/t3/26/92930-1.jpg">                   
+                   
+                    <a data-fancybox="gallery" href="/img/products/<?=$model->photo[0]->img?>">
+                       <img style='width:100%' src="/img/products/<?=$model->photo[0]->img?>">                   
                     </a>
 
                     <div class="row product-img-small">
+                    <?php $slice = array_slice($model->photo, 1)?>
+                    <?php foreach($slice as $image):?>
                         <div class="col s4 m4">
-                            <a data-fancybox="gallery" href="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">
-                                <img style='width:100%' src="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">                   
-                            </a>
-                        </div>
-                        <div class="col s4 m4">
-                            <a data-fancybox="gallery" href="https://kwork.ru/pics/t3/26/92930-1.jpg">
-                            <img style='width:100%' src="https://kwork.ru/pics/t3/26/92930-1.jpg">                   
+                            <a data-fancybox="gallery" href="/img/products/<?=$image->img?>">
+                                <img style='width:100%' src="/img/products/<?=$image->img?>">                   
                             </a>
                         </div>
 
-                        <div class="col s4 m4">
-                            <a data-fancybox="gallery" href="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">
-                            <img style='width:100%' src="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">                   
-                            </a>
-                        </div>
-
-                        <div class="col s4 m4">
-                            <a data-fancybox="gallery" href="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">
-                            <img style='width:100%' src="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">                   
-                            </a>
-                        </div>
-
-                        <div class="col s4 m4">
-                            <a data-fancybox="gallery" href="https://kwork.ru/pics/t3/26/92930-1.jpg">
-                            <img style='width:100%' src="https://kwork.ru/pics/t3/26/92930-1.jpg">                   
-                            </a>
-                        </div>
-
-                        <div class="col s4 m4">
-                            <a data-fancybox="gallery" href="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">
-                            <img style='width:100%' src="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">                   
-                            </a>
-                        </div>
-
-                        <div class="col s4 m4">
-                            <a data-fancybox="gallery" href="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">
-                            <img style='width:100%' src="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">                   
-                            </a>
-                        </div>
-
-                        <div class="col s4 m4">
-                            <a data-fancybox="gallery" href="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">
-                            <img style='width:100%' src="https://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/gomer_simpson_homer_simpson-multfilmy-simpsony_the_simpsons-24399.jpg">                   
-                            </a>
-                        </div>
-
-                        <div class="col s4 m4">
-                            <a data-fancybox="gallery" href="https://kwork.ru/pics/t3/26/92930-1.jpg">
-                            <img style='width:100%' src="https://kwork.ru/pics/t3/26/92930-1.jpg">                   
-                            </a>
-                        </div>
+                    <?php endforeach;?>
+                        
 
                     </div><!--row-->
             </div><!--col s12 m6 l6-->

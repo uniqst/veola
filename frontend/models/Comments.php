@@ -31,7 +31,7 @@ class Comments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'name', 'email', 'content'], 'required'],
+            [['product_id', 'name', 'email', 'content', 'rating'], 'required'],
             [['product_id'], 'integer'],
             [['created_at'], 'safe'],
             [['status'], 'boolean'],

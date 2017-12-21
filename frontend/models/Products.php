@@ -57,7 +57,7 @@ class Products extends ActiveRecord
     {
         return [
             [['title', 'name', 'description', 'description_product', 'content', 'price', 'category_id'], 'required'],
-            [['price', 'old_price', 'category_id'], 'integer'],
+            [['price', 'old_price', 'category_id', 'status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['title', 'name', 'group'], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'maxFiles' => 9],
@@ -77,6 +77,7 @@ class Products extends ActiveRecord
             'title' => Yii::t('app', 'Титул'),
             'name' => Yii::t('app', 'Имя'),
             'group' => Yii::t('app', 'Сопутствующие товары'),
+            'status' => Yii::t('app', 'Статус'),
             'description' => Yii::t('app', 'Описание сверху'),
             'description_product' => Yii::t('app', 'Характеристики'),
             'content' => Yii::t('app', 'Описание'),
