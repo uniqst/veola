@@ -52,6 +52,12 @@ class Order extends ActiveRecord
     {
         return [
             'name' => Yii::t('app', 'Имя'),
+            'created_at' => Yii::t('app', 'Создан'),
+            'updated_at' => Yii::t('app', 'Редактирован'),
+            'qty' => Yii::t('app', 'Количество'),
+            'sum' => Yii::t('app', 'Сумма'),
+            'status' => Yii::t('app', 'Статус'),
+            'pay' => Yii::t('app', 'Оплата'),
             'email' => Yii::t('app', 'E-mail'),
             'phone' => Yii::t('app', 'Телефон'),
             'address' => Yii::t('app', 'Адрес'),
