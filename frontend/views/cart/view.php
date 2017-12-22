@@ -6,7 +6,7 @@ use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 ?>
 
-<div class="container">
+<div class="container" style='padding-bottom: 15px;'>
 	<?php if(!$_GET['step']):?>
 	<?php if(Yii::$app->session->hasFlash('success') ): ?>
 	<div class="alert alert-succes alert-dismissble" role="alert">
@@ -21,7 +21,7 @@ use yii\widgets\Pjax;
 	<?php endif;?>		
 
 	<?php if(!empty($session['cart'])): ?>
-	<div class="table-responsive">
+	<div class="table-responsive" style='min-height: 75vh;'>
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr>
@@ -56,7 +56,7 @@ use yii\widgets\Pjax;
 		</table>
 
 				
-	<a href="<?= Url::to(['/cart/view', 'step' => 'step2'])?>">Продолжить</a>	
+	<a class="button" href="<?= Url::to(['/cart/view', 'step' => 'step2'])?>">Продолжить</a>	
 <?php else:?>
 	<h3>Kорзина пуста</h3>
 <?php endif;?>
@@ -75,7 +75,7 @@ use yii\widgets\Pjax;
 <br>
 "Автолюкс"<br>
 </p>
-<a href="<?= Url::to(['/cart/view', 'step' => 'step3'])?>">Продолжить</a>	
+<a class="button" href="<?= Url::to(['/cart/view', 'step' => 'step3'])?>">Продолжить</a>	
 <?php elseif($_GET['step'] == 'step3'):?>
 	<?php if(Yii::$app->session->hasFlash('success') ): ?>
 	<div class="alert alert-succes alert-dismissble" role="alert">

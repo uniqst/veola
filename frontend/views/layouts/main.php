@@ -92,7 +92,7 @@ AppAsset::register($this);
                 <li><a class="active" href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
-                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Инструкции 🠻</a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     <ul id='dropdown1' class='dropdown-content'>
                         <?php foreach($inst as $i):?>
                         <li><a href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
@@ -108,7 +108,7 @@ AppAsset::register($this);
                 }
             </style>
             
-            <a style="float:right;" class="dropdown-button money-select-btn" href="#!" data-activates="dropdown2">UAH ₴ 🠻</a>
+            <a style="float:right;" class="dropdown-button money-select-btn" href="#!" data-activates="dropdown2">UAH ₴ <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 
                 <ul id='dropdown2' class='dropdown-content money-select-dropdown' style="float: right; padding: 15px;">
                     <li class="rates btn <?php if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])) echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/site/exchange', 'rate' => 'grn'])?>">UAH ₴</a></li>
