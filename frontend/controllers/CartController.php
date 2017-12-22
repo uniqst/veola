@@ -68,13 +68,12 @@ class CartController extends Controller
             $order->sum = $session['cart.sum'];
             if($order->save()){
                 $this->saveOrderItems($session['cart'], $order->id);
-                Yii::$app->session->setFlash('success', 'Ваш заказ принят.');
+               
                 $session->remove('cart');
                 $session->remove('cart.qty');
                 $session->remove('cart.sum');
                 // return $this->refresh();
-            }else{
-                Yii::$app->session->setFlash('error', 'Ошибка оформления заказа');
+                return $this->redirect(['/cart/pay', 'id' => $order->id]);
             }
         }
         return $this->render('view', compact('session', 'order'));
@@ -92,12 +91,19 @@ class CartController extends Controller
             $private_key 
             , 1 ));
             $data = json_decode(base64_decode(Yii::$app->request->post('data')), true);
-           
+            $model = Order::findOne($data['dae']);
+            $model->pay = 1;
+            $model->save();           
                
             
         return $this->render('callback', compact('data'));
     }
 
+    public function actionPay($id)
+    {
+        $model = Order::findOne($id);
+        return $this->render('pay', compact('model'));
+    }
     protected function saveOrderItems($items, $order_id){
         foreach($items as $id => $item){
             $order_items = new OrderItems();

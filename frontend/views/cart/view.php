@@ -5,14 +5,9 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 ?>
-<form>
-<ul class="stepper parallel horizontal">
-  <li class="step active">
-	<div class="step-title waves-effect waves-dark">Step 1</div>
-	<div class="step-content">
-	  <div class="row">
-		<div class='form-field col s12'>
-		<div class="container">
+
+<div class="container">
+	<?php if(!$_GET['step']):?>
 	<?php if(Yii::$app->session->hasFlash('success') ): ?>
 	<div class="alert alert-succes alert-dismissble" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -27,7 +22,6 @@ use yii\widgets\Pjax;
 
 	<?php if(!empty($session['cart'])): ?>
 	<div class="table-responsive">
-	<?php Pjax::begin()?>
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr>
@@ -60,63 +54,29 @@ use yii\widgets\Pjax;
 				</tr>	
 			</tbody>
 		</table>
-		<?php Pjax::end()?>		
+
+				
+	<a href="<?= Url::to(['/cart/view', 'step' => 'step2'])?>">Продолжить</a>	
 <?php else:?>
 	<h3>Kорзина пуста</h3>
 <?php endif;?>
-</div>
-		</div>
-	  </div>
-	  <div>
-		<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
-		<button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-	  </div>
-	</div>
-  </li>
-  <li class="step">
-	<div class="step-title waves-effect waves-dark">Step 2</div>
-	<div class="step-content">
-	  <div class="row">
-		<div class='form-field col s12'>
-		<?php $form = ActiveForm::begin()?>
-	<?= $form->field($order, 'name')?>
-	<?= $form->field($order, 'email')?>
-	<?= $form->field($order, 'phone')?>
-	<?= $form->field($order, 'address')?>
-	<?= Html::submitbutton('Заказать', ['class' => 'btn btn-success pay'])?>
-	<?php $form = ActiveForm::end()?>
-	<?= $html;?>			
-		  <div class="input-field col s12">
-			<input type="text" name="textfield" class="required validate"/>
-			<label for="textfield">Random textfield</label>
-		  </div>
-		</div>
-	  </div>
-	  <div class="step-actions">
-		<button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-		<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
-	  </div>
-	</div>
-  </li>
-  <li class="step">
-	<div class="step-title waves-effect waves-dark">Step 4</div>
-	<div class="step-content">
-	  <div class="row">
-		<div class='form-field'>
-		  <p>Submit phase</p>
-		</div>
-	  </div>
-	  <div class="step-actions">
-		<input type="submit" class="waves-effect waves-dark btn next-step" value="SUBMIT"/>
-		<button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
-	  </div>
-	</div>
-  </li>
-</ul>
-</form>
-
-
-<!-- <div class="container">
+<?php elseif($_GET['step'] == 'step2'):?>
+	<H1>Доставка</H1>
+	<p>
+По Украине-службами доставки<br>
+<br>
+Стоимость доставки согласно тарифов перевозчика.<br>
+<br>
+Возможна доставка следующими перевозчиками:<br>
+<br>
+"Новая почта"<br>
+<br>
+"Ин-тайм"<br>
+<br>
+"Автолюкс"<br>
+</p>
+<a href="<?= Url::to(['/cart/view', 'step' => 'step3'])?>">Продолжить</a>	
+<?php elseif($_GET['step'] == 'step3'):?>
 	<?php if(Yii::$app->session->hasFlash('success') ): ?>
 	<div class="alert alert-succes alert-dismissble" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -129,7 +89,7 @@ use yii\widgets\Pjax;
 		</div>
 	<?php endif;?>		
 
-	<?php if(!empty($session['cart'])): ?>
+
 	<div class="table-responsive">
 	<?php Pjax::begin()?>
 		<table class="table table-hover table-striped">
@@ -165,7 +125,7 @@ use yii\widgets\Pjax;
 			</tbody>
 		</table>
 		<?php Pjax::end()?>
-		<?php $liqpay = new LiqPay('i41459134084' , '6x9lAfTxUNcu0YbKyOePa0M1a3m4RUgDfs7gndDq');
+		<!-- <?php $liqpay = new LiqPay('i41459134084' , '6x9lAfTxUNcu0YbKyOePa0M1a3m4RUgDfs7gndDq');
 $html = $liqpay->cnb_form(array(
 'action'         => 'pay',
 'amount'         => $session['cart.sum'],
@@ -176,7 +136,7 @@ $html = $liqpay->cnb_form(array(
 'version'        => '3',
 'dae'	 => json_encode($session['cart'])
 
-));?>
+));?> -->
 	</div>
 	<hr/>
 	<?php $form = ActiveForm::begin()?>
@@ -186,8 +146,5 @@ $html = $liqpay->cnb_form(array(
 	<?= $form->field($order, 'address')?>
 	<?= Html::submitbutton('Заказать', ['class' => 'btn btn-success pay'])?>
 	<?php $form = ActiveForm::end()?>
-	<?= $html;?>			
-<?php else:?>
-	<h3>Kорзина пуста</h3>
 <?php endif;?>
-</div> -->
+</div>
