@@ -6,5 +6,5 @@ use yii\helpers\Url;
     <h2>Сумма: <?= $data['amount']?> грн.</h2>
     
 <?php else:?>
-    <<h1>Это фиаско братан</h1>  
+    <<h1>Ошибка</h1>  
 <?php endif;?>
