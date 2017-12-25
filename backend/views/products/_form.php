@@ -45,7 +45,14 @@ $data = ArrayHelper::map($category,'id' , 'name');
         $data
         ); ?>
 
-    <?= $form->field($model, 'description')->textArea(['maxlength' => true]) ?>
+    <?= $form->field($model, 'description')->widget(CKEditor::className(), [
+
+'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+      'preset' => 'full',
+      'inline' => false,
+  ]),
+
+]);?>
 
     <?= $form->field($model, 'description_product')->widget(CKEditor::className(), [
 
