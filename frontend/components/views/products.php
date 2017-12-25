@@ -68,7 +68,7 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
             <div class="clearfix"></div>
 
             <p class="product-discription-index">
-               <?=$product->description_product?>
+               <?=$product->content?>
             </p>
 
             <div class="clearfix"></div>

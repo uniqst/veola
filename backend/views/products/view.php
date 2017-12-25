@@ -59,6 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => 'html'
             ],
+            'content',
             'old_price',
             'created_at',
             'updated_at',

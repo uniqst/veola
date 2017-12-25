@@ -63,6 +63,8 @@ $data = ArrayHelper::map($category,'id' , 'name');
 
   ]);?>
 
+    <?= $form->field($model, 'content')->textArea(['maxlength' => true]) ?>  
+
     <?= $form->field($model, 'price')->textInput() ?>
 
     <?= $form->field($model, 'old_price')->textInput() ?>

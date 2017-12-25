@@ -56,7 +56,7 @@ class Products extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'name', 'description', 'description_product', 'price', 'category_id'], 'required'],
+            [['title', 'name', 'description', 'description_product', 'content' 'price', 'category_id'], 'required'],
             [['category_id', 'status'], 'integer'],
             [['price', 'old_price'], 'number'],
             [['created_at', 'updated_at'], 'safe'],
@@ -80,6 +80,7 @@ class Products extends ActiveRecord
             'status' => Yii::t('app', 'Статус'),
             'description' => Yii::t('app', 'Описание сверху'),
             'description_product' => Yii::t('app', 'Характеристики'),
+            'content' => Yii::t('app', 'Краткое описание'),
             'price' => Yii::t('app', 'Цена'),
             'old_price' => Yii::t('app', 'Старая цена'),
             'created_at' => Yii::t('app', 'Создано'),
