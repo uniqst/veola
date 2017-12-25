@@ -64,6 +64,8 @@ class SearchProducts extends Products
             'old_price' => $this->old_price,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'group' => $this->group,
+            'status' => $this->status,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
@@ -71,6 +73,8 @@ class SearchProducts extends Products
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'description_product', $this->description_product])
             ->andFilterWhere(['like', 'content', $this->content]);
+            ->andFilterWhere(['like', 'group', $this->group]);
+            ->andFilterWhere(['like', 'status', $this->status]);
 
         return $dataProvider;
     }
