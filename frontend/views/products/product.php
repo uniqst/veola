@@ -26,7 +26,7 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
         <div class="row">
 
             <h2 class="title-h2" style="color:#000;">
-                Купить <?= $model->name?>
+                Купить <?= $model->category->name?>
             </h2>
 
             <p class="text-box">
