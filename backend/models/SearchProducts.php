@@ -18,8 +18,8 @@ class SearchProducts extends Products
     public function rules()
     {
         return [
-            [['id', 'price', 'old_price'], 'integer'],
-            [['title', 'name', 'description', 'description_product', 'content', 'created_at', 'updated_at'], 'safe'],
+            [['id', 'price', 'old_price', 'status'], 'integer'],
+            [['title', 'name', 'description', 'description_product', 'content', 'created_at', 'group', 'updated_at'], 'safe'],
         ];
     }
 
