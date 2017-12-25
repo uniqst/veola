@@ -63,14 +63,6 @@ $data = ArrayHelper::map($category,'id' , 'name');
 
   ]);?>
 
-    <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-
-  'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
-        'preset' => 'full',
-        'inline' => false,
-    ])
-  ]);?>
-
     <?= $form->field($model, 'price')->textInput() ?>
 
     <?= $form->field($model, 'old_price')->textInput() ?>

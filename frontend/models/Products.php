@@ -57,7 +57,8 @@ class Products extends ActiveRecord
     {
         return [
             [['title', 'name', 'description', 'description_product', 'price', 'category_id'], 'required'],
-            [['price', 'old_price', 'category_id', 'status'], 'integer'],
+            [['category_id', 'status'], 'integer'],
+            [['price', 'old_price'], 'number'],
             [['created_at', 'updated_at'], 'safe'],
             [['title', 'name', 'group'], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'maxFiles' => 10],
