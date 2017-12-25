@@ -19,7 +19,7 @@ class SearchProducts extends Products
     {
         return [
             [['id', 'price', 'old_price'], 'integer'],
-            [['title', 'name', 'description', 'status', 'group', 'description_product', 'content', 'created_at', 'updated_at'], 'safe'],
+            [['title', 'name', 'description', 'status', 'group', 'category_id', 'description_product', 'content', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
