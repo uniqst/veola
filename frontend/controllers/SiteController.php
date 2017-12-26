@@ -74,7 +74,7 @@ class SiteController extends Controller
         $rates->open();   
         echo Yii::$app->session['rates'] = $rate;
 
-        // return $this->redirect(Yii::$app->request->referrer);
+         return $this->redirect(Yii::$app->request->referrer);
     }
     /**
      * Displays homepage.
