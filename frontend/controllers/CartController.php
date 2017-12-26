@@ -7,6 +7,7 @@ use frontend\models\Products;
 use frontend\models\Cart;
 use frontend\models\Order;
 use frontend\models\OrderItems;
+use frontend\models\ExchangeRates;
 
 
 /**
@@ -53,13 +54,15 @@ class CartController extends Controller
     }
 
     public function actionShow(){
+        $model = ExchangeRates::findOne(1);
         $session =Yii::$app->session;
         $session->open();
         $this->layout = false;
-        return $this->render('cart-modal', compact('session'));
+        return $this->render('cart-modal', compact('session', 'model'));
     }
 
     public function actionView(){
+        $model = ExchangeRates::findOne(1);
         $session =Yii::$app->session;
         $session->open();
         $order = new Order();
@@ -89,7 +92,7 @@ class CartController extends Controller
                 return $this->redirect(['/cart/pay', 'id' => $order->id]);
             }
         }
-        return $this->render('view', compact('session', 'order'));
+        return $this->render('view', compact('session', 'order', 'model'));
     }
 
     public function beforeAction($action) {
@@ -114,8 +117,9 @@ class CartController extends Controller
 
     public function actionPay($id)
     {
+        $rates = ExchangeRates::findOne(1);
         $model = Order::findOne($id);
-        return $this->render('pay', compact('model'));
+        return $this->render('pay', compact('model', 'rates'));
     }
     protected function saveOrderItems($items, $order_id){
         foreach($items as $id => $item){

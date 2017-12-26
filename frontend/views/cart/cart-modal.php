@@ -16,7 +16,7 @@
                     <td><img src="/img/products/<?= $item['img']?>" width="50px"></td>
                     <td><?= $item['name']?></td>
                     <td><?= $item['qty']?></td>
-                    <td><?= $item['price']?></td>
+                    <td><?= $item['price'] * $model->grn?></td>
                     <td><span data-id="<?= $id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></td>
                 </tr>
             <?php endforeach?>
@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <td colspan="4">На сумму:</td>
-                <td><?= $session['cart.sum']?></td>
+                <td><?= $session['cart.sum'] * $model->grn?></td>
             </tr>
             </tbody>
         </table>

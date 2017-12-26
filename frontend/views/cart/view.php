@@ -39,8 +39,8 @@ use yii\widgets\Pjax;
                     <td><a href="<?= Url::to(['/products/product', 'id' => $id])?>"><img src="/img/products/<?= $item['img']?>" width="100px"></a></td>
 					<td><a href="<?= Url::to(['/products/product', 'id' => $id])?>"><?= $item['name']?></a></td>
 					<td><?= $item['qty']?></td>
-					<td><?= $item['price']?></td>
-					<td><?= $item['qty'] * $item['price']?></td>
+					<td><?= $item['price'] * $model->grn?></td>
+					<td><?= $item['qty'] * $item['price'] * $model->grn?></td>
 					<td><span data-id="<?= $id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></td>
 				</tr>	
 			<?php endforeach?>
@@ -50,7 +50,7 @@ use yii\widgets\Pjax;
 				</tr>
 				<tr>
 					<td colspan="4">На сумму:</td>
-					<td><?= $session['cart.sum']?></td>
+					<td><?= $session['cart.sum'] * $model->grn?></td>
 				</tr>	
 			</tbody>
 		</table>
@@ -109,8 +109,8 @@ use yii\widgets\Pjax;
                     <td><a href="<?= Url::to(['/products/product', 'id' => $id])?>"><img src="/img/products/<?= $item['img']?>" width="100px"></a></td>
 					<td><a href="<?= Url::to(['/products/product', 'id' => $id])?>"><?= $item['name']?></a></td>
 					<td><?= $item['qty']?></td>
-					<td><?= $item['price']?></td>
-					<td><?= $item['qty'] * $item['price']?></td>
+					<td><?= $item['price'] * $model->grn?></td>
+					<td><?= $item['qty'] * $item['price'] * $model->grn?></td>
 					<td><span data-id="<?= $id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></td>
 				</tr>	
 			<?php endforeach?>
@@ -120,7 +120,7 @@ use yii\widgets\Pjax;
 				</tr>
 				<tr>
 					<td colspan="4">На сумму:</td>
-					<td><?= $session['cart.sum']?></td>
+					<td><?= $session['cart.sum'] * $model->grn?></td>
 				</tr>	
 			</tbody>
 		</table>
@@ -128,7 +128,7 @@ use yii\widgets\Pjax;
 		<!-- <?php $liqpay = new LiqPay('i41459134084' , '6x9lAfTxUNcu0YbKyOePa0M1a3m4RUgDfs7gndDq');
 $html = $liqpay->cnb_form(array(
 'action'         => 'pay',
-'amount'         => $session['cart.sum'],
+'amount'         => $session['cart.sum'] * $model->grn,
 'currency'       => 'UAH',
 'sandbox'		 => '1',
 'description'    => 'Оплата заказа',
