@@ -21,6 +21,6 @@ $html = $liqpay->cnb_form(array(
 
 <?= $html?>
 
-<a href="<?= Url::to('/')?>">Вернутся на главную</a>
+<a class="button" href="<?= Url::to('/')?>">Вернутся на главную</a>
 </div>
 </div>
