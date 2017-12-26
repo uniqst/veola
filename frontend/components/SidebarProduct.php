@@ -20,7 +20,7 @@ Class SidebarProduct extends Widget{
                 ->all();
                 
         }else{
-            $products = Products::find()->limit(5)->with('image')->all();
+            $products = Products::find()->orderBy(['created_at' => SORT_DESC])->limit(5)->with('image')->all();
         }
         return $this->render('sidebar-product', compact('products'));
     }
