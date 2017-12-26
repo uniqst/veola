@@ -13,7 +13,6 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use frontend\models\Instructions;
 $inst = Instructions::find()->all();
-
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -71,7 +70,7 @@ AppAsset::register($this);
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
                 <li>
-                123
+                
                 <form>
                 <select>
                     <option value="grn">Гривна</option>
@@ -136,6 +135,17 @@ AppAsset::register($this);
     </div>
 
     <footer>
+<!--LiveInternet counter--><script type="text/javascript">
+document.write("<a href='//www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t11.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";h"+escape(document.title.substring(0,150))+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров за 24"+
+" часа, посетителей за 24 часа и за сегодня' "+
+"border='0' width='88' height='31'><\/a>")
+</script><!--/LiveInternet-->
 
 <?php
 Modal::begin([
