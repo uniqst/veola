@@ -7,7 +7,7 @@ use yii\helpers\Url;
 
 <div class="container text-center" >
 <div style="position:relative ; margin:auto">
-<?php $liqpay = new LiqPay('i41459134084' , '6x9lAfTxUNcu0YbKyOePa0M1a3m4RUgDfs7gndDq');
+<?php $liqpay = new LiqPay('i77978940624' , 'sD3DUo5GZsE61vfUnuQTOfWQmcNqab1L8Bb8F3T6');
 $html = $liqpay->cnb_form(array(
 'action'         => 'pay',
 'amount'         => $model->sum * $rates->grn,
