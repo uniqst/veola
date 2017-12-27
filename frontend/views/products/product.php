@@ -4,7 +4,7 @@ use yii\helpers\Url;
 $this->title = $model->title;
 $r = ExchangeRates::findOne(1);
 if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
-    $rates = $r->grn;
+    $rates = round($r->grn, 0);
     $ex = 'грн';
 }elseif(Yii::$app->session['rates'] == 'eur'){
     $rates = $r->eur;
