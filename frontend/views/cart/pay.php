@@ -10,7 +10,7 @@ use yii\helpers\Url;
 <?php $liqpay = new LiqPay('i77978940624' , 'sD3DUo5GZsE61vfUnuQTOfWQmcNqab1L8Bb8F3T6');
 $html = $liqpay->cnb_form(array(
 'action'         => 'pay',
-'amount'         => $model->sum * $rates->grn,
+'amount'         => round($model->sum * $rates->grn, 0),
 'currency'       => 'UAH',
 'sandbox'		 => '1',
 'description'    => 'Оплата заказа',
