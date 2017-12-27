@@ -157,7 +157,6 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                    background
                 }
             </style>
-            
             <a style="float:right;" class="dropdown-button money-select-btn" href="#!" data-activates="dropdown2">
             <?php if(Yii::$app->session['rates'] == 'grn' or Yii::$app->session['rates'] == ''):?>UAH ₴
             <?php elseif(Yii::$app->session['rates'] == 'usd'):?>USD $
