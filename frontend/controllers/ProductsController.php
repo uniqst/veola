@@ -95,4 +95,9 @@ class ProductsController extends Controller
         return $this->render('product', compact('model', 'id', 'sum', 'group'));
     }
 
+    public function actionSearch()
+    {
+        return $this->render('search');
+    }
+
 }

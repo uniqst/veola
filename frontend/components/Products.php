@@ -35,6 +35,7 @@ Class Products extends Widget{
 
 
         $query = Product::find()
+            ->andFilterWhere(['like', 'products.name', $_GET['name']])
             ->select([
                 'products.*', // получить все атрибуты покупателя
                 'ceil(SUM(comments.rating) / COUNT(comments.rating) / 0.5) * 0.5 AS rating' // вычислить количество заказов
