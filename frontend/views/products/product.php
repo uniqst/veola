@@ -59,7 +59,7 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
                 <p class="price-index">
                     <span style="color: black">Цена:</span> <?=$model->price * $rates . ' ' . $ex?><br>
                     <span style="font-size: 14px" class="old-price-index">
-                    <?php if($product->old_price == 0):?>
+                    <?php if($model->old_price == 0):?>
                     <?php else:?>
                     Старая цена: <span class="crossed"><?=$model->old_price * $rates . ' ' . $ex?></span></span>
                 </p>
