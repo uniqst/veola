@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Contacts */
 
-$this->title = 'Update Contacts: ' . $model->id;
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Редактировать Контакты: ' . $model->id;
+$this->params['breadcrumbs'][] = 'Обновить';
 ?>
 <div class="contacts-update">
 

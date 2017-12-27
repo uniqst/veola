@@ -39,8 +39,8 @@ class Contacts extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'phone' => 'Phone',
-            'email' => 'Email',
+            'phone' => 'Телефон',
+            'email' => 'Почта',
         ];
     }
 }
