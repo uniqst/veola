@@ -93,17 +93,52 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
 
             </ul>
             <ul style="margin-left: 170px" class="hide-on-med-and-down">
-                <li><a class="active" href="<?=Url::to(['/'])?>">Главная</a></li>
-                <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
-                <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
-                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
+                <li><a
+                <?php if(Yii::$app->controller->id == 'site'):?> 
+                class="active"
+                <?php endif;?>
+                href="<?=Url::to(['/'])?>">Главная</a></li>
+                <li><a 
+                
+                <?php if(Yii::$app->controller->id == 'products'):?> 
+                class="active"
+                <?php endif;?>
+
+                href="<?=Url::to(['/products'])?>">Товары</a></li>
+                <li><a
+                
+                <?php if(Yii::$app->controller->id == 'where-buy'):?> 
+                class="active"
+                <?php endif;?>
+
+                 href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
+                <li><a 
+                
+                class="dropdown-button 
+                
+                <?php if(Yii::$app->controller->id == 'instructions'):?> 
+                active
+                <?php endif;?>
+                " href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     <ul id='dropdown1' class='dropdown-content'>
                         <?php foreach($inst as $i):?>
                         <li><a href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
                         <?php endforeach;?>
                     </ul>
-                <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
-                <li><a href="#" onclick="return getCart()">Корзина</a></li>
+                <li><a 
+                
+                <?php if(Yii::$app->controller->id == 'guarantees'):?> 
+                class="active"
+                <?php endif;?>
+                
+                href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
+                <li><a 
+                
+                <?php if(Yii::$app->controller->id == 'cart'):?> 
+                class="active"
+                <?php endif;?>
+
+                href="#" onclick="return getCart()">Корзина</a></li>
              
             </ul>
             <style>
