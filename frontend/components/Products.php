@@ -47,7 +47,7 @@ Class Products extends Widget{
         // делаем копию выборки
         $countQuery = clone $query;
         // подключаем класс Pagination, выводим по 10 пунктов на страницу
-        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 1]);
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 15]);
         // приводим параметры в ссылке к ЧПУ
         $pages->pageSizeParam = false;
         $model = $query->offset($pages->offset)
