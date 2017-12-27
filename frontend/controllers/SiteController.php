@@ -70,11 +70,12 @@ class SiteController extends Controller
     
     public function actionExchange($rate)
     {
+
         $rates = new Session;
         $rates->open();   
-        echo Yii::$app->session['rates'] = $rate;
+        Yii::$app->session['rates'] = $rate;
 
-         return $this->redirect(Yii::$app->request->referrer);
+        return $this->redirect(Yii::$app->request->referrer);
     }
     /**
      * Displays homepage.

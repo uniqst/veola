@@ -23,7 +23,7 @@
 
         <form class="filter-form">
             <div class="row">
-                
+                <input type="hidden" name="id" value="<?=$_GET['id']?>" >
             <p class="filter-p col m7 s12" style="padding: 0px">
                 <span>
                 Сортировка:

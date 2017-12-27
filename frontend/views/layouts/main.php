@@ -5,6 +5,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use Yii;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\bootstrap\Modal;
@@ -14,7 +15,12 @@ use common\widgets\Alert;
 use frontend\models\Instructions;
 $inst = Instructions::find()->all();
 AppAsset::register($this);
+if($_GET['rate']){
+$_SESSION['rates'] = $_GET['rate'];
+header("Location: ".$_SERVER['HTTP_REFERER']);
+}
 ?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -99,7 +105,6 @@ AppAsset::register($this);
                     </ul>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
-                <?= Yii::$app->session['rates']?>
              
             </ul>
             <style>
@@ -108,17 +113,17 @@ AppAsset::register($this);
                 }
             </style>
             
-            <a style="float:right;" class="dropdown-button money-select-btn" href="#!" data-activates="dropdown2"><?php if(Yii::$app->session['rates'] == 'grn' or Yii::$app->session['rates'] == ''):?>
-            UAH ₴
+            <a style="float:right;" class="dropdown-button money-select-btn" href="#!" data-activates="dropdown2">
+            <?php if(Yii::$app->session['rates'] == 'grn' or Yii::$app->session['rates'] == ''):?>UAH ₴
             <?php elseif(Yii::$app->session['rates'] == 'usd'):?>USD $
             <?php elseif(Yii::$app->session['rates'] == 'eur'):?>EUR €
             <?php endif;?>
-             <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 
                 <ul id='dropdown2' class='dropdown-content money-select-dropdown' style="float: right; padding: 15px;">
-                    <li class="rates btn <?php if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])) echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/site/exchange', 'rate' => 'grn'])?>">UAH ₴</a></li>
-                    <li class="rates btn <?php if(Yii::$app->session['rates'] == 'usd') echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/site/exchange', 'rate' => 'usd'])?>">USD $</a></li>
-                    <li class="rates btn <?php if(Yii::$app->session['rates'] == 'eur') echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/site/exchange', 'rate' => 'eur'])?>">EUR €</a></li>
+                    <li class="rates btn <?php if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])) echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/', 'rate' => 'grn'])?>">UAH ₴</a></li>
+                    <li class="rates btn <?php if(Yii::$app->session['rates'] == 'usd') echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/', 'rate' => 'usd'])?>">USD $</a></li>
+                    <li class="rates btn <?php if(Yii::$app->session['rates'] == 'eur') echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/', 'rate' => 'eur'])?>">EUR €</a></li>
                 </ul>
 
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
