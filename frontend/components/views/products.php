@@ -4,7 +4,7 @@ use yii\widgets\LinkPager;
 use frontend\models\ExchangeRates;
 $r = ExchangeRates::findOne(1);
 if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
-    $rates = round($r->grn, 0);
+    $rates = $r->grn;
     $ex = 'грн';
 }elseif(Yii::$app->session['rates'] == 'eur'){
     $rates = $r->eur;
@@ -58,10 +58,20 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
                 <?=$product->name?>
             </a>
             <p class="price-index">
+                <?php if($ex == 'грн'):?>
+                <?=round($product->price * $rates, 0) . ' ' . $ex?><br>
+                <?php else:?>
                 <?=$product->price * $rates . ' ' . $ex?><br>
+                <?php endif;?>
                 <?php if($product->old_price == 0):?>
                 <?php else:?>
-                <span class="old-price-index">Старая цена: <span class="crossed"><?=$product->old_price* $rates . ' ' . $ex?></span></span>
+                <span class="old-price-index">Старая цена: <span class="crossed">
+                <?php if($ex == 'грн'):?>
+                <?=round($product->old_price * $rates, 0) . ' ' . $ex?><br>
+                <?php else:?>
+                <?=$product->old_price * $rates . ' ' . $ex?><br>
+                <?php endif;?>
+                </span></span>
                 <?php endif;?>
             </p>
 
