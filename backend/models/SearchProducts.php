@@ -64,13 +64,18 @@ class SearchProducts extends Products
             'old_price' => $this->old_price,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'category_id' => $this->category_id,
+            'status' => $this->status,
+            
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'description_product', $this->description_product])
-            ->andFilterWhere(['like', 'content', $this->content]);
+            ->andFilterWhere(['like', 'content', $this->content])
+            ->andFilterWhere(['like', 'category_id', $this->category_id])
+            ->andFilterWhere(['like', 'status', '%'.$this->status.'%',false]);
 
 
         return $dataProvider;
