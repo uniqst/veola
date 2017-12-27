@@ -104,5 +104,9 @@ echo LinkPager::widget([
         'prevPageLabel' => 'назад',
         'nextPageLabel' => 'вперед',
         'maxButtonCount' => 5,
+
+        'linkOptions' => ['class' => 'pag-but'],
+        'activePageCssClass' => 'pag-but-active',
+        'disabledPageCssClass' => 'pag-but-disable',
 ]);
 ?>
