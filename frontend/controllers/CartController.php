@@ -121,6 +121,13 @@ class CartController extends Controller
                 address: '.$model->address
                 );
         $message->send();
+        if($message->send()){
+            echo 'Yesh';
+            
+        }else
+        {
+            echo 'No';
+        }
 
         return $this->render('pay', compact('model', 'rates'));
     }
