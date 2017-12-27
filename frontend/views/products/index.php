@@ -40,13 +40,13 @@ use yii\helpers\Url;
 
         <div class="row">
             <?php foreach($model as $cat):?>
-            <div class="col s12 s6 m4">
+            <div class="col s12 s6 m4" style="height: 410px;">
                 <div class="product-item">
                     <a href="<?= Url::to(['/products/category', 'id' => $cat->id, 'name' => $cat->name])?>">
                         <img src="/img/category/<?= $cat->img?>">
                     </a>
-                    <a href="<?= Url::to(['/products/category', 'id' => $cat->id, 'name' => $cat->name])?>">
-                        <?= $cat->name?>
+                    <a title="<?= $cat->name?>" href="<?= Url::to(['/products/category', 'id' => $cat->id, 'name' => $cat->name])?>">
+                        <p><?= $cat->name?></p>
                     </a>
                 </div>
             </div>

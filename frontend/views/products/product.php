@@ -18,7 +18,6 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
 <div class="row">
     <div class="col l3 hide-on-med-and-down">
         <?=\frontend\components\Category::widget()?>
-
     </div>
 
     <div class="col s12 m12 l9">
