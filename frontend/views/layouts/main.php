@@ -114,15 +114,14 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                  href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
                 <li><a 
                 
-                class="dropdown-button 
-                
-                <?php if(Yii::$app->controller->id == 'instructions'):?> 
-                active
-                <?php endif;?>
-                " href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
+                class="dropdown-button <?php if(Yii::$app->controller->id == 'instructions') echo 'active'?>" href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     <ul id='dropdown1' class='dropdown-content'>
                         <?php foreach($inst as $i):?>
-                        <li><a href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
+                        <li><a 
+                        
+                        <?php if($_GET['id'] == $i->id ) echo 'class="active"';?>
+                        
+                        href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
                         <?php endforeach;?>
                     </ul>
                 <li><a 
