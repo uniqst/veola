@@ -121,7 +121,9 @@ class CartController extends Controller
                 address: '.$model->address
                 );
         $message->send();
-        print_r($message);
+        mail('zac95zua@gmail.com', 'the subject', 'the message', null,
+   'zac95zua@gmail.com');
+        
 
         return $this->render('pay', compact('model', 'rates'));
     }
