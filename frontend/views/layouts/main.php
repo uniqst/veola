@@ -12,6 +12,8 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use frontend\models\Instructions;
+use frontend\models\Pages;
+$pages = Pages::find()->all();
 $inst = Instructions::find()->all();
 AppAsset::register($this);
 if($_GET['rate']){
@@ -74,6 +76,9 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 </li>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
+                <?php foreach($pages as $page):?>
+                <li><a href="<?=Url::to(['/pages', 'alias' => $page->alias])?>"><?= $page->name?></a></li>
+                <?php endforeach;?>
                 <li>
                 
                 <form>
@@ -124,6 +129,9 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                         href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
                         <?php endforeach;?>
                     </ul>
+                <?php foreach($pages as $page):?>
+                <li><a href="<?=Url::to(['/pages', 'alias' => $page->alias])?>"><?= $page->name?></a></li>
+                <?php endforeach;?>    
                 <li><a 
                 
                 <?php if(Yii::$app->controller->id == 'guarantees'):?> 
@@ -138,6 +146,8 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 <?php endif;?>
 
                 href="#" onclick="return getCart()">Корзина</a></li>
+
+                
              
             </ul>
             <style>
