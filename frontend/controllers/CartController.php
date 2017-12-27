@@ -70,17 +70,7 @@ class CartController extends Controller
             $order->qty = $session['cart.qty'];
             $order->sum = $session['cart.sum'];
 
-            $message = Yii::$app->mailer->compose()
-            ->setFrom($order->email)
-            ->setTo('zac95zua@gmail.com')
-            ->setSubject('Веола - новый заказ')
-            ->setTextBody('
-                name: '.$order->name.'
-                email: '.$order->email.'
-                phone: '.$order->phone.'
-                address: '.$order->address
-                );
-        $message->send();
+            
 
             if($order->save()){
                 $this->saveOrderItems($session['cart'], $order->id);
@@ -119,6 +109,19 @@ class CartController extends Controller
     {
         $rates = ExchangeRates::findOne(1);
         $model = Order::findOne($id);
+
+        $message = Yii::$app->mailer->compose()
+            ->setFrom($model->email)
+            ->setTo('zac95zua@gmail.com')
+            ->setSubject('Веола - новый заказ')
+            ->setTextBody('
+                name: '.$model->name.'
+                email: '.$model->email.'
+                phone: '.$model->phone.'
+                address: '.$model->address
+                );
+        $message->send();
+
         return $this->render('pay', compact('model', 'rates'));
     }
     protected function saveOrderItems($items, $order_id){
