@@ -155,6 +155,8 @@ textarea.materialize-textarea{
 }
 
 .next .pag-but,
+.first .pag-but,
+.last .pag-but,
 .prev .pag-but,
 .pag-but-active .pag-but:hover
 {
@@ -167,6 +169,8 @@ textarea.materialize-textarea{
     font-size: 12px;
 }
 .next .pag-but:hover,
+.first .pag-but:hover,
+.last .pag-but:hover,
 .prev .pag-but:hover,
 .pag-but-active .pag-but{
     background: #CF1F18; color: #fff!important; cursor: pointer;text-decoration: none;
@@ -185,10 +189,9 @@ textarea.materialize-textarea{
     margin: 5px;
 }
 
-.pag-but{
-    color:#666!important;
-    margin: 5px;
-}
+.pag-but{color:#666!important;margin: 5px;}
+.pag-but i,.pag-but-disable span i{font-size: 1em!important;}
+
 
 
 /*====================================================*/
