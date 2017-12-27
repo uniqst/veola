@@ -13,6 +13,8 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use frontend\models\Instructions;
 use frontend\models\Pages;
+use frontend\models\Contacts;
+$contacts = Contacts::find()->one();
 $pages = Pages::find()->all();
 $inst = Instructions::find()->all();
 AppAsset::register($this);
@@ -40,9 +42,9 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
 
     <div class="top-div">
         <p class="hide-on-med-and-down">
-            Позвонить: 099-536-24-75 e-mail:
+            Позвонить: <?= $contacts->phone?> e-mail:
             <a href="#">
-                veola12@ukr.net
+                <?= $contacts->email?>
             </a>
         </p>
     </div>
