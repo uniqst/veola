@@ -101,9 +101,11 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
 echo LinkPager::widget([
     'pagination' => $pages,
 
-        'prevPageLabel' => 'назад',
-        'nextPageLabel' => 'вперед',
-        'maxButtonCount' => 5,
+        'firstPageLabel' => 'Начало',
+        'lastPageLabel' => 'Конец',
+        'prevPageLabel' => '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+        'nextPageLabel' => '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
+        'maxButtonCount' => 7,
 
         'linkOptions' => ['class' => 'pag-but'],
         'activePageCssClass' => 'pag-but-active',
