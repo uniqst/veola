@@ -125,14 +125,17 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
                         <?php else:?>
                         <?=$product->price * $rates . ' ' . $ex?><br>
                         <?php endif;?>
-
+                            <?php if($model->old_price != 0):?>
                             <span class="old-price-index">Старая цена: <span class="crossed">
-                            <?php if($ex == 'грн'):?>
+                            
+                            <?php if($ex == 'грн'):?> 
                             <?=round($product->old_price * $rates, 0) . ' ' . $ex?>
                             <?php else:?>
                             <?=$product->old_price * $rates . ' ' . $ex?>
+                            
                             <?php endif;?>
                             </span></span>
+                            <?php endif;?>
                         </p>
                     </div>
                 </div>
