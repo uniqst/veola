@@ -82,13 +82,8 @@ class ProductsController extends Controller
     public function actionProduct($id)
     {
         $model = Products::find()->where(['id' => $id])->with(['comments', 'photo'])->one();
-<<<<<<< HEAD
-        $group = Products::find()->where(['group', explode(" ", $model->group)])->andWhere(['<>', 'id', $model->id])->all();
-
-=======
         $group = Products::find()->andWhere(['<>', 'id', $model->id])->all();
       
->>>>>>> bac8007656f2d0574f1daa45a31dea5699d4002b
         $count = count($model->comments);
         $summ = 0;
         foreach($model->comments as $s){
