@@ -99,7 +99,6 @@ class CartController extends Controller
             , 1 ));
             $data = json_decode(base64_decode(Yii::$app->request->post('data')), true);
             $model = Order::findOne($data['dae']);
-            print_r($data['dae']);
             // $model->pay = 1;
             // $model->save();           
                
