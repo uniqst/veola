@@ -32,6 +32,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'delivery')->dropDownList([ 'Новая почта' => 'Новая почта', 'Ин-тайм' => 'Ин-тайм', 'Автолюкс' => 'Автолюкс']) ?>
+
+    <?= $form->field($model, 'address_delivery')->textInput(['maxlength' => true]) ?> 
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
