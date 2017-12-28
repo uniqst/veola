@@ -144,6 +144,8 @@ $html = $liqpay->cnb_form(array(
 	<?= $form->field($order, 'email')?>
 	<?= $form->field($order, 'phone')?>
 	<?= $form->field($order, 'address')?>
+	<?= $form->field($order, 'delivery')->dropDownList([ '0' => 'Новая почта', '1' => 'Ин-тайм', '2' => 'Автолюкс']) ?>
+	<?= $form->field($order, 'address_delivery')?>
 	<?= Html::submitbutton('Заказать', ['class' => 'btn btn-success pay'])?>
 	<?php $form = ActiveForm::end()?>
 <?php endif;?>

@@ -36,12 +36,12 @@ class Order extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone', 'address'], 'required'],
+            [['name', 'email', 'phone', 'address', 'delivery', 'address_delivery'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
-            [['qty'], 'integer'],
+            [['qty', 'delivery'], 'integer'],
             [['sum'], 'number'],
             [['status', 'pay'], 'boolean'],
-            [['name', 'email', 'phone', 'address'], 'string', 'max' => 255],
+            [['name', 'email', 'phone', 'address', 'address_delivery'], 'string', 'max' => 255],
         ];
     }
 
@@ -61,6 +61,8 @@ class Order extends ActiveRecord
             'email' => Yii::t('app', 'E-mail'),
             'phone' => Yii::t('app', 'Телефон'),
             'address' => Yii::t('app', 'Адрес'),
+            'delivery' => Yii::t('app', 'Способ доставки'),
+            'address_delivery' => Yii::t('app', 'Адрес отделения'),
         ];
     }
 

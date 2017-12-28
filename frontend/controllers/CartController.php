@@ -122,7 +122,12 @@ class CartController extends Controller
                 );
         $message->send();
 
-        mail("zac95zua@gmail.com", "VEOLA - новый заказ", "Имя: $model->name". "\n" . "Почта: $model->email" . "\n" . "Телефон: $model->phone". "\n" . "Адрес: $model->address");
+        mail("zac95zua@gmail.com", "VEOLA - новый заказ", "Имя: $model->name". 
+        "\n" . "Почта: $model->email" . 
+        "\n" . "Телефон: $model->phone". 
+        "\n" . "Адрес: $model->address".
+        "\n" . "Способ доставки: $model->delivery".
+        "\n" . "Адрес отделения: $model->address_delivery");
         
 
         return $this->render('pay', compact('model', 'rates'));
