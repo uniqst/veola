@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model frontend\models\Slider */
 
 $this->title = 'Слайдер: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Sliders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Слайдеры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Редактировать';
 ?>
