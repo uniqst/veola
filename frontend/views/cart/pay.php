@@ -13,7 +13,7 @@ $html = $liqpay->cnb_form(array(
 'amount'         => $model->sum,
 'currency'       => 'UAH',
 'description'    => 'Оплата заказа',
-'result_url' 	 => 'veola/cart/callback',
+'result_url' 	 => 'veola.kiev.ua/cart/callback',
 'version'        => '3',
 'dae'            => $model->id,
 ));?>
