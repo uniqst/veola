@@ -24,7 +24,7 @@ class m171205_152345_order extends Migration
             'email' => $this->string(255)->notNull(),
             'phone' => $this->string(255)->notNull(),
             'address' => $this->string(255)->notNull(),
-            'delivery' => $this->integer(11)->notNull(),
+            'delivery' => $this->string(255)->notNull(),
             'address_delivery ' => $this->string(255)->notNull(),
         ]);
     }
