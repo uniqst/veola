@@ -8,7 +8,7 @@
             <form class="filter-form">
             <div class="row">
                 <input type="hidden" name="id" value="<?=$_GET['id']?>" >
-                <input type="hidden" name="name" value="<?=$_GET['name']?>" >
+                <input type="hidden" name="s" value="<?=$_GET['s']?>" >
             <p class="filter-p col m7 s12" style="padding: 0px">
                 <span>
                 Сортировка:
