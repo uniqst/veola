@@ -112,13 +112,7 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 <?php endif;?>
 
                 href="<?=Url::to(['/products'])?>">Товары</a></li>
-                <!-- <li><a
                 
-                <?php if(Yii::$app->controller->id == 'where-buy'):?> 
-                class="active"
-                <?php endif;?>
-
-                 href="<?=Url::to(['/where-buy'])?>">Где купить</a></li> -->
                 <li><a 
                 
                 class="dropdown-button <?php if(Yii::$app->controller->id == 'instructions') echo 'active'?>" href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
@@ -134,13 +128,7 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 <?php foreach($pages as $page):?>
                 <li><a href="<?=Url::to(['/pages', 'alias' => $page->alias])?>"><?= $page->name?></a></li>
                 <?php endforeach;?>    
-                <!-- <li><a 
                 
-                <?php if(Yii::$app->controller->id == 'guarantees'):?> 
-                class="active"
-                <?php endif;?>
-                
-                href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li> -->
                 <li><a 
                 
                 <?php if(Yii::$app->controller->id == 'cart'):?> 

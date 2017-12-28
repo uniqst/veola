@@ -1,5 +1,11 @@
 <div class="container">
-<form class="filter-form">
+    <div class="row">
+        <div class="col l3 hide-on-med-and-down">
+            <?=\frontend\components\Category::widget()?>
+        </div>
+        <div class="col s12 m12 l9">
+
+            <form class="filter-form">
             <div class="row">
                 <input type="hidden" name="id" value="<?=$_GET['id']?>" >
                 <input type="hidden" name="name" value="<?=$_GET['name']?>" >
@@ -20,4 +26,6 @@
         </form>
 <?= \frontend\components\Products::widget();?>
 
+        </div>
+    </div>
 </div>
