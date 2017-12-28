@@ -149,7 +149,7 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 <li>
                 <form>
                     <div class="input-field">
-                        <input id="search" type="search" required style='height: 20px;margin: 12px 0px;'>
+                        <input id="search" type="search" required style='height: 20px;margin: 11px 0px;'>
                         <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i class="material-icons">search</i></label>
                     </div>
                 </form>
