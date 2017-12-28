@@ -83,6 +83,7 @@ class ProductsController extends Controller
     {
         $model = Products::find()->where(['id' => $id])->with(['comments', 'photo'])->one();
         $group = Products::find()->where(['group' => explode(" ", $model->group)])->andWhere(['<>', 'id', $model->id])->all();
+        print_r(explode(" ", $model->group));
         $count = count($model->comments);
         $summ = 0;
         foreach($model->comments as $s){
