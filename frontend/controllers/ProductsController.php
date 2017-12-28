@@ -8,6 +8,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\Products;
 use frontend\models\Category;
+use frontend\models\Mainveola;
 use yii\db\Expression;
 
 /**
@@ -69,8 +70,9 @@ class ProductsController extends Controller
      */
     public function actionIndex()
     {
+        $main = Mainveola::findOne(1);
         $model = Category::find()->orderBy('position')->all();
-        return $this->render('index', compact('model'));
+        return $this->render('index', compact('model', 'main'));
     }
 
     public function actionCategory($id)
