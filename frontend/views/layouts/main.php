@@ -68,7 +68,7 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 </form>
                 </li>
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
-                <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
+                <!-- <li><a href="<?=Url::to(['/'])?>">Товары</a></li> -->
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
@@ -114,15 +114,16 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 class="active"
                 <?php endif;?>
                 href="<?=Url::to(['/'])?>">Главная</a></li>
-                <li><a 
+                <!-- <li><a 
                 
                 <?php if(Yii::$app->controller->id == 'products'):?> 
                 class="active"
                 <?php endif;?>
 
-                href="<?=Url::to(['/products'])?>">Товары</a></li>
+                href="<?=Url::to(['/products'])?>">Товары</a></li> -->
                 
-                <li><a 
+                <li>
+                <a 
                 
                 class="dropdown-button <?php if(Yii::$app->controller->id == 'instructions') echo 'active'?>" href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     <ul id='dropdown1' class='dropdown-content'>
