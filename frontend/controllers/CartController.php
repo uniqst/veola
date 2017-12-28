@@ -8,6 +8,7 @@ use frontend\models\Cart;
 use frontend\models\Order;
 use frontend\models\OrderItems;
 use frontend\models\ExchangeRates;
+use frontend\models\Contacts;
 
 
 /**
@@ -68,7 +69,7 @@ class CartController extends Controller
         $order = new Order();
         if($order->load(Yii::$app->request->post()) ){
             $order->qty = $session['cart.qty'];
-            $order->sum = $session['cart.sum'];
+            $order->sum = round($session['cart.sum'] * $model->grn, 0);
 
             
 
@@ -109,20 +110,9 @@ class CartController extends Controller
     {
         $rates = ExchangeRates::findOne(1);
         $model = Order::findOne($id);
+        $contacts = Contacts::findOne(1);
 
-        $message = Yii::$app->mailer->compose()
-            ->setFrom($model->email)
-            ->setTo('zac95zua@gmail.com')
-            ->setSubject('Веола - новый заказ')
-            ->setTextBody('
-                name: '.$model->name.'
-                email: '.$model->email.'
-                phone: '.$model->phone.'
-                address: '.$model->address
-                );
-        $message->send();
-
-        mail("zac95zua@gmail.com", "VEOLA - новый заказ", "Имя: $model->name". 
+        mail($contacts->email , "VEOLA - новый заказ", "Имя: $model->name". 
         "\n" . "Почта: $model->email" . 
         "\n" . "Телефон: $model->phone". 
         "\n" . "Адрес: $model->address");
