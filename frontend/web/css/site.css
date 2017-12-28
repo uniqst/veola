@@ -444,7 +444,8 @@ nav ul .active{
 
 .dropdown-content li:last-child a{border-bottom: none}
 
-.dropdown-content li>a:hover,.dropdown-content li>a.active{
+.dropdown-content li>a:hover,
+.dropdown-content li>a.active{
     color: #CF1F18; transition: 250ms;background: white;
 }
 
