@@ -60,9 +60,9 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
 
             <ul id="slide-out" class="side-nav">
                 <li>
-                <form>
+                <form action="<?= Url::to(['/products/search'])?>">
                     <div class="input-field">
-                        <input id="search" type="search" required style='height: 20px;margin: 12px 0px;'>
+                        <input name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 12px 0px;'>
                         <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i style='color:#666' class="material-icons">search</i></label>
                     </div>
                 </form>
@@ -147,9 +147,9 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 href="#" onclick="return getCart()">Корзина</a></li>
 
                 <li>
-                <form>
+                <form action="<?= Url::to(['/products/search'])?>">
                     <div class="input-field">
-                        <input id="search" type="search" required style='height: 20px;margin: 11px 0px;'>
+                        <input name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 11px 0px;'>
                         <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i class="material-icons">search</i></label>
                     </div>
                 </form>
