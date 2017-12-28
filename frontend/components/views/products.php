@@ -98,6 +98,9 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
 </div><!--row-->
 <?php
 // отображаем постраничную разбивку
+if(Yii::$app->controller->id != 'site'){
+
+
 echo LinkPager::widget([
     'pagination' => $pages,
 
@@ -111,4 +114,5 @@ echo LinkPager::widget([
         'activePageCssClass' => 'pag-but-active',
         'disabledPageCssClass' => 'pag-but-disable',
 ]);
+}
 ?>

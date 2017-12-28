@@ -12,6 +12,10 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use frontend\models\Instructions;
+use frontend\models\Pages;
+use frontend\models\Contacts;
+$contacts = Contacts::find()->one();
+$pages = Pages::find()->all();
 $inst = Instructions::find()->all();
 AppAsset::register($this);
 if($_GET['rate']){
@@ -38,9 +42,9 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
 
     <div class="top-div">
         <p class="hide-on-med-and-down">
-            Позвонить: 099-536-24-75 e-mail:
+            Позвонить: <?= $contacts->phone?> e-mail:
             <a href="#">
-                veola12@ukr.net
+                <?= $contacts->email?>
             </a>
         </p>
     </div>
@@ -74,6 +78,9 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 </li>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
+                <?php foreach($pages as $page):?>
+                <li><a href="<?=Url::to(['/pages', 'alias' => $page->alias])?>"><?= $page->name?></a></li>
+                <?php endforeach;?>
                 <li>
                 
                 <form>
@@ -105,33 +112,23 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 <?php endif;?>
 
                 href="<?=Url::to(['/products'])?>">Товары</a></li>
-                <li><a
                 
-                <?php if(Yii::$app->controller->id == 'where-buy'):?> 
-                class="active"
-                <?php endif;?>
-
-                 href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
                 <li><a 
                 
-                class="dropdown-button 
-                
-                <?php if(Yii::$app->controller->id == 'instructions'):?> 
-                active
-                <?php endif;?>
-                " href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
+                class="dropdown-button <?php if(Yii::$app->controller->id == 'instructions') echo 'active'?>" href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     <ul id='dropdown1' class='dropdown-content'>
                         <?php foreach($inst as $i):?>
-                        <li><a href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
+                        <li><a 
+                        
+                        <?php if($_GET['id'] == $i->id ) echo 'class="active"';?>
+                        
+                        href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
                         <?php endforeach;?>
                     </ul>
-                <li><a 
+                <?php foreach($pages as $page):?>
+                <li><a href="<?=Url::to(['/pages', 'alias' => $page->alias])?>"><?= $page->name?></a></li>
+                <?php endforeach;?>    
                 
-                <?php if(Yii::$app->controller->id == 'guarantees'):?> 
-                class="active"
-                <?php endif;?>
-                
-                href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a 
                 
                 <?php if(Yii::$app->controller->id == 'cart'):?> 
@@ -139,6 +136,8 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 <?php endif;?>
 
                 href="#" onclick="return getCart()">Корзина</a></li>
+
+                
              
             </ul>
             <style>
@@ -146,7 +145,6 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                    background
                 }
             </style>
-            
             <a style="float:right;" class="dropdown-button money-select-btn" href="#!" data-activates="dropdown2">
             <?php if(Yii::$app->session['rates'] == 'grn' or Yii::$app->session['rates'] == ''):?>UAH ₴
             <?php elseif(Yii::$app->session['rates'] == 'usd'):?>USD $

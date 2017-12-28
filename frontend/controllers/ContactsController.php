@@ -2,18 +2,22 @@
 namespace frontend\controllers;
 
 use Yii;
-use yii\db\ActiveQuery;
+use yii\base\InvalidParamException;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\models\Products;
-use frontend\models\Category;
-use yii\db\Expression;
+use common\models\LoginForm;
+use frontend\models\PasswordResetRequestForm;
+use frontend\models\ResetPasswordForm;
+use frontend\models\SignupForm;
+use frontend\models\ContactForm;
+use frontend\models\Contacts;
 
 /**
  * Site controller
  */
-class ProductsController extends Controller
+class ContactsController extends Controller
 {
     /**
      * @inheritdoc
@@ -68,36 +72,9 @@ class ProductsController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
-        $model = Category::find()->all();
-        return $this->render('index', compact('model'));
-    }
-
-    public function actionCategory($id)
-    {
-        $model = Category::findOne($id);
-        return $this->render('category', compact('model'));
-    }
-
-    public function actionProduct($id)
-    {
-        $model = Products::find()->where(['id' => $id])->with(['comments', 'photo'])->one();
-        $group = Products::find()->where(['group' => $model->group])->andWhere(['<>', 'id', $model->id])->orderBy(new Expression('rand()'))->limit(3)->all();
-        $count = count($model->comments);
-        $summ = 0;
-        foreach($model->comments as $s){
-            $summ += $s->rating;
-        }
-        if($count != 0) {
-            $c = $summ / $count;
-            $sum = ceil($c / 0.5) * 0.5;
-        }
-        return $this->render('product', compact('model', 'id', 'sum', 'group'));
-    }
-
-    public function actionSearch()
-    {
-        return $this->render('search');
+    {   
+       
+        return $this->render('index');
     }
 
 }

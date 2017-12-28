@@ -3,6 +3,9 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\helpers\ArrayHelper;
+use frontend\models\Products;
+use frontend\models\Category;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SearchProducts */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -35,7 +38,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'category_id', 
                 'value' => function($data){
                     return $data->category->name;
-                }
+                },
+                'filter' => Html::activeDropDownList($searchModel, 'category_id', ArrayHelper::map(Category::find()->asArray()->all(), 'id', 'name'), ['class' => 'form-control', 'promt' => 'Пожалуйста, выберите категорию']),
             ],
             'price',
             [
@@ -56,7 +60,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         return '<button type="button" class="btn btn-primary">Новинка</button>';
                     }
                 },
-                'format' => 'html'
+                'format' => 'html',
+                'filter'=>array("0"=>"Стандартный","1"=>"Акционный","2"=>"Распродажа","3"=>"Ожидается","4"=>"Новинка"),
             ],
             // 'content',
             // 'img',
