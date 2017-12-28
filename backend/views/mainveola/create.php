@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model frontend\models\Mainveola */
 
 $this->title = 'Create Mainveola';
-$this->params['breadcrumbs'][] = ['label' => 'Mainveolas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Главная', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mainveola-create">

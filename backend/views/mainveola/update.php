@@ -5,10 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Mainveola */
 
-$this->title = 'Update Mainveola: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Mainveolas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Редактировать Главную ' . $model->title;
+$this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="mainveola-update">
 
