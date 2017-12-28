@@ -41,6 +41,7 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
 <div class="wrap container z-depth-3" style="padding: 0;">
 
     <div class="top-div">
+      
         <p class="hide-on-med-and-down">
             Позвонить: <?= $contacts->phone?> e-mail:
             <a href="#">
@@ -58,6 +59,14 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
             <a href="<?=Url::to(['/'])?>" class="brand-logo"><img src="/img/nav-img/logo.png"></a>
 
             <ul id="slide-out" class="side-nav">
+                <li>
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required style='height: 20px;margin: 12px 0px;'>
+                        <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i style='color:#666' class="material-icons">search</i></label>
+                    </div>
+                </form>
+                </li>
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
                 <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
@@ -137,7 +146,14 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
 
                 href="#" onclick="return getCart()">Корзина</a></li>
 
-                
+                <li>
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required style='height: 20px;margin: 12px 0px;'>
+                        <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    </div>
+                </form>
+                </li>
              
             </ul>
             <style>
