@@ -69,7 +69,7 @@ class ProductsController extends Controller
      */
     public function actionIndex()
     {
-        $model = Category::find()->all();
+        $model = Category::find()->orderBy('position')->all();
         return $this->render('index', compact('model'));
     }
 

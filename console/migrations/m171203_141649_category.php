@@ -16,6 +16,7 @@ class m171203_141649_category extends Migration
             'id' => $this->primaryKey(11),
             'img' => $this->string(255)->notNull(),
             'name' => $this->string(255)->notNull(),
+            'position' => $this->integer(11),
             'description' => $this->getDb()->getSchema()->createColumnSchemaBuilder('LONGTEXT'),
 
         ]);
