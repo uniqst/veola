@@ -111,12 +111,7 @@ class CartController extends Controller
         $rates = ExchangeRates::findOne(1);
         $model = Order::findOne($id);
         $contacts = Contacts::findOne(1);
-<<<<<<< HEAD
-    
-=======
         
-
-
 
         Yii::$app->mailer->compose('order',['model' => $model])
         ->setFrom('zAC95zUA@gmail.com')
@@ -124,7 +119,6 @@ class CartController extends Controller
         ->setSubject('Тема сообщения')
         ->send();
 
->>>>>>> 9642cfe264f18b06d7620d0c0880c7b9f378354e
         // $to   = 'zAC95zUA@gmail.com';
         //     $from = 'zAC95zUA@gmail.com';
         //     $headers = "From: " . strip_tags($from) . "rn";
