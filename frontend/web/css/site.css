@@ -254,15 +254,12 @@ textarea.materialize-textarea{
     margin: 5px 10px 0 0;
     text-decoration: none;
     display: inline-block;
-
-
-    max-height: 62px;
-    overflow: hidden; /* Обрезаем все, что не помещается в область */
-    text-overflow: ellipsis; /* Добавляем многоточие  NOT WORK 0_0*/
 }
 .priduct-title-index:hover{color: #CF1F18; text-decoration: underline;transition: 500ms;}
 
-
+.priduct-title-index p{
+    overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;
+}
 .price-index{
     color: #CF1F18;
     font-family: "abelregular", Arial, sans-serif;

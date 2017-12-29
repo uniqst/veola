@@ -120,14 +120,14 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
             <div class="row">
             <?php if(!empty($model->group)):?>
             <?php foreach($group as $product):?>
-                <div class="col s12 m6 l4">
+                <div class="col s12 m6 l4" style="height:350px">
                     <div class="product-item-index">
                         <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
 <!--                            <p class="new-priduct">NEW</p>-->
                             <img style="width: 100%" src="/img/products/<?=$product->image->img?>">
                         </a>
                         <a class="priduct-title-index" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>" title="Title text text andrey text text tex">
-                            <?=$product->name?>
+                            <p><?=$product->name?></p>
                         </a>
                         <p class="price-index">
                         <?php if($ex == 'грн'):?>
