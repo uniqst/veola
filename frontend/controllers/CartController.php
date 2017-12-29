@@ -113,8 +113,8 @@ class CartController extends Controller
         $contacts = Contacts::findOne(1);
         
 
-        $to   = $model->email;
-            $from = $model->email;
+        $to   = $contacts->email;
+            $from = $contacts->email;
             $headers = "From: " . strip_tags($from) . "rn";
             $headers .= "Reply-To: ". strip_tags($from) . "rn";
             $headers .= 'name@example.com';
