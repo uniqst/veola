@@ -17,12 +17,12 @@ use yii\helpers\Url;
                 </tbody>
             </table>
         </div>
-
+<div class="block"></div>
 <div class="table-responsive">
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>Фото</th>
+                    <!-- <th>Фото</th> -->
                     <th>Наименование</th>
                     <th>Кол-во</th>
                     <th>Цена</th>
@@ -31,14 +31,19 @@ use yii\helpers\Url;
                 <tbody>
                 <?php foreach($model->orderItems as $item):?>
                     <tr>
-                        <td><a href="<?=Url::to(['http://veola.kiev.ua/products/product', 'id' => $item->id, 'name' => $item->name])?>"><img src="http://veola.kiev.ua/img/products/<?= $item->product->image->img?>" width="100px"></a></td>
-                        <td><a href="<?=Url::to(['http://veola.kiev.ua/products/product', 'id' => $item->id, 'name' => $item->name])?>"><?= $item->name?></a></td>
+                        <!-- <td><a href="http://veola.kiev.ua/products/product?id=<?= $item->id?>&name=<?=$item->name?>"><img src="http://veola.kiev.ua/img/products/<?= $item->product->image->img?>"></a></td> -->
+                        <td><a href="http://veola.kiev.ua/products/product?id=<?= $item->id?>&name=<?=$item->name?>"><?= $item->name?></a></td>
                         <td><?= $item->qty_item?></td>
-                        <td><?= $item->price?></td>
+                        <td><?= round($item->price * $rates->grn, 0)?></td>
                     </tr>
                 <?php endforeach?>
                 </tbody>
             </table>
         </div>
+        <style>
+            img{
+                width:100px;
+            }
+        </style>
 
         
