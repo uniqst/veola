@@ -65,7 +65,8 @@ Class Products extends Widget{
             ->groupBy('products.id')
             ->with('image', 'comments')->joinWith(['category' => function(yii\db\ActiveQuery $query){
             $query->andFilterWhere(['category.id' => Yii::$app->request->get('id')]);
-        }])->orderBy($sort->orders)->distinct();
+        }])->orderBy($_GET['sort'] ? $sort->orders : new \yii\db\Expression("products.status = '4' desc, products.status = '1' desc , products.status = '2' desc, products.status = '0' desc, products.status = '3' desc" ))
+        ->distinct();
         // делаем копию выборки
         $countQuery = clone $query;
         // подключаем класс Pagination, выводим по 10 пунктов на страницу
