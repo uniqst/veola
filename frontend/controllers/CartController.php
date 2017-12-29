@@ -110,12 +110,18 @@ class CartController extends Controller
     {
         $rates = ExchangeRates::findOne(1);
         $model = Order::findOne($id);
+
         $contacts = Contacts::findOne(1);
 
-        mail($contacts->email , "VEOLA - новый заказ", "Имя: $model->name". 
+        mail($contacts->email , "VEOLA - новый заказ", 
+               "Имя: $model->name". 
         "\n" . "Почта: $model->email" . 
         "\n" . "Телефон: $model->phone". 
-        "\n" . "Адрес: $model->address");
+        "\n" . "Адрес: $model->address". 
+        // "\n" . "Доставка: $model->delivery". 
+        "\n" . "Адрес отделения: $model->address_delivery".
+        "\n" . "Количество: $model->qty".  
+        "\n" . "Сумма: $model->sum");
         
 
         return $this->render('pay', compact('model', 'rates'));
