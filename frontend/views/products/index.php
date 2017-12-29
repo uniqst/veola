@@ -18,7 +18,7 @@ use yii\helpers\Url;
 
         <div class="row">
             <?php foreach($model as $cat):?>
-            <div class="col s12 s6 m4" style="height: 410px;">
+            <div class="col s6 m4" >
                 <div class="product-item">
                     <a href="<?= Url::to(['/products/category', 'id' => $cat->id, 'name' => $cat->name])?>">
                         <img src="/img/category/<?= $cat->img?>">
