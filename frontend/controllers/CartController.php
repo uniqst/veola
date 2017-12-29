@@ -112,12 +112,13 @@ class CartController extends Controller
         $model = Order::findOne($id);
         $contacts = Contacts::findOne(1);
         
-        Yii::$app->mailer->compose()
+
+
+
+        Yii::$app->mailer->compose('order',['model' => $model])
         ->setFrom('zAC95zUA@gmail.com')
         ->setTo('zAC95zUA@gmail.com')
         ->setSubject('Тема сообщения')
-        ->setTextBody('Текст сообщения')
-        ->setHtmlBody('<b>текст сообщения в формате HTML</b>')
         ->send();
 
         // $to   = 'zAC95zUA@gmail.com';
