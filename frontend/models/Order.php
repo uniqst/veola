@@ -61,7 +61,7 @@ class Order extends ActiveRecord
             'email' => Yii::t('app', 'E-mail'),
             'phone' => Yii::t('app', 'Телефон'),
             'address' => Yii::t('app', 'Адрес'),
-            'delivery' => Yii::t('app', 'Способ доставки'),
+            'delivery' => Yii::t('app', 'Способ доставки и оплаты'),
             'address_delivery' => Yii::t('app', 'Адрес отделения'),
         ];
     }
