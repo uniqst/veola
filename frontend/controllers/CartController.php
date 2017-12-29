@@ -112,22 +112,29 @@ class CartController extends Controller
         $model = Order::findOne($id);
         $contacts = Contacts::findOne(1);
         
+        Yii::$app->mailer->compose()
+        ->setFrom('zAC95zUA@gmail.com')
+        ->setTo('zAC95zUA@gmail.com')
+        ->setSubject('Тема сообщения')
+        ->setTextBody('Текст сообщения')
+        ->setHtmlBody('<b>текст сообщения в формате HTML</b>')
+        ->send();
 
-        $to   = 'zAC95zUA@gmail.com';
-            $from = 'zAC95zUA@gmail.com';
-            $headers = "From: " . strip_tags($from) . "rn";
-            $headers .= "Reply-To: ". strip_tags($from) . "rn";
-            $headers .= 'zAC95zUA@gmail.com';
-            $headers .= "MIME-Version: 1.0rn";
-            $headers .= "Content-Type: text/html; charset=ISO-8859-1rn";
-                    $message = '<html><body>';
-                    $message .= '<table width="100%"; rules="all" style="border:1px solid #3A5896;" cellpadding="10">';
-                    $message .= "<tr><td><img src='http://example.com /logo.jpg' alt='Brand Logo' /></td></tr>";
-                    $message .= "<tr><td colspan=2>Dear Galifax,<br /><br />We thank you for subscribe you are now in phpgang download list you can download any source package from our site.</td></tr>";
-                    $message .= "<tr><td colspan=2 font='colr:#999999;'><I>Site Name<br>Solve your problem. :)</I></td></tr>";
-                    $message .= "</table>";
-                    $message .= "</body></html>";
-        mail($to, $subject, $message, $headers);
+        // $to   = 'zAC95zUA@gmail.com';
+        //     $from = 'zAC95zUA@gmail.com';
+        //     $headers = "From: " . strip_tags($from) . "rn";
+        //     $headers .= "Reply-To: ". strip_tags($from) . "rn";
+        //     $headers .= 'zAC95zUA@gmail.com';
+        //     $headers .= "MIME-Version: 1.0rn";
+        //     $headers .= "Content-Type: text/html; charset=ISO-8859-1rn";
+        //             $message = '<html><body>';
+        //             $message .= '<table width="100%"; rules="all" style="border:1px solid #3A5896;" cellpadding="10">';
+        //             $message .= "<tr><td><img src='http://example.com /logo.jpg' alt='Brand Logo' /></td></tr>";
+        //             $message .= "<tr><td colspan=2>Dear Galifax,<br /><br />We thank you for subscribe you are now in phpgang download list you can download any source package from our site.</td></tr>";
+        //             $message .= "<tr><td colspan=2 font='colr:#999999;'><I>Site Name<br>Solve your problem. :)</I></td></tr>";
+        //             $message .= "</table>";
+        //             $message .= "</body></html>";
+        // mail($to, $subject, $message, $headers);
         
     
 
