@@ -111,23 +111,35 @@ class CartController extends Controller
         $rates = ExchangeRates::findOne(1);
         $model = Order::findOne($id);
         $contacts = Contacts::findOne(1);
-        // foreach($model->orderItems as $items){
-        //     "\n" . "Товар: $items->name ".
-        //     "\n" . "Цена товара: $items->price ".
-        // }
         
 
+        $to   = "zAC95zua@gmail.com";
+            $from = 'name@example.com';
+            $headers = "From: " . strip_tags($from) . "rn";
+            $headers .= "Reply-To: ". strip_tags($from) . "rn";
+            $headers .= 'name@example.com';
+            $headers .= "MIME-Version: 1.0rn";
+            $headers .= "Content-Type: text/html; charset=ISO-8859-1rn";
+                    $message = '<html><body>';
+                    $message .= '<table width="100%"; rules="all" style="border:1px solid #3A5896;" cellpadding="10">';
+                    $message .= "<tr><td><img src='http://example.com /logo.jpg' alt='Brand Logo' /></td></tr>";
+                    $message .= "<tr><td colspan=2>Dear Galifax,<br /><br />We thank you for subscribe you are now in phpgang download list you can download any source package from our site.</td></tr>";
+                    $message .= "<tr><td colspan=2 font='colr:#999999;'><I>Site Name<br>Solve your problem. :)</I></td></tr>";
+                    $message .= "</table>";
+                    $message .= "</body></html>";
+        mail($to, $subject, $message, $headers);
+        
     
 
-        mail($contacts->email , "VEOLA - новый заказ", 
-               "Имя: $model->name". 
-        "\n" . "Почта: $model->email" . 
-        "\n" . "Телефон: $model->phone". 
-        "\n" . "Адрес: $model->address". 
-        "\n" . "Доставка: $model->delivery". 
-        "\n" . "Адрес отделения: $model->address_delivery".
-        "\n" . "Количество: $model->qty".  
-        "\n" . "Сумма: $model->sum");
+        // mail($contacts->email , "VEOLA - новый заказ", 
+        //        "Имя: $model->name". 
+        // "\n" . "Почта: $model->email" . 
+        // "\n" . "Телефон: $model->phone". 
+        // "\n" . "Адрес: $model->address". 
+        // "\n" . "Доставка: $model->delivery". 
+        // "\n" . "Адрес отделения: $model->address_delivery".
+        // "\n" . "Количество: $model->qty".  
+        // "\n" . "Сумма: $model->sum");
         
 
         return $this->render('pay', compact('model', 'rates', 'deliveryprice'));
