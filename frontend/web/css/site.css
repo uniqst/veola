@@ -257,7 +257,7 @@ textarea.materialize-textarea{
 }
 .priduct-title-index:hover{color: #CF1F18; text-decoration: underline;transition: 500ms;}
 
-.pr0duct-item-index p{
+.product-item-index p{
     overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;
 }
 .price-index{
