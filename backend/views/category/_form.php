@@ -26,6 +26,8 @@ mihaildev\elfinder\Assets::noConflict($this);
     <br>
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>
+
     <?
     echo $form->field($model, 'description')->widget(CKEditor::className(), [
         'editorOptions' => ElFinder::ckeditorOptions(['elfinder', 'path' => '/gallery'],[/* Some CKEditor Options */]),

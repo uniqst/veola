@@ -29,7 +29,28 @@ Class Products extends Widget{
                 'rating' => [
                     'asc' => ['rating' => SORT_ASC],
                     'desc' => ['rating' => SORT_DESC],
-                ]
+                ],
+                'standart' => [
+                    'asc' => [new \yii\db\Expression("products.status = '0' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '0' desc, products.status = 'ALL' desc")],
+                ],
+                'promo' => [
+                    'asc' => [new \yii\db\Expression("products.status = '1' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '1' desc, products.status = 'ALL' desc")],
+                ],
+                'sale' => [
+                    'asc' => [new \yii\db\Expression("products.status = '2' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '2' desc, products.status = 'ALL' desc")],
+                ],
+                'prepared' => [
+                    'asc' => [new \yii\db\Expression("products.status = '3' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '3' desc, products.status = 'ALL' desc")],
+                ],
+                'new' => [
+                    'asc' => [new \yii\db\Expression("products.status = '4' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '4' desc, products.status = 'ALL' desc")],
+                ],
+               
             ],
         ]);
 
@@ -44,7 +65,8 @@ Class Products extends Widget{
             ->groupBy('products.id')
             ->with('image', 'comments')->joinWith(['category' => function(yii\db\ActiveQuery $query){
             $query->andFilterWhere(['category.id' => Yii::$app->request->get('id')]);
-        }])->orderBy($sort->orders)->distinct();
+        }])->orderBy($_GET['sort'] ? $sort->orders : new \yii\db\Expression("products.status = '4' desc, products.status = '1' desc , products.status = '2' desc, products.status = '0' desc, products.status = '3' desc" ))
+        ->distinct();
         // делаем копию выборки
         $countQuery = clone $query;
         // подключаем класс Pagination, выводим по 10 пунктов на страницу

@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'homeUrl' => '/',
+    'defaultRoute' => 'products/index',    
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'cart' => [

@@ -50,7 +50,7 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
                 <?php elseif($product->status == 3):?>
                     <p class="product-mark expected">Ожидается</p>
                 <?php elseif($product->status == 4):?>
-                    <p style='display:none' class="product-mark new">Новинка</p>                          
+                    <p class="product-mark new">Новинка</p>                          
                 <?php endif;?>    
                 <img style="width: 100%" src="/img/products/<?=$product->image->img?>">
             </a>

@@ -8,6 +8,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\Products;
 use frontend\models\Category;
+use frontend\models\Mainveola;
 use yii\db\Expression;
 
 /**
@@ -69,8 +70,9 @@ class ProductsController extends Controller
      */
     public function actionIndex()
     {
-        $model = Category::find()->all();
-        return $this->render('index', compact('model'));
+        $main = Mainveola::findOne(1);
+        $model = Category::find()->orderBy('position')->all();
+        return $this->render('index', compact('model', 'main'));
     }
 
     public function actionCategory($id)
@@ -82,7 +84,8 @@ class ProductsController extends Controller
     public function actionProduct($id)
     {
         $model = Products::find()->where(['id' => $id])->with(['comments', 'photo'])->one();
-        $group = Products::find()->where(['group' => $model->group])->andWhere(['<>', 'id', $model->id])->orderBy(new Expression('rand()'))->limit(3)->all();
+        $group = Products::find()->andWhere(['<>', 'id', $model->id])->all();
+      
         $count = count($model->comments);
         $summ = 0;
         foreach($model->comments as $s){

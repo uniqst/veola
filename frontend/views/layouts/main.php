@@ -60,15 +60,15 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
 
             <ul id="slide-out" class="side-nav">
                 <li>
-                <form>
+                <form action="<?= Url::to(['/products/search'])?>">
                     <div class="input-field">
-                        <input id="search" type="search" required style='height: 20px;margin: 12px 0px;'>
+                        <input name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 12px 0px;'>
                         <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i style='color:#666' class="material-icons">search</i></label>
                     </div>
                 </form>
                 </li>
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
-                <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
+                <!-- <li><a href="<?=Url::to(['/'])?>">Товары</a></li> -->
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
@@ -114,15 +114,16 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 class="active"
                 <?php endif;?>
                 href="<?=Url::to(['/'])?>">Главная</a></li>
-                <li><a 
+                <!-- <li><a 
                 
                 <?php if(Yii::$app->controller->id == 'products'):?> 
                 class="active"
                 <?php endif;?>
 
-                href="<?=Url::to(['/products'])?>">Товары</a></li>
+                href="<?=Url::to(['/products'])?>">Товары</a></li> -->
                 
-                <li><a 
+                <li>
+                <a 
                 
                 class="dropdown-button <?php if(Yii::$app->controller->id == 'instructions') echo 'active'?>" href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     <ul id='dropdown1' class='dropdown-content'>
@@ -147,9 +148,9 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 href="#" onclick="return getCart()">Корзина</a></li>
 
                 <li>
-                <form>
+                <form action="<?= Url::to(['/products/search'])?>">
                     <div class="input-field">
-                        <input id="search" type="search" required style='height: 20px;margin: 11px 0px;'>
+                        <input name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 11px 0px;'>
                         <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i class="material-icons">search</i></label>
                     </div>
                 </form>

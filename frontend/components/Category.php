@@ -6,7 +6,7 @@ use frontend\models\Category as Cat;
 
 Class Category extends Widget{
     public function run(){
-        $model = Cat::find()->all();
+        $model = Cat::find()->orderBy('position')->all();
         return $this->render('category', compact('model'));
     }
 }
