@@ -122,16 +122,12 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
 
             <?php if(!empty($model->group)):?>
             <?php foreach($group as $product):?>
-<<<<<<< HEAD
-                <div class="col s12 m6 l4" style="height:350px">
-=======
             <?php 
                 $array1 = explode(' ', $model->group);
                 $array2 = explode(' ', $product->group);
             ?>
             <?php if(array_intersect($array1, $array2)):?>
-                <div class="col s12 m6 l4">
->>>>>>> df52e39de85860f27f6a87965863b3bf2eb6c5f9
+                <div class="col s12 m6 l4" style="height:350px">
                     <div class="product-item-index">
                         <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
 <!--                            <p class="new-priduct">NEW</p>-->
