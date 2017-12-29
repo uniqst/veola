@@ -12,10 +12,18 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use frontend\models\Instructions;
+use frontend\models\Pages;
+use frontend\models\Contacts;
+$contacts = Contacts::find()->one();
+$pages = Pages::find()->all();
 $inst = Instructions::find()->all();
-
 AppAsset::register($this);
+if($_GET['rate']){
+$_SESSION['rates'] = $_GET['rate'];
+header("Location: ".$_SERVER['HTTP_REFERER']);
+}
 ?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -33,10 +41,11 @@ AppAsset::register($this);
 <div class="wrap container z-depth-3" style="padding: 0;">
 
     <div class="top-div">
+      
         <p class="hide-on-med-and-down">
-            Позвонить: 099-536-24-75 e-mail:
+            Позвонить: <?= $contacts->phone?> e-mail:
             <a href="#">
-                veola12@ukr.net
+                <?= $contacts->email?>
             </a>
         </p>
     </div>
@@ -50,8 +59,16 @@ AppAsset::register($this);
             <a href="<?=Url::to(['/'])?>" class="brand-logo"><img src="/img/nav-img/logo.png"></a>
 
             <ul id="slide-out" class="side-nav">
+                <li>
+                <form action="<?= Url::to(['/products/search'])?>">
+                    <div class="input-field">
+                        <input name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 12px 0px;'>
+                        <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i style='color:#666' class="material-icons">search</i></label>
+                    </div>
+                </form>
+                </li>
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
-                <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
+                <!-- <li><a href="<?=Url::to(['/'])?>">Товары</a></li> -->
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
@@ -70,8 +87,11 @@ AppAsset::register($this);
                 </li>
                 <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
                 <li><a href="#" onclick="return getCart()">Корзина</a></li>
+                <?php foreach($pages as $page):?>
+                <li><a href="<?=Url::to(['/pages', 'alias' => $page->alias])?>"><?= $page->name?></a></li>
+                <?php endforeach;?>
                 <li>
-                123
+                
                 <form>
                 <select>
                     <option value="grn">Гривна</option>
@@ -89,18 +109,52 @@ AppAsset::register($this);
 
             </ul>
             <ul style="margin-left: 170px" class="hide-on-med-and-down">
-                <li><a class="active" href="<?=Url::to(['/'])?>">Главная</a></li>
-                <li><a href="<?=Url::to(['/products'])?>">Товары</a></li>
-                <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
+                <li><a
+                <?php if(Yii::$app->controller->id == 'site'):?> 
+                class="active"
+                <?php endif;?>
+                href="<?=Url::to(['/'])?>">Главная</a></li>
+                <!-- <li><a 
+                
+                <?php if(Yii::$app->controller->id == 'products'):?> 
+                class="active"
+                <?php endif;?>
 
-                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Инструкции</a></li>
+                href="<?=Url::to(['/products'])?>">Товары</a></li> -->
+                
+                <li>
+                <a 
+                
+                class="dropdown-button <?php if(Yii::$app->controller->id == 'instructions') echo 'active'?>" href="#!" data-activates="dropdown1">Инструкции <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     <ul id='dropdown1' class='dropdown-content'>
                         <?php foreach($inst as $i):?>
-                        <li><a href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
+                        <li><a 
+                        
+                        <?php if($_GET['id'] == $i->id ) echo 'class="active"';?>
+                        
+                        href="<?=Url::to(['/instructions', 'id' => $i->id, 'name' => $i->title])?>"><?=$i->title?></a></li>
                         <?php endforeach;?>
                     </ul>
-                <li><a href="<?=Url::to(['/guarantees'])?>">Гарантии</a></li>
-                <li><a href="#" onclick="return getCart()">Корзина</a></li>
+                <?php foreach($pages as $page):?>
+                <li><a href="<?=Url::to(['/pages', 'alias' => $page->alias])?>"><?= $page->name?></a></li>
+                <?php endforeach;?>    
+                
+                <li><a 
+                
+                <?php if(Yii::$app->controller->id == 'cart'):?> 
+                class="active"
+                <?php endif;?>
+
+                href="#" onclick="return getCart()">Корзина</a></li>
+
+                <li>
+                <form action="<?= Url::to(['/products/search'])?>">
+                    <div class="input-field">
+                        <input name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 11px 0px;'>
+                        <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    </div>
+                </form>
+                </li>
              
             </ul>
             <style>
@@ -108,11 +162,19 @@ AppAsset::register($this);
                    background
                 }
             </style>
-            <ul style="float: right; padding: 15px;">
-                <li class="rates btn <?php if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])) echo 'active'?>"><a href="<?= Url::to(['/site/exchange', 'rate' => 'grn'])?>">грн</a></li>
-                <li class="rates btn <?php if(Yii::$app->session['rates'] == 'usd') echo 'active'?>"><a href="<?= Url::to(['/site/exchange', 'rate' => 'usd'])?>">дол</a></li>
-                <li class="rates btn <?php if(Yii::$app->session['rates'] == 'eur') echo 'active'?>"><a href="<?= Url::to(['/site/exchange', 'rate' => 'eur'])?>">евр</a></li>
-            </ul>
+            <a style="float:right;" class="dropdown-button money-select-btn" href="#!" data-activates="dropdown2">
+            <?php if(Yii::$app->session['rates'] == 'grn' or Yii::$app->session['rates'] == ''):?>UAH ₴
+            <?php elseif(Yii::$app->session['rates'] == 'usd'):?>USD $
+            <?php elseif(Yii::$app->session['rates'] == 'eur'):?>EUR €
+            <?php endif;?>
+            <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+
+                <ul id='dropdown2' class='dropdown-content money-select-dropdown' style="float: right; padding: 15px;">
+                    <li class="rates btn <?php if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])) echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/', 'rate' => 'grn'])?>">UAH ₴</a></li>
+                    <li class="rates btn <?php if(Yii::$app->session['rates'] == 'usd') echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/', 'rate' => 'usd'])?>">USD $</a></li>
+                    <li class="rates btn <?php if(Yii::$app->session['rates'] == 'eur') echo 'active'?>"><a style="border: none;" href="<?= Url::to(['/', 'rate' => 'eur'])?>">EUR €</a></li>
+                </ul>
+
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
             
         </div>
@@ -127,6 +189,17 @@ AppAsset::register($this);
     </div>
 
     <footer>
+<!--LiveInternet counter--><script type="text/javascript">
+document.write("<a href='//www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t11.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";h"+escape(document.title.substring(0,150))+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров за 24"+
+" часа, посетителей за 24 часа и за сегодня' "+
+"border='0' width='88' height='31'><\/a>")
+</script><!--/LiveInternet-->
 
 <?php
 Modal::begin([

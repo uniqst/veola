@@ -15,10 +15,12 @@ Class SidebarProduct extends Widget{
                 ->joinWith('comments') // обеспечить построение промежуточной таблицы
                 ->groupBy('products.id')
                 ->orderBy(['rating' => SORT_DESC])
+                ->limit(5)
                 ->with('image')
                 ->all();
+                
         }else{
-            $products = Products::find()->limit(5)->with('image')->all();
+            $products = Products::find()->orderBy(['created_at' => SORT_DESC])->limit(5)->with('image')->all();
         }
         return $this->render('sidebar-product', compact('products'));
     }

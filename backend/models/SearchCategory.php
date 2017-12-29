@@ -41,7 +41,7 @@ class SearchCategory extends Category
      */
     public function search($params)
     {
-        $query = Category::find();
+        $query = Category::find()->orderBy('position');
 
         // add conditions that should always apply here
 

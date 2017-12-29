@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('app', 'Редактировать'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Удалить'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Вы уверены, что хотите удалить этот элемент?'),
@@ -37,6 +37,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'email:email',
             'content',
+            [
+                'attribute' => 'status',
+                'value' => function($model){
+                    if($model->status == 0){
+                        return '<i class="fa fa-times text-danger" aria-hidden="true"></i>';
+                    }else {
+                        return '<i class="fa fa-check text-success" aria-hidden="true"></i>';
+                    }
+                },
+                'format' => 'html'
+            ],
             'rating',
             'created_at',
         ],

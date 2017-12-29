@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'homeUrl' => '/',
+    'defaultRoute' => 'products/index',    
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'cart' => [
@@ -19,9 +20,15 @@ return [
             'currencyPosition' => 'after', //after или before (позиция значка валюты относительно цены)
             'priceFormat' => [2,'.', ''], //Форма цены
         ],
+        'db' => [
+            'attributes' => [
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));",
+            ],
+        ],
 
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            // 'csrfParam' => '_csrf-frontend',
+            'enableCsrfValidation'=>false,
             'baseUrl' => '',
         ],
         'user' => [
@@ -50,6 +57,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'page/<alias:\w+>' => 'pages',
                 'category/<id:\d+>/<name:\w+>' => 'products/category',
                 'category/<id:\d+>/<name:\w+>/<sort:\w+>' => 'products/category',
                 'product/<id:\d+>/<name:\w+>' => 'products/product',

@@ -31,9 +31,10 @@ class Comments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'name', 'email', 'content', 'ratig'], 'required'],
+            [['product_id', 'name', 'email', 'content', 'rating'], 'required'],
             [['product_id'], 'integer'],
             [['created_at'], 'safe'],
+            [['status'], 'boolean'],
             [['name', 'email'], 'string', 'max' => 50],
             [['content'], 'string', 'max' => 500],
         ];
@@ -50,6 +51,7 @@ class Comments extends \yii\db\ActiveRecord
             'name' => 'Имя',
             'email' => 'Почта',
             'content' => 'Текст',
+            'status' => 'Статус',
             'rating' => 'Рейтинг',
             'created_at' => 'Создано',
         ];

@@ -56,13 +56,14 @@ class Products extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'name', 'description', 'description_product', 'content', 'price', 'category_id'], 'required'],
-            [['price', 'old_price', 'category_id'], 'integer'],
+            [['title', 'name', 'price', 'category_id'], 'required'],
+            [['category_id', 'status'], 'integer'],
+            [['price', 'old_price'], 'number'],
             [['created_at', 'updated_at'], 'safe'],
             [['title', 'name', 'group'], 'string', 'max' => 255],
-            [['imageFiles'], 'file', 'maxFiles' => 20],
-            [['description', 'description_product'], 'string', 'max' => 500],
-            [['content'], 'string', 'max' => 10000],
+            [['imageFiles'], 'file', 'maxFiles' => 10],
+            [['content'], 'string', 'max' => 1000],
+            [['description', 'description_product'], 'string', 'max' => 40000],
         ];
     }
 
@@ -76,13 +77,16 @@ class Products extends ActiveRecord
             'category_id' => Yii::t('app', 'Категории'),
             'title' => Yii::t('app', 'Титул'),
             'name' => Yii::t('app', 'Имя'),
+            'group' => Yii::t('app', 'Сопутствующие товары'),
+            'status' => Yii::t('app', 'Статус'),
             'description' => Yii::t('app', 'Описание сверху'),
             'description_product' => Yii::t('app', 'Характеристики'),
-            'content' => Yii::t('app', 'Описание'),
+            'content' => Yii::t('app', 'Краткое описание'),
             'price' => Yii::t('app', 'Цена'),
             'old_price' => Yii::t('app', 'Старая цена'),
             'created_at' => Yii::t('app', 'Создано'),
             'updated_at' => Yii::t('app', 'Отредактировано'),
+            'imageFiles' => Yii::t('app', 'Изображения товаров'),
         ];
     }
     public function getComments()

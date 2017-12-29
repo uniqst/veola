@@ -19,7 +19,7 @@ class SearchOrder extends Order
     {
         return [
             [['id', 'qty'], 'integer'],
-            [['created_at', 'updated_at', 'status', 'name', 'email', 'phone', 'address'], 'safe'],
+            [['created_at', 'updated_at', 'name', 'email', 'phone', 'address'], 'safe'],
             [['sum'], 'number'],
         ];
     }

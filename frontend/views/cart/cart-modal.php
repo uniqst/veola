@@ -1,3 +1,8 @@
+<?php
+use frontend\models\ExchangeRates;
+$model = ExchangeRates::findOne(1);
+?>
+
 <?php if(!empty($session['cart'])): ?>
     <div class="table-responsive scroll-custom">
         <table class="table table-hover table-striped">
@@ -16,7 +21,7 @@
                     <td><img src="/img/products/<?= $item['img']?>" width="50px"></td>
                     <td><?= $item['name']?></td>
                     <td><?= $item['qty']?></td>
-                    <td><?= $item['price']?></td>
+                    <td><?= round($item['price'] * $model->grn, 0)?></td>
                     <td><span data-id="<?= $id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></td>
                 </tr>
             <?php endforeach?>
@@ -26,7 +31,7 @@
             </tr>
             <tr>
                 <td colspan="4">На сумму:</td>
-                <td><?= $session['cart.sum']?></td>
+                <td><?= round($session['cart.sum'] * $model->grn, 0)?></td>
             </tr>
             </tbody>
         </table>

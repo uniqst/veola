@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'updated_at',
+            'created_at',
             'qty',
             'sum',
             // 'status',
@@ -32,6 +32,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'status',
                 'value' => function($data){
                     if($data->status == 0){
+                        return '<i class="fa fa-times text-danger" aria-hidden="true"></i>';
+                    }else {
+                        return '<i class="fa fa-check text-success" aria-hidden="true"></i>';
+                    }
+                },
+                'format' => 'html'
+            ],
+            [
+                'attribute' => 'pay',
+                'value' => function($data){
+                    if($data->pay == 0){
                         return '<i class="fa fa-times text-danger" aria-hidden="true"></i>';
                     }else {
                         return '<i class="fa fa-check text-success" aria-hidden="true"></i>';

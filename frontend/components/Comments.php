@@ -13,7 +13,7 @@ Class Comments extends Widget{
         if($comment->load(Yii::$app->request->post())){
             $comment->save();
         }
-        $model = Comment::find()->where(['product_id' => $id])->all();
+        $model = Comment::find()->where(['product_id' => $id, 'status' => '1'])->orderBy(['created_at' => SORT_DESC])->all();
 
         return $this->render('comments', compact('model', 'comment', 'id'));
     }

@@ -38,8 +38,28 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'description',
             'description_product',
-            'content',
             'price',
+            [
+                'attribute' => 'status',
+                'value' => function($data){
+                    if($data->status == 0){
+                        return '<button type="button" class="btn btn-secondary">Стандартный</button>';
+                    }elseif($data->status == 1) {
+                        return '<button type="button" class="btn btn-danger">Акционный</button>';
+                    }
+                    elseif($data->status == 2) {
+                        return '<button type="button" class="btn btn-warning">Распродажа</button>';
+                    }
+                    elseif($data->status == 3) {
+                        return '<button type="button" class="btn btn-info">Ожидается</button>';
+                    }
+                    elseif($data->status == 4) {
+                        return '<button type="button" class="btn btn-primary">Новинка</button>';
+                    }
+                },
+                'format' => 'html'
+            ],
+            'content',
             'old_price',
             'created_at',
             'updated_at',

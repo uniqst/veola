@@ -26,7 +26,11 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
                <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name'])?>"><?=$product->name?></a>
                <br>
                <span class="product-price">
-                   <?=$product->price* $rates . ' ' . $ex?>
+               <?php if($ex == 'грн'):?>
+                <?=round($product->price * $rates, 0) . ' ' . $ex?><br>
+                <?php else:?>
+                <?=$product->price * $rates . ' ' . $ex?><br>
+                <?php endif;?>
                </span>
            </p>
        </div>

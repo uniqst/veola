@@ -14,6 +14,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Products;
+use frontend\models\Contacts;
 
 
 /**
@@ -70,9 +71,11 @@ class SiteController extends Controller
     
     public function actionExchange($rate)
     {
+
         $rates = new Session;
         $rates->open();   
         Yii::$app->session['rates'] = $rate;
+
         return $this->redirect(Yii::$app->request->referrer);
     }
     /**

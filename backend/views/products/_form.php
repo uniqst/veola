@@ -39,11 +39,20 @@ $data = ArrayHelper::map($category,'id' , 'name');
 
     <?= $form->field($model, 'group')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'status')->dropDownList([ '0' => 'Стандартный', '1' => 'Акционный', '2' => 'Распродажа', '3' => 'Ожидается', '4' => 'Новинка']) ?>
+
     <?= $form->field($model, 'category_id')->dropDownList(
         $data
         ); ?>
 
-    <?= $form->field($model, 'description')->textArea(['maxlength' => true]) ?>
+    <?= $form->field($model, 'description')->widget(CKEditor::className(), [
+
+'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+      'preset' => 'full',
+      'inline' => false,
+  ]),
+
+]);?>
 
     <?= $form->field($model, 'description_product')->widget(CKEditor::className(), [
 
@@ -54,13 +63,7 @@ $data = ArrayHelper::map($category,'id' , 'name');
 
   ]);?>
 
-    <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-
-  'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
-        'preset' => 'full',
-        'inline' => false,
-    ])
-  ]);?>
+    <?= $form->field($model, 'content')->textArea(['maxlength' => true]) ?>  
 
     <?= $form->field($model, 'price')->textInput() ?>
 
@@ -71,7 +74,7 @@ $data = ArrayHelper::map($category,'id' , 'name');
     <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Создать') : Yii::t('app', 'Обновить'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

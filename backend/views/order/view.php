@@ -45,10 +45,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => 'html'
             ],
+            [
+                'attribute' => 'pay',
+                'value' => function($data){
+                    if($data->pay == 0){
+                        return '<i class="fa fa-times text-danger" aria-hidden="true"></i>';
+                    }else {
+                        return '<i class="fa fa-check text-success" aria-hidden="true"></i>';
+                    }
+                },
+                'format' => 'html'
+            ],
             'name',
             'email:email',
             'phone',
             'address',
+            'delivery',
+            'address_delivery',
         ],
     ]) ?>
 

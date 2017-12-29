@@ -30,6 +30,7 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             [['img', 'name'], 'required'],
+            [['position'], 'integer'],
             [['description'], 'string'],
             [['img', 'name'], 'string', 'max' => 255],
             [['imageFile'], 'file']
@@ -46,7 +47,8 @@ class Category extends \yii\db\ActiveRecord
             'img' => 'Фото',
             'name' => 'Название',
             'description' => 'Описание',
-            'imageFile' => 'Фото'
+            'imageFile' => 'Фото',
+            'position' => 'Позиция'
         ];
     }
 

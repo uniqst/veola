@@ -1,6 +1,8 @@
 <?php
 use frontend\models\Order;
-$count = Order::find()->where(['status' => '0'])->count();
+use frontend\models\Comments;
+$count_order = Order::find()->where(['status' => '0'])->count();
+$count_comments = Comments::find()->where(['status' => '0'])->count();
 ?>
 <aside class="main-sidebar">
 
@@ -17,13 +19,16 @@ $count = Order::find()->where(['status' => '0'])->count();
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Слайдер', 'icon' => 'fa fa-user-circle-o', 'url' => ['/slider']],
+                    ['label' => 'Главная страница', 'icon' => 'fa fa-user-circle-o', 'url' => ['/mainveola/update', 'id' => 1]],
                     ['label' => 'Категории', 'icon' => 'fa fa-user-circle-o', 'url' => ['/category']],
-                    ['label' => 'Комментарии', 'icon' => 'fa fa-user-circle-o', 'url' => ['/comments']],
-                    ['label' => 'Курс валют', 'icon' => 'fa fa-user-circle-o', 'url' => ['/exchange-rates']],
+                    ['label' => "Комментарии(". $count_comments .")", 'icon' => 'fa fa-user-circle-o', 'url' => ['/comments']],
+                    ['label' => 'Курс валют', 'icon' => 'fa fa-user-circle-o', 'url' => ['/exchange-rates/update', 'id' => 1]],
                     ['label' => 'Инструкции', 'icon' => 'fa fa-user-circle-o', 'url' => ['/instructions']],
                     ['label' => 'Товары', 'icon' => 'fa fa-user-circle-o', 'url' => ['/products']],
-                    ['label' => "Заказы (". $count .")", 'icon' => 'fa fa-user-circle-o', 'url' => ['/order']],
+                    ['label' => "Заказы (". $count_order .")", 'icon' => 'fa fa-user-circle-o', 'url' => ['/order']],
                     ['label' => 'Профиль', 'icon' => 'fa fa-user-circle-o', 'url' => ['/user/update', 'id' => 1]],
+                    ['label' => 'Разделы', 'icon' => 'fa fa-user-circle-o', 'url' => ['/pages']],
+                    ['label' => 'Контакты', 'icon' => 'fa fa-user-circle-o', 'url' => ['/contacts/update', 'id' => 1]],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Same tools',

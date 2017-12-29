@@ -29,12 +29,34 @@ Class Products extends Widget{
                 'rating' => [
                     'asc' => ['rating' => SORT_ASC],
                     'desc' => ['rating' => SORT_DESC],
-                ]
+                ],
+                'standart' => [
+                    'asc' => [new \yii\db\Expression("products.status = '0' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '0' desc, products.status = 'ALL' desc")],
+                ],
+                'promo' => [
+                    'asc' => [new \yii\db\Expression("products.status = '1' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '1' desc, products.status = 'ALL' desc")],
+                ],
+                'sale' => [
+                    'asc' => [new \yii\db\Expression("products.status = '2' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '2' desc, products.status = 'ALL' desc")],
+                ],
+                'prepared' => [
+                    'asc' => [new \yii\db\Expression("products.status = '3' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '3' desc, products.status = 'ALL' desc")],
+                ],
+                'new' => [
+                    'asc' => [new \yii\db\Expression("products.status = '4' asc, products.status = 'ALL' asc")],
+                    'desc' => [new \yii\db\Expression("products.status = '4' desc, products.status = 'ALL' desc")],
+                ],
+               
             ],
         ]);
 
 
         $query = Product::find()
+            ->andFilterWhere(['like', 'products.name', $_GET['s']])
             ->select([
                 'products.*', // получить все атрибуты покупателя
                 'ceil(SUM(comments.rating) / COUNT(comments.rating) / 0.5) * 0.5 AS rating' // вычислить количество заказов

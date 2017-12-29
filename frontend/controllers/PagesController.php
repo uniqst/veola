@@ -12,21 +12,16 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Pages;
 
 /**
  * Site controller
  */
-class CartController extends Controller
+class PagesController extends Controller
 {
     /**
      * @inheritdoc
      */
-    
-
-    /**
-     * @inheritdoc
-     */
-
     public function behaviors()
     {
         return [
@@ -70,17 +65,16 @@ class CartController extends Controller
             ],
         ];
     }
-    
-    public function actionAdd()
-    {
 
-        $id=Yii::$app->request->get('id');
-		$product = Products::findOne($id);
-		if(empty($product)) return false;
-		$session =Yii::$app->session;
-		$session->open();
-		$cart = new Cart();
-		$cart->addToCart($product);
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionIndex($alias)
+    {   
+        $model = Pages::findOne(['alias' => $alias]);
+        return $this->render('index', compact('model'));
     }
 
 }

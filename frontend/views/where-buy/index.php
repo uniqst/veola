@@ -8,9 +8,7 @@ $this->title = 'My Yii Application';
 <div class="row">
     <div class="col l3 hide-on-med-and-down">
         <?=\frontend\components\Category::widget()?>
-
-        <?=\frontend\components\Tags::widget()?>
-
+            <H3 class="text-center">Новые товары</H3>
         <?=\frontend\components\SidebarProduct::widget()?>
     </div>
 

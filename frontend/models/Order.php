@@ -36,12 +36,12 @@ class Order extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone', 'address'], 'required'],
+            [['name', 'email', 'phone', 'address', 'delivery', 'address_delivery'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
             [['qty'], 'integer'],
             [['sum'], 'number'],
-            [['status'], 'boolean'],
-            [['name', 'email', 'phone', 'address'], 'string', 'max' => 255],
+            [['status', 'pay'], 'boolean'],
+            [['name', 'email', 'phone', 'address', 'delivery', 'address_delivery'], 'string', 'max' => 255],
         ];
     }
 
@@ -52,9 +52,17 @@ class Order extends ActiveRecord
     {
         return [
             'name' => Yii::t('app', 'Имя'),
+            'created_at' => Yii::t('app', 'Создан'),
+            'updated_at' => Yii::t('app', 'Редактирован'),
+            'qty' => Yii::t('app', 'Количество'),
+            'sum' => Yii::t('app', 'Сумма'),
+            'status' => Yii::t('app', 'Статус'),
+            'pay' => Yii::t('app', 'Оплата'),
             'email' => Yii::t('app', 'E-mail'),
             'phone' => Yii::t('app', 'Телефон'),
             'address' => Yii::t('app', 'Адрес'),
+            'delivery' => Yii::t('app', 'Способ доставки'),
+            'address_delivery' => Yii::t('app', 'Адрес отделения'),
         ];
     }
 

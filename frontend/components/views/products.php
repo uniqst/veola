@@ -43,15 +43,36 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
 
         <div class="product-item-index">
             <a class="img-a" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
-                <p class="new-priduct">NEW</p>
+                <?php if($product->status == 1):?>
+                    <p class="product-mark stock">Акция</p>
+                <?php elseif($product->status == 2):?>
+                    <p class="product-mark sale">Распродажа</p>
+                <?php elseif($product->status == 3):?>
+                    <p class="product-mark expected">Ожидается</p>
+                <?php elseif($product->status == 4):?>
+                    <p class="product-mark new">Новинка</p>                          
+                <?php endif;?>    
                 <img style="width: 100%" src="/img/products/<?=$product->image->img?>">
             </a>
             <a class="priduct-title-index" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>" title="Title text text andrey text text tex">
                 <?=$product->name?>
             </a>
             <p class="price-index">
+                <?php if($ex == 'грн'):?>
+                <?=round($product->price * $rates, 0) . ' ' . $ex?><br>
+                <?php else:?>
                 <?=$product->price * $rates . ' ' . $ex?><br>
-                <span class="old-price-index">Старая цена: <span class="crossed"><?=$product->old_price* $rates . ' ' . $ex?></span></span>
+                <?php endif;?>
+                <?php if($product->old_price == 0):?>
+                <?php else:?>
+                <span class="old-price-index">Старая цена: <span class="crossed">
+                <?php if($ex == 'грн'):?>
+                <?=round($product->old_price * $rates, 0) . ' ' . $ex?><br>
+                <?php else:?>
+                <?=$product->old_price * $rates . ' ' . $ex?><br>
+                <?php endif;?>
+                </span></span>
+                <?php endif;?>
             </p>
 
             <p style="float: left"><span class="my-rating-product" data-rating="<?=$sum;?>"></span> </p>
@@ -60,7 +81,7 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
             <div class="clearfix"></div>
 
             <p class="product-discription-index">
-               <?=$product->description_product?>
+               <?=$product->content?>
             </p>
 
             <div class="clearfix"></div>
@@ -77,11 +98,21 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
 </div><!--row-->
 <?php
 // отображаем постраничную разбивку
+if(Yii::$app->controller->id != 'site'){
+
+
 echo LinkPager::widget([
     'pagination' => $pages,
 
-        'prevPageLabel' => 'назад',
-        'nextPageLabel' => 'вперед',
-        'maxButtonCount' => 5,
+        'firstPageLabel' => 'Начало',
+        'lastPageLabel' => 'Конец',
+        'prevPageLabel' => '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+        'nextPageLabel' => '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
+        'maxButtonCount' => 7,
+
+        'linkOptions' => ['class' => 'pag-but'],
+        'activePageCssClass' => 'pag-but-active',
+        'disabledPageCssClass' => 'pag-but-disable',
 ]);
+}
 ?>

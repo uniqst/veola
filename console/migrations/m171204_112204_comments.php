@@ -17,6 +17,7 @@ class m171204_112204_comments extends Migration
             'product_id' => $this->integer(11)->notNull(),
             'name' => $this->string(50)->notNull(),
             'email' => $this->string(50)->notNull(),
+            'status' => "ENUM('0', '1') NOT NULL DEFAULT '0'",
             'content' => $this->string(500)->notNull(),
             'rating' => $this->integer(11),
             'created_at' => $this->dateTime()

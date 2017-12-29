@@ -19,10 +19,13 @@ class m171205_152345_order extends Migration
             'qty' => $this->integer(11)->notNull(),
             'sum' => $this->float()->notNull(),
             'status' => "ENUM('0', '1') NOT NULL DEFAULT '0'",
+            'pay' => "ENUM('0', '1') NOT NULL DEFAULT '0'",
             'name' => $this->string(255)->notNull(),
             'email' => $this->string(255)->notNull(),
             'phone' => $this->string(255)->notNull(),
             'address' => $this->string(255)->notNull(),
+            'delivery' => $this->string(255)->notNull(),
+            'address_delivery ' => $this->string(255)->notNull(),
         ]);
     }
 
