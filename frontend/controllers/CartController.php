@@ -113,11 +113,11 @@ class CartController extends Controller
         $contacts = Contacts::findOne(1);
         
 
-        $to   = $contacts->email;
-            $from = $contacts->email;
+        $to   = 'zAC95zUA@gmail.com';
+            $from = 'zAC95zUA@gmail.com';
             $headers = "From: " . strip_tags($from) . "rn";
             $headers .= "Reply-To: ". strip_tags($from) . "rn";
-            $headers .= 'name@example.com';
+            $headers .= 'zAC95zUA@gmail.com';
             $headers .= "MIME-Version: 1.0rn";
             $headers .= "Content-Type: text/html; charset=ISO-8859-1rn";
                     $message = '<html><body>';
