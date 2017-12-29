@@ -111,28 +111,9 @@ class CartController extends Controller
         $rates = ExchangeRates::findOne(1);
         $model = Order::findOne($id);
         $contacts = Contacts::findOne(1);
-        // $deliveryprice = '';
-        // foreach($model as $deliver){
-        //     if($deliver->delivery == 0){
-        //         $deliveryprice == 'Новая почта: оплата онлайн';
-        //     }elseif($deliver->delivery == 1){
-        //         $deliveryprice == 'Новая почта: наложенный платеж';
-        //     }elseif($deliver->delivery == 2){
-        //         $deliveryprice == 'Новая почта: наличные';
-        //     }elseif($deliver->delivery == 3){
-        //         $deliveryprice == 'Ин-тайм: оплата онлайн';
-        //     }elseif($deliver->delivery == 4){
-        //         $deliveryprice == 'Ин-тайм: наложенный платеж';
-        //     }elseif($deliver->delivery == 5){
-        //         $deliveryprice == 'Ин-тайм: наличные';
-        //     }elseif($deliver->delivery == 6){
-        //         $deliveryprice == 'Автолюкс: наличные';
-        //     }elseif($deliver->delivery == 7){
-        //         $deliveryprice == 'Автолюкс: наложенный платеж';
-        //     }else($deliver->delivery == 8){
-        //         $deliveryprice == 'Автолюкс: оплата онлайн';
-        //     }
-            
+        // foreach($model->orderItems as $items){
+        //     "\n" . "Товар: $items->name ".
+        //     "\n" . "Цена товара: $items->price ".
         // }
         
 
@@ -144,9 +125,6 @@ class CartController extends Controller
         "\n" . "Телефон: $model->phone". 
         "\n" . "Адрес: $model->address". 
         "\n" . "Доставка: $model->delivery". 
-        // foreach($model->orderItems as $items){
-        //     "\n" . "Товар: $items->name ".
-        // }
         "\n" . "Адрес отделения: $model->address_delivery".
         "\n" . "Количество: $model->qty".  
         "\n" . "Сумма: $model->sum");
