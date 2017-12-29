@@ -119,6 +119,9 @@ class CartController extends Controller
         "\n" . "Телефон: $model->phone". 
         "\n" . "Адрес: $model->address". 
         // "\n" . "Доставка: $model->delivery". 
+        foreach($model->orderItems as $items){
+            "\n" . "Товар: $items->name ".
+        }
         "\n" . "Адрес отделения: $model->address_delivery".
         "\n" . "Количество: $model->qty".  
         "\n" . "Сумма: $model->sum");
