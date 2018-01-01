@@ -133,7 +133,7 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
 <!--                            <p class="new-priduct">NEW</p>-->
                             <img style="width: 100%" src="/img/products/<?=$product->image->img?>">
                         </a>
-                        <a class="priduct-title-index" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>" title="Title text text andrey text text tex">
+                        <a class="priduct-title-index" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>" title="<?=$product->name?>">
                             <p><?=$product->name?></p>
                         </a>
                         <p class="price-index">
