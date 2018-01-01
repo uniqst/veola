@@ -110,7 +110,7 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
             </ul>
             <ul style="margin-left: 170px" class="hide-on-med-and-down">
                 <li><a
-                <?php if(Yii::$app->controller->id == 'site'):?> 
+                <?php if(Yii::$app->controller->id == 'products'):?> 
                 class="active"
                 <?php endif;?>
                 href="<?=Url::to(['/'])?>">Главная</a></li>
@@ -136,7 +136,11 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                         <?php endforeach;?>
                     </ul>
                 <?php foreach($pages as $page):?>
-                <li><a href="<?=Url::to(['/pages', 'alias' => $page->alias])?>"><?= $page->name?></a></li>
+                <li><a 
+                <?php if($_GET['alias'] == $page->alias):?> 
+                class="active"
+                <?php endif;?>
+                 href="<?=Url::to(['/pages', 'alias' => $page->alias])?>"><?= $page->name?></a></li>
                 <?php endforeach;?>    
                 
                 <li><a 
