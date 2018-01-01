@@ -16,9 +16,6 @@
         </p>
 
 
-            <h2 class="title-h3 text-center" style="color: #CF1F18;font-size: 15px;font-weight: bold;text-decoration: underline;">
-             РЕЖИМ РАБОТЫ:ПОНЕДЕЛЬНИК-ПЯТНИЦА С 9.00 ДО 17.00
-            </h2>
 
 
         <form class="filter-form">
