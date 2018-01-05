@@ -212,10 +212,8 @@ Modal::begin([
         ],
     'header' => '<h2>Корзина</h2>',
     'id' => 'cart',
-    'footer' => '<button type="button" class="button" data-dismiss="modal">Продолжить</button>
-        <button class="button"> 
+    'footer' => '<button type="button" class="button" data-dismiss="modal">Продолжить</button>       
              <a href="' . Url::to(['cart/view']) . '"  class="button">Оформить заказ</a>
-        </button>
         <button type="button" class="button" onclick="clearCart()">Очистить</button>'
     ]);
 Modal::end();
