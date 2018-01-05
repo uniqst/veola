@@ -114,9 +114,9 @@ class CartController extends Controller
         
 
         Yii::$app->mailer->compose(['html' => 'order'] , ['model' => $model, 'rates' => $rates])
-        ->setFrom('zAC95zUA@gmail.com')
-        ->setTo('zAC95zUA@gmail.com')
-        ->setSubject('Тема сообщения')
+        ->setFrom($model->email)
+        ->setTo($contacts->email)
+        ->setSubject('VEOLA новый заказ')
         ->send();
 
         // $to   = 'zAC95zUA@gmail.com';
