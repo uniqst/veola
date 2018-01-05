@@ -65,11 +65,7 @@ Class Products extends Widget{
             ->groupBy('products.id')
             ->with('image', 'comments')->joinWith(['category' => function(yii\db\ActiveQuery $query){
             $query->andFilterWhere(['category.id' => Yii::$app->request->get('cat_id')]);
-<<<<<<< HEAD
         }])->orderBy($_GET['sort'] ? $sort->orders : new \yii\db\Expression("products.position asc"))
-=======
-        }])->orderBy($_GET['sort'] ? $sort->orders : new \yii\db\Expression("products.position asc" ))
->>>>>>> 174879e2ce62327b0d4254ac9e59f46f3c6f5a9e
         ->distinct();
         // делаем копию выборки
         $countQuery = clone $query;
