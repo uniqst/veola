@@ -7,9 +7,9 @@ use yii\helpers\Html;
 
 <?php foreach($model as $category):?>
 
-<div class="category-item <?php if($_GET['id'] == $category->id ) echo 'active';?>">
+<div class="category-item <?php if($_GET['cat_id'] == $category->id ) echo 'active';?>">
     
-    <a href="<?=Url::to(['/products/category','id' => $category->id, 'name' => $category->name])?>">
+    <a href="<?=Url::to(['/products/category','cat_id' => $category->id, 'name' => $category->name])?>">
         <?=$category->name?>
     </a>
 </div>
