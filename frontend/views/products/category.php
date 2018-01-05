@@ -21,8 +21,8 @@
         <form class="filter-form">
             <div class="row">
                 <input type="hidden" name="id" value="<?=$_GET['id']?>" >
-            <p class="filter-p col m7 s12" style="padding: 0px">
-                <span style="width:90px" >
+            <p class="filter-p col m7 s12" style="padding: 240px">
+                <span >
                 Сортировка:
                 </span>
                 <select class="browser-default" id="sort" name="sort" size="1" onchange="this.form.submit()" style="width: 150px;">
