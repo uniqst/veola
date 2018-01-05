@@ -75,9 +75,9 @@ class ProductsController extends Controller
         return $this->render('index', compact('model', 'main'));
     }
 
-    public function actionCategory($id)
+    public function actionCategory($cat_id)
     {
-        $model = Category::findOne($id);
+        $model = Category::findOne($cat_id);
         return $this->render('category', compact('model'));
     }
 
