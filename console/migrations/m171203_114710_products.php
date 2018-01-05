@@ -17,6 +17,7 @@ class m171203_114710_products extends Migration
             'category_id' => $this->integer(11),
             'title' => $this->string(255)->notNull(),
             'name' => $this->string(255)->notNull(),
+            'position' => $this->integer(11),
             'group' => $this->string(255),
             'status' => $this->integer(11),
             'description' => $this->string(10000)->notNull(),

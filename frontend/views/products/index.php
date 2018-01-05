@@ -20,10 +20,10 @@ use yii\helpers\Url;
             <?php foreach($model as $cat):?>
             <div class="col s6 m4" >
                 <div class="product-item">
-                    <a href="<?= Url::to(['/products/category', 'id' => $cat->id, 'name' => $cat->name])?>">
+                    <a href="<?= Url::to(['/products/category', 'cat_id' => $cat->id, 'name' => $cat->name])?>">
                         <img src="/img/category/<?= $cat->img?>">
                     </a>
-                    <a title="<?= $cat->name?>" href="<?= Url::to(['/products/category', 'id' => $cat->id, 'name' => $cat->name])?>">
+                    <a title="<?= $cat->name?>" href="<?= Url::to(['/products/category', 'cat_id' => $cat->id, 'name' => $cat->name])?>">
                         <p><?= $cat->name?></p>
                     </a>
                 </div>

@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html'
             ],
             'title',
+            'position',
             [
                 'attribute' => 'category_id', 
                 'value' => function($data){

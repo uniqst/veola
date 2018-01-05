@@ -57,7 +57,7 @@ class Products extends ActiveRecord
     {
         return [
             [['title', 'name', 'price', 'category_id'], 'required'],
-            [['category_id', 'status'], 'integer'],
+            [['category_id', 'status', 'position'], 'integer'],
             [['price', 'old_price'], 'number'],
             [['created_at', 'updated_at'], 'safe'],
             [['title', 'name', 'group'], 'string', 'max' => 255],
@@ -87,6 +87,7 @@ class Products extends ActiveRecord
             'created_at' => Yii::t('app', 'Создано'),
             'updated_at' => Yii::t('app', 'Отредактировано'),
             'imageFiles' => Yii::t('app', 'Изображения товаров'),
+            'position' => Yii::t('app', 'Позиция'),
         ];
     }
     public function getComments()

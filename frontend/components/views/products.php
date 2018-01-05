@@ -42,7 +42,7 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
    ">
 
         <div class="product-item-index">
-            <a class="img-a" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
+            <a class="img-a" href="<?=Url::to(['/products/product', 'cat_id' => $product->id, 'name' => $product->name])?>">
                 <?php if($product->status == 1):?>
                     <p class="product-mark stock">Акция</p>
                 <?php elseif($product->status == 2):?>
@@ -54,7 +54,7 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
                 <?php endif;?>    
                 <img style="width: 100%" src="/img/products/<?=$product->image->img?>">
             </a>
-            <a class="priduct-title-index" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>" title="Title text text andrey text text tex">
+            <a class="priduct-title-index" href="<?=Url::to(['/products/product', 'cat_id' => $product->id, 'name' => $product->name])?>" title="Title text text andrey text text tex">
                 <?=$product->name?>
             </a>
             <p class="price-index">

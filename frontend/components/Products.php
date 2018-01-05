@@ -64,8 +64,8 @@ Class Products extends Widget{
             ->joinWith('comments') // обеспечить построение промежуточной таблицы
             ->groupBy('products.id')
             ->with('image', 'comments')->joinWith(['category' => function(yii\db\ActiveQuery $query){
-            $query->andFilterWhere(['category.id' => Yii::$app->request->get('id')]);
-        }])->orderBy($_GET['sort'] ? $sort->orders : new \yii\db\Expression("products.status = '4' desc, products.status = '1' desc , products.status = '2' desc, products.status = '0' desc, products.status = '3' desc" ))
+            $query->andFilterWhere(['category.id' => Yii::$app->request->get('cat_id')]);
+        }])->orderBy($_GET['sort'] ? $sort->orders : new \yii\db\Expression("products.position ='0,1,0'" ))
         ->distinct();
         // делаем копию выборки
         $countQuery = clone $query;
