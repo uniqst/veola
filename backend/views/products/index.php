@@ -60,9 +60,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     elseif($data->status == 4) {
                         return '<button type="button" class="btn btn-primary">Новинка</button>';
                     }
+                    elseif($data->status == 5) {
+                        return '<button type="button" class="btn btn-primary">Не отображается</button>';
+                    }
                 },
                 'format' => 'html',
-                'filter'=>array("0"=>"Стандартный","1"=>"Акционный","2"=>"Распродажа","3"=>"Ожидается","4"=>"Новинка"),
+                'filter'=>array("0"=>"Стандартный","1"=>"Акционный","2"=>"Распродажа","3"=>"Ожидается","4"=>"Новинка","5"=>"Не отображаются"),
             ],
             // 'content',
             // 'img',

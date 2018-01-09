@@ -41,7 +41,7 @@ $data = ArrayHelper::map($category,'id' , 'name');
 
     <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ '0' => 'Стандартный', '1' => 'Акционный', '2' => 'Распродажа', '3' => 'Ожидается', '4' => 'Новинка']) ?>
+    <?= $form->field($model, 'status')->dropDownList([ '0' => 'Стандартный', '1' => 'Акционный', '2' => 'Распродажа', '3' => 'Ожидается', '4' => 'Новинка', '5' => 'Не отображать']) ?>
 
     <?= $form->field($model, 'category_id')->dropDownList(
         $data
