@@ -29,7 +29,7 @@ class Photo extends \yii\db\ActiveRecord
     {
         return [
             [['product_id'], 'required'],
-            [['product_id'], 'integer'],
+            [['product_id', 'position_img'], 'integer'],
             [['imageFiles'], 'file', 'maxFiles' => 5],
             [['img'], 'string', 'max' => 255],
         ];

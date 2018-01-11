@@ -98,11 +98,19 @@ class ProductsController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = Products::find()->where(['id' => $id])->with(['photo'=> function(yii\db\ActiveQuery $query){
+            $query->orderBy('photo.position_img');
+        }])->one();
         if($_GET['photo']){
             $img = Photo::findOne($_GET['photo']);
             $img->delete();
         }
+        if ($_POST['position_img']){
+            $photo = Photo::findOne($_POST['Photo']['id']);
+            $photo->position_img = $_POST['Photo']['position_img'];
+            $photo->save();
+        }
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if (Yii::$app->request->isPost) {
                 $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');

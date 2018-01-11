@@ -56,11 +56,11 @@ class Products extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'name', 'price', 'category_id'], 'required'],
+            [['title', 'name', 'price', 'category_id', 'group'], 'required'],
             [['category_id', 'status', 'position'], 'integer'],
             [['price', 'old_price'], 'number'],
             [['created_at', 'updated_at'], 'safe'],
-            [['title', 'name', 'group'], 'string', 'max' => 255],
+            [['title', 'name'], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'maxFiles' => 10],
             [['content'], 'string', 'max' => 1000],
             [['description', 'description_product'], 'string', 'max' => 40000],

@@ -83,7 +83,9 @@ class ProductsController extends Controller
 
     public function actionProduct($id)
     {
-        $model = Products::find()->where(['id' => $id])->with(['comments', 'photo'])->one();
+        $model = Products::find()->where(['id' => $id])->with(['comments', 'photo' => function(yii\db\ActiveQuery $query){
+            $query->orderBy('photo.position_img');
+        }])->one();
         $group = Products::find()->andWhere(['<>', 'id', $model->id])->all();
       
         $count = count($model->comments);
