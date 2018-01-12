@@ -8,7 +8,7 @@ use backend\models\SearchProducts;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use frontend\models\Group;
 use frontend\models\Photo;
 use yii\web\UploadedFile;
 
@@ -98,7 +98,11 @@ class ProductsController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = Products::find()->where(['id' => $id])->with(['photo'=> function(yii\db\ActiveQuery $query){
+        if ($_GET['group_id']){
+            $group = Group::find()->where(['group_id' => $_GET['group_id'], 'product_id' => $id])->one();
+            $group->delete();
+                }
+        $model = Products::find()->where(['id' => $id])->with(['groups','photo'=> function(yii\db\ActiveQuery $query){
             $query->orderBy('photo.position_img');
         }])->one();
         if($_GET['photo']){
@@ -110,8 +114,21 @@ class ProductsController extends Controller
             $photo->position_img = $_POST['Photo']['position_img'];
             $photo->save();
         }
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        
+        if ($model->load(Yii::$app->request->post())) {
+            if ($_POST['state_10']){
+            // $group = implode(',', $_POST['state_10']);
+            foreach($_POST['state_10'] as $group){
+                $repeate = Group::find()->where(['product_id' => $model->id, 'group_id' => $group])->one();
+                if (!$repeate){
+                $groups = new Group();
+                $groups->product_id = $model->id; 
+                $groups->group_id = $group;
+                $groups->save(); 
+                } 
+            }
+            }
+            $model->save();
             if (Yii::$app->request->isPost) {
                 $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
                 if($model->imageFiles){
@@ -127,8 +144,10 @@ class ProductsController extends Controller
             }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+           
             return $this->render('update', [
                 'model' => $model,
+                
             ]);
         }
     }

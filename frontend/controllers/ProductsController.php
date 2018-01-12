@@ -83,10 +83,10 @@ class ProductsController extends Controller
 
     public function actionProduct($id)
     {
-        $model = Products::find()->where(['id' => $id])->with(['comments', 'photo' => function(yii\db\ActiveQuery $query){
+        $model = Products::find()->where(['id' => $id])->with(['comments', 'groups', 'photo' => function(yii\db\ActiveQuery $query){
             $query->orderBy('photo.position_img');
         }])->one();
-        $group = Products::find()->andWhere(['<>', 'id', $model->id])->all();
+        
       
         $count = count($model->comments);
         $summ = 0;
@@ -97,7 +97,7 @@ class ProductsController extends Controller
             $c = $summ / $count;
             $sum = ceil($c / 0.5) * 0.5;
         }
-        return $this->render('product', compact('model', 'id', 'sum', 'group'));
+        return $this->render('product', compact('model', 'id', 'sum'));
     }
 
     public function actionSearch()

@@ -15,6 +15,18 @@ use yii\widgets\Pjax;
 
 $category = Category::find()->all();
 $data = ArrayHelper::map($category,'id' , 'name');
+// $dota = [
+//         "red" => "red",
+//       "green" => "green",
+//         "blue" => "blue",
+//        "orange" => "orange",
+//         "white" => "white",
+//         "black" => "black",
+//         "purple" => "purple",
+//        "cyan" => "cyan",
+//         "teal" => "teal"
+//     ];
+    
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Products */
 /* @var $form yii\widgets\ActiveForm */
@@ -23,9 +35,10 @@ $data = ArrayHelper::map($category,'id' , 'name');
 <div class="products-form">
     <?php Pjax::begin(['enablePushState' => false]);?>
     <div id="im" class="row">
-    <div class="col-md-2">
+    
         <?php if(!empty($model->photo)):?>
         <?php foreach($model->photo as $photo):?>
+        <div class="col-md-2">
         <a href="<?=Url::to(['/products/update','id' => $model->id, 'photo' => $photo->id])?>" class="img-trash"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
         <img src="/img/products/<?=$photo->img?>" class="img-input" >
         <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'data-pjax' => true]]) ?>
@@ -35,9 +48,10 @@ $data = ArrayHelper::map($category,'id' , 'name');
         <input type="submit" name="position_img" value="ok">
         
         <?php ActiveForm::end(); ?>
+        </div>
         <?php endforeach;?>
         <?php endif;?>
-    </div>
+    
     </div>
     <?php Pjax::end();?>
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
@@ -54,20 +68,59 @@ $data = ArrayHelper::map($category,'id' , 'name');
 
    <?php 
    
-   echo 
-        $form->field($model, 'group')->widget(Select2::classname(), [
-    'data' => ArrayHelper::map(Products::find()->all(), 'id','name'),
-    'language' => 'ru',
+//    echo 
+//         $form->field($model, 'group')->widget(Select2::classname(), [
+//     'data' => ArrayHelper::map(Products::find()->all(), 'id','name'),
+//     'language' => 'ru',
+//     'options' => [
+//         'placeholder' => 'Select provinces ...',
+//         'multiple' => true
+//     ],
+// ]);
+
+echo '<label class="control-label">Сопутствующие товары</label>';
+echo Select2::widget([
+    'name' => 'state_10',
+    'data' => ArrayHelper::map(Products::find()->where(['not in', 'id', $model->id])->all(), 'id','name'),
     'options' => [
-        'placeholder' => 'Select provinces ...',
-        'tokenSeparators' => [','],
-        'tags' => true,
+        'placeholder' => 'Выберите товар',
         'multiple' => true
     ],
 ]);
 
+    
 
 ?>
+<?php Pjax::begin(['enablePushState' => false]);?>
+<div class="row">
+    <?php foreach($model->groups as $group):?>
+        <div class="col-md-3">
+        <div class="group-block">
+        <div class="row">
+            <div class="col-md-4"><img src="/img/products/<?=$group->product->image->img?>" class="group-img"></div>
+            <div class="col-md-8">
+                <h5><?= $group->product->name?></h5>
+                <p><a href="<?= Url::to(['/products/update','id' => $model->id, 'group_id' => $group->group_id])?>">Удалить</a></p>
+            </div>
+        </div></div></div>
+    <?php endforeach;?>
+</div>
+<?php Pjax::end();?>
+<style>
+    .group-img{
+        width:100%;
+        height:85px;
+    }
+    .group-block{
+        border:2px solid black;
+        padding:5px;
+        height:100px;
+        margin-top:10px;
+        margin-bottom:10px;
+        border-radius:5px;
+    }
+</style>
+
 
     <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>
 

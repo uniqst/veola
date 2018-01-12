@@ -110,4 +110,9 @@ class Products extends ActiveRecord
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
+
+    public function getGroups()
+    {
+        return $this->hasMany(Group::className(), ['product_id' => 'id']);
+    }
 }
