@@ -63,7 +63,7 @@ Class Products extends Widget{
             ])
             ->joinWith('comments') // обеспечить построение промежуточной таблицы
             ->groupBy('products.id')
-            ->where(['not in', 'products.status', '5'])
+            ->andWhere(['not in', 'products.status', '5'])
             ->with('image', 'comments')->joinWith(['category' => function(yii\db\ActiveQuery $query){
             $query->andFilterWhere(['category.id' => Yii::$app->request->get('cat_id')]);
         }])->orderBy($_GET['sort'] ? $sort->orders : new \yii\db\Expression("products.position asc"))
