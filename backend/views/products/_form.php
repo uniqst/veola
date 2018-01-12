@@ -76,11 +76,16 @@ $data = ArrayHelper::map($category,'id' , 'name');
 //         'multiple' => true
 //     ],
 // ]);
-
+if (!$model->id){
+    $data = ArrayHelper::map(Products::find()->all(), 'id','name');
+}
+else{
+    $data = ArrayHelper::map(Products::find()->where(['NOT IN', 'id', $model->id])->all(), 'id','name');
+}
 echo '<label class="control-label">Сопутствующие товары</label>';
 echo Select2::widget([
     'name' => 'state_10',
-    'data' => ArrayHelper::map(Products::find()->where(['not in', 'id', $model->id])->all(), 'id','name'),
+    'data' => $data,
     'options' => [
         'placeholder' => 'Выберите товар',
         'multiple' => true
