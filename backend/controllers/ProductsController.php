@@ -98,13 +98,6 @@ class ProductsController extends Controller
      */
     public function actionUpdate($id)
     {
-        if ($_GET['group_id']){
-            $group = Group::find()->where(['group_id' => $_GET['group_id'], 'product_id' => $id])->one();
-            $group->delete();
-                }
-        $model = Products::find()->where(['id' => $id])->with(['groups','photo'=> function(yii\db\ActiveQuery $query){
-            $query->orderBy('photo.position_img');
-        }])->one();
         if($_GET['photo']){
             $img = Photo::findOne($_GET['photo']);
             $img->delete();
@@ -114,6 +107,14 @@ class ProductsController extends Controller
             $photo->position_img = $_POST['Photo']['position_img'];
             $photo->save();
         }
+        if ($_GET['group_id']){
+            $group = Group::find()->where(['group_id' => $_GET['group_id'], 'product_id' => $id])->one();
+            $group->delete();
+                }
+        $model = Products::find()->where(['id' => $id])->with(['groups','photo'=> function(yii\db\ActiveQuery $query){
+            $query->orderBy('photo.position_img');
+        }])->one();
+        
         
         if ($model->load(Yii::$app->request->post())) {
             if ($_POST['state_10']){

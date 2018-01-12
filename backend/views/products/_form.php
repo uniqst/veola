@@ -35,7 +35,6 @@ $data = ArrayHelper::map($category,'id' , 'name');
 <div class="products-form">
     <?php Pjax::begin(['enablePushState' => false]);?>
     <div id="im" class="row">
-    
         <?php if(!empty($model->photo)):?>
         <?php foreach($model->photo as $photo):?>
         <div class="col-md-2">
