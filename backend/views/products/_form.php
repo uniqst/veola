@@ -14,18 +14,8 @@ use yii\widgets\Pjax;
 
 
 $category = Category::find()->all();
-$data = ArrayHelper::map($category,'id' , 'name');
-// $dota = [
-//         "red" => "red",
-//       "green" => "green",
-//         "blue" => "blue",
-//        "orange" => "orange",
-//         "white" => "white",
-//         "black" => "black",
-//         "purple" => "purple",
-//        "cyan" => "cyan",
-//         "teal" => "teal"
-//     ];
+$data_category = ArrayHelper::map($category,'id' , 'name');
+
     
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Products */
@@ -131,7 +121,7 @@ echo Select2::widget([
     <?= $form->field($model, 'status')->dropDownList([ '0' => 'Стандартный', '1' => 'Акционный', '2' => 'Распродажа', '3' => 'Ожидается', '4' => 'Новинка', '5' => 'Не отображать']) ?>
 
     <?= $form->field($model, 'category_id')->dropDownList(
-        $data
+        $data_category
         ); ?>
 
     <?= $form->field($model, 'description')->widget(CKEditor::className(), [
