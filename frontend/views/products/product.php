@@ -119,15 +119,16 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
 
             <div class="row">
 
-
-            
             <?php foreach($model->groups as $product):?>
-            <?php $product = $product->product?>
            
+            
+            <?php $product = $product->product?>
+            <?php if($product->status == 5 ):?>
+            <?php else:?>
                 <div class="col s6 m6 l4">
                     <div class="product-item-index">
                         <a href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
-<!--                            <p class="new-priduct">NEW</p>-->
+
                             <img style="width: 100%" src="/img/products/<?=$product->image->img?>">
                         </a>
                         <a class="priduct-title-index" href="<?=Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>" title="<?=$product->name?>">
@@ -153,6 +154,8 @@ if(Yii::$app->session['rates'] == 'grn' or empty(Yii::$app->session['rates'])){
                         </p>
                     </div>
                 </div>
+                
+                <?php endif;?>
             <?php endforeach;?>
            
             </div><!-- row-->
