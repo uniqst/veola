@@ -13,7 +13,7 @@ use mihaildev\elfinder\ElFinder;
 use yii\widgets\Pjax;
 
 
-$category = Category::find()->all();
+$category = Category::find()->orderBy(['name' => SORT_ASC])->all();
 $data_category = ArrayHelper::map($category,'id' , 'name');
 
     
