@@ -45,11 +45,11 @@ $data_category = ArrayHelper::map($category,'id' , 'name');
     <?php Pjax::end();?>
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-    <?php Pjax::begin(['enablePushState' => false]);?>
+    
     
     <?= $form->field($model, 'imageFiles[]')->fileInput(['id' => 'imgInput', 'multiple' => true, 'accept' => 'image/*']) ?>
     
-    <?php Pjax::end();?>
+    
     <br>
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
