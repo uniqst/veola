@@ -116,24 +116,29 @@ class ProductsController extends Controller
         if(!empty($_GET['s'])):
         $model = Products::find()->where(['like', 'name', $s])->with('image')->all();
         ?>
+        <?php if($model):?>
         <ul class="collection">
             <?php
         foreach($model as $product):?>
 
         
         <a  href="<?= Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
-        <li style="width:100%; border-bottom:1px solid grey" class="collection-item avatar">
+        <li style="width:100%; background:none; border-bottom:1px solid grey" class="collection-item avatar">
       <img style="left:0; width:70px; height:70px" src="/img/products/<?= $product->image->img?>" alt="" class="circle">
       <span style="color:black" class="title"><?= $product->name?></span>
       <p style="color:red"><?= round($product->price * $rates->grn, 0) ?> грн.</p>
         </li>
         </a>
         
+        
        
         <?php endforeach;?>
         </ul>
+        <?php else:?>
+        <p>Ничего не найдено</p>
+        <?php endif;?>
         
-    
+        
  
 
         <?php else:?>
