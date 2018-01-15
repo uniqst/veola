@@ -67,10 +67,10 @@ $data_category = ArrayHelper::map($category,'id' , 'name');
 //     ],
 // ]);
 if (!$model->id){
-    $data = ArrayHelper::map(Products::find()->orderBy('name' => SORT_ASC)->all(), 'id','name');
+    $data = ArrayHelper::map(Products::find()->orderBy(['name' => SORT_ASC])->all(), 'id','name');
 }
 else{
-    $data = ArrayHelper::map(Products::find()->where(['NOT IN', 'id', $model->id])->all(), 'id','name');
+    $data = ArrayHelper::map(Products::find()->where(['NOT IN', 'id', $model->id])->orderBy(['name' => SORT_ASC])->all(), 'id','name');
 }
 echo '<label class="control-label">Сопутствующие товары</label>';
 echo Select2::widget([
