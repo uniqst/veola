@@ -8,8 +8,10 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\Products;
 use frontend\models\Category;
+use frontend\models\ExchangeRates;
 use frontend\models\Mainveola;
 use yii\db\Expression;
+use yii\helpers\Url;
 
 /**
  * Site controller
@@ -104,5 +106,41 @@ class ProductsController extends Controller
     {
         return $this->render('search');
     }
+
+    public function actionSearchs($s)
+
+     {
+        $rates = ExchangeRates::findOne(1);
+        $s = Yii::$app->request->get('s');
+        $s = explode(" ", $s);
+        if(!empty($_GET['s'])):
+        $model = Products::find()->where(['like', 'name', $s])->with('image')->all();
+        ?>
+        <ul class="collection">
+            <?php
+        foreach($model as $product):?>
+
+        
+        <a  href="<?= Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
+        <li style="width:100%; border:1px solid grey" class="collection-item avatar">
+      <img src="/img/products/<?= $product->image->img?>" alt="" class="circle">
+      <span style="color:black" class="title"><?= $product->name?></span>
+      <p style="color:red"><?= round($product->price * $rates->grn, 0) ?></p>
+        </li>
+        </a>
+        
+       
+        <?php endforeach;?>
+        </ul>
+        
+    
+ 
+
+        <?php else:?>
+         <script type="text/javascript">
+           $(".search_result").fadeOut();
+         </script>
+        <?php endif; 
+     }
 
 }

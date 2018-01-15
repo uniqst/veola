@@ -67,7 +67,7 @@ $data_category = ArrayHelper::map($category,'id' , 'name');
 //     ],
 // ]);
 if (!$model->id){
-    $data = ArrayHelper::map(Products::find()->all(), 'id','name');
+    $data = ArrayHelper::map(Products::find()->orderBy('name' => SORT_ASC)->all(), 'id','name');
 }
 else{
     $data = ArrayHelper::map(Products::find()->where(['NOT IN', 'id', $model->id])->all(), 'id','name');

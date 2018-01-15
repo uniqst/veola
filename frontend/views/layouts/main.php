@@ -24,6 +24,8 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
 }
 ?>
 
+
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -154,10 +156,14 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                 <li>
                 <form action="<?= Url::to(['/products/search'])?>">
                     <div class="input-field">
-                        <input name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 11px 0px;'>
+                        <input class="who" name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 11px 0px;' AUTOCOMPLETE="off">
                         <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        
                     </div>
                 </form>
+                <div class="search_result"></div>
+
+                
                 </li>
              
             </ul>

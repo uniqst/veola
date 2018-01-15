@@ -1,3 +1,18 @@
+$(document).ready(function(e){
+    $('.who').keyup(function(){
+        var x = $(this).val();
+        $.ajax({
+            type:'GET',
+            url: '/products/searchs',
+            data: 's='+x,
+            success:function(data)
+            {
+                $(".search_result").html(data).fadeIn();
+            }
+        });
+    });
+});
+
 $(document).ready(function() {
     $('.stepper').activateStepper();
   })
