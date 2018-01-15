@@ -122,10 +122,10 @@ class ProductsController extends Controller
 
         
         <a  href="<?= Url::to(['/products/product', 'id' => $product->id, 'name' => $product->name])?>">
-        <li style="width:100%; border:1px solid grey" class="collection-item avatar">
-      <img src="/img/products/<?= $product->image->img?>" alt="" class="circle">
+        <li style="width:100%; border-bottom:1px solid grey" class="collection-item avatar">
+      <img style="left:0; width:70px; height:70px" src="/img/products/<?= $product->image->img?>" alt="" class="circle">
       <span style="color:black" class="title"><?= $product->name?></span>
-      <p style="color:red"><?= round($product->price * $rates->grn, 0) ?></p>
+      <p style="color:red"><?= round($product->price * $rates->grn, 0) ?> грн.</p>
         </li>
         </a>
         
