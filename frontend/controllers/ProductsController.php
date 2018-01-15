@@ -115,7 +115,19 @@ class ProductsController extends Controller
         $s = explode(" ", $s);
         if(!empty($_GET['s'])):
         $model = Products::find()->where(['like', 'name', $s])->with('image')->all();
+        $r = $_SESSION['rates'];
+        if($r == 'grn' or $r == ''){
+            $price = $rates->grn;
+            $val = 'грн';
+        } elseif($r == 'eur' ){
+            $price = $rates->eur;
+            $val = '€';
+        } else{
+            $price = 1;
+            $val = '$';
+        }
         ?>
+        
         <?php if($model):?>
         <ul class="collection">
             <?php
@@ -126,7 +138,7 @@ class ProductsController extends Controller
         <li style="width:100%; background:none; border-bottom:1px solid grey" class="collection-item avatar">
       <img style="left:0; width:70px; height:70px" src="/img/products/<?= $product->image->img?>" alt="" class="circle">
       <span style="color:black" class="title"><?= $product->name?></span>
-      <p style="color:red"><?= round($product->price * $rates->grn, 0) ?> грн.</p>
+      <p style="color:red"><?= round($product->price * $price, 0) ?> <?= $val?></p>
         </li>
         </a>
         
