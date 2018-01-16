@@ -61,14 +61,16 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
             <a href="<?=Url::to(['/'])?>" class="brand-logo"><img src="/img/nav-img/logo.png"></a>
 
             <ul id="slide-out" class="side-nav">
-                <li>
-                <form action="<?= Url::to(['/products/search'])?>">
-                    <div class="input-field">
-                        <input name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 12px 0px;'>
-                        <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i style='color:#666' class="material-icons">search</i></label>
-                    </div>
-                </form>
-                </li>
+            <li>
+            <form action="<?= Url::to(['/products/search'])?>">
+                <div class="input-field">
+                    <input class="who" name="s" value="<?= $_GET['s']?>" id="search" type="search" required style='height: 20px;margin: 11px 0px;' AUTOCOMPLETE="off">
+                    <label style='top:-30px;right: 0px;' class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    
+                </div>
+            </form>
+            <div class="search_result"></div>
+            </li>
                 <li><a href="<?=Url::to(['/'])?>">Главная</a></li>
                 <!-- <li><a href="<?=Url::to(['/'])?>">Товары</a></li> -->
                 <li><a href="<?=Url::to(['/where-buy'])?>">Где купить</a></li>
@@ -162,8 +164,6 @@ header("Location: ".$_SERVER['HTTP_REFERER']);
                     </div>
                 </form>
                 <div class="search_result"></div>
-
-                
                 </li>
              
             </ul>
