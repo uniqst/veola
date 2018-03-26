@@ -78,8 +78,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tbody>
                 <?php foreach($model->orderItems as $item):?>
                     <tr>
-                        <td><a href="<?=Url::to(['../../products/product', 'id' => $item->id, 'name' => $item->name])?>"><img src="/img/products/<?= $item->product->image->img?>" width="100px"></a></td>
-                        <td><a href="<?=Url::to(['../../products/product', 'id' => $item->id, 'name' => $item->name])?>"><?= $item->name?></a></td>
+                        <td><a href="<?=Url::to(['../../products/product', 'id' => $item->product->id, 'name' => $item->product->name])?>"><img src="/img/products/<?= $item->product->image->img?>" width="100px"></a></td>
+                        <td><a href="<?=Url::to(['../../products/product', 'id' => $item->product->id, 'name' => $item->product->name])?>"><?= $item->product->name?></a></td>
                         <td><?= $item->qty_item?></td>
                         <td><?= $item->price?></td>
                     </tr>
