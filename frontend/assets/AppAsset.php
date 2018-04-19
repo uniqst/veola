@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
 
         'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
         'http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js',
-        'js/jssor.slider-27.1.0.min.js',
+        // 'js/jssor.slider-27.1.0.min.js',
         'http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js',
         'js/slider.js',
         'js/rating.js',
