@@ -113,6 +113,11 @@
             <?php foreach($slide as $slider):?>
             <div data-p="150.00">
                 <img data-u="image" src="/img/slider/<?=$slider->photo?>" />
+                <div class="slider__itemText">
+                <h2 class="slider__itemTitle">
+                    <?=$slider->title?><br>
+                    <span><?=$slider->description?></span></h2>
+            </div>
                 <img data-u="thumb" src="/img/slider/<?=$slider->photo?>" />
             </div>
             <?php endforeach;?>
