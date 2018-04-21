@@ -91,33 +91,33 @@
         .jssora093.jssora093ds {opacity:.3;pointer-events:none;}
 
         /*jssor slider thumbnail skin 101 css*/
-        .jssort101 .p {position: absolute;top:0;left:0;box-sizing:border-box;background:#000;}
+        .jssort101 .p {position: absolute;top:0;left:0;box-sizing:border-box;}
         .jssort101 .p .cv {position:relative;top:0;left:0;width:100%;height:100%;border:2px solid #000;box-sizing:border-box;z-index:1;}
         .jssort101 .a {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;visibility:hidden;}
         .jssort101 .p:hover .cv, .jssort101 .p.pdn .cv {border:none;border-color:transparent;}
         .jssort101 .p:hover{padding:2px;}
-        .jssort101 .p:hover .cv {background-color:rgba(0,0,0,6);opacity:.35;}
+        .jssort101 .p:hover .cv {opacity:.35;}
         .jssort101 .p:hover.pdn{padding:0;}
-        .jssort101 .p:hover.pdn .cv {border:2px solid #fff;background:none;opacity:.35;}
+        .jssort101 .p:hover.pdn .cv {border:2px solid #fff;}
         .jssort101 .pav .cv {border-color:#fff;opacity:.35;}
         .jssort101 .pav .a, .jssort101 .p:hover .a {visibility:visible;}
         .jssort101 .t {position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:.6;}
         .jssort101 .pav .t, .jssort101 .p:hover .t{opacity:1;}
     </style>
-    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:960px;height:480px;overflow:hidden;visibility:hidden;background-color:#24262e;">
+    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:960px;height:480px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
         </div>
-        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:240px;width:720px;height:480px;overflow:hidden;">
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0;width:960px;height:480px;overflow:hidden;">
             <?php foreach($slide as $slider):?>
             <div data-p="150.00">
                 <img data-u="image" src="/img/slider/<?=$slider->photo?>" />
                 <div class="slider__itemText">
-                <h2 class="slider__itemTitle">
+                    <h2 class="slider__itemTitle" style="position: absolute; float: right;">
                     <?=$slider->title?><br>
-                    <span><?=$slider->description?></span></h2>
-            </div>
+                        <span><?=$slider->description?></span></h2>
+                    </div>
                 <img data-u="thumb" src="/img/slider/<?=$slider->photo?>" />
             </div>
             <?php endforeach;?>
@@ -171,7 +171,7 @@
             </div> -->
         </div>
         <!-- Thumbnail Navigator -->
-        <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;top:0px;width:240px;height:480px;background-color:#000;" data-autocenter="2" data-scale-left="0.75">
+        <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;top:0px;width:240px;height:480px;" data-autocenter="2" data-scale-left="0.75">
             <div data-u="slides">
                 <div data-u="prototype" class="p" style="width:99px;height:66px;">
                     <div data-u="thumbnailtemplate" class="t"></div>
